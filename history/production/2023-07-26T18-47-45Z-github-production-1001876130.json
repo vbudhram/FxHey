@@ -1,0 +1,12 @@
+{
+  "id": "github-production-1001876130",
+  "environment": "production",
+  "version": "1.263.5",
+  "train": 263,
+  "patch": 5,
+  "tag": "v1.263.5",
+  "commit": "aee571ac0e74bf9f647e1f1142527ca6e60652d0",
+  "sourceUpdatedAt": "2023-07-26T18:47:45Z",
+  "observedAt": "2023-07-26T18:47:45Z",
+  "evidence": "github-deployment-record"
+}

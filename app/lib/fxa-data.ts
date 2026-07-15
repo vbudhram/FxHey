@@ -1,7 +1,7 @@
 import {
-  recordAndReadDeploymentHistory,
+  readDeploymentHistory,
   type DeploymentHistoryEntry,
-} from "../../db/deploy-history";
+} from "./deploy-history";
 
 export type EnvironmentName = "stage" | "production";
 
@@ -363,7 +363,7 @@ export async function getDashboardData(
     services.find((service) => service.name === requestedEnvironment) ?? services.at(-1);
   const deployedTrain = deployedService?.train ?? 340;
   const deploymentUpdatedAt = deployedService?.updatedAt ?? FALLBACK_DEPLOYED_AT;
-  const deployHistoryPromise = recordAndReadDeploymentHistory(services, requestedEnvironment);
+  const deployHistoryPromise = readDeploymentHistory(services, requestedEnvironment);
   const desiredTrain = requestedTrain && groups.has(requestedTrain) ? requestedTrain : deployedTrain;
   const selectedTrain = groups.has(desiredTrain) ? desiredTrain : sortedTrains[0] ?? 340;
   const selectedGroup = groups.get(selectedTrain) ?? [];

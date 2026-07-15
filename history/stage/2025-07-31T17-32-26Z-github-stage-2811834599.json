@@ -1,0 +1,12 @@
+{
+  "id": "github-stage-2811834599",
+  "environment": "stage",
+  "version": "1.316.1",
+  "train": 316,
+  "patch": 1,
+  "tag": "v1.316.1",
+  "commit": "629d0e4118b77522a21edd1d9fb4b2f480f4d630",
+  "sourceUpdatedAt": "2025-07-31T17:32:26Z",
+  "observedAt": "2025-07-31T17:32:26Z",
+  "evidence": "github-deployment-record"
+}

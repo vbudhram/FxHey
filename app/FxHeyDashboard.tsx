@@ -51,6 +51,12 @@ function formatRelative(date: string, from: string) {
   return `${months} ${months === 1 ? "month" : "months"} ago`;
 }
 
+function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number]["evidence"]) {
+  if (evidence === "endpoint-observation") return "First observed";
+  if (evidence === "github-deployment-record") return "GitHub record";
+  return "Current snapshot";
+}
+
 export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) {
   const [data, setData] = useState(initialData);
   const [query, setQuery] = useState("");
@@ -240,60 +246,75 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
         >
           <div className="deploy-history-heading">
             <div>
-              <p className="eyebrow">Observed endpoint changes</p>
+              <p className="eyebrow">Git-backed deployment records</p>
               <h2 className="heading-with-icon" id="deploy-history-heading">
                 <Rocket aria-hidden="true" />
                 {activeService?.label ?? "Release"} deploy history
               </h2>
             </div>
-            <p>
-              Recorded when the public version endpoint changes. “First observed” is FxHey’s
-              detection time; source time comes from the matching GitHub commit.
-            </p>
+            <div className="deploy-history-copy">
+              <p>
+                Backfilled from public GitHub deployment records, then checked every five minutes.
+                “First observed” is FxHey’s detection time—not an inferred deploy time.
+              </p>
+              <a
+                className="history-source-link"
+                href="https://github.com/vbudhram/FxHey/tree/main/history"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub aria-hidden="true" /> View public history <ExternalLink aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           <ol className="deploy-timeline">
-            {data.deployHistory.map((deployment, index) => (
-              <li className={index === 0 ? "is-current" : ""} key={deployment.id ?? deployment.commit}>
-                <span className="deploy-dot" aria-hidden="true" />
-                <article>
-                  <div className="deploy-version-row">
-                    <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
-                      <Tag aria-hidden="true" /> v{deployment.version}
+            {data.deployHistory.map((deployment) => {
+              const isCurrentDeployment = deployment.commit === activeService?.commit;
+              return (
+                <li className={isCurrentDeployment ? "is-current" : ""} key={deployment.id ?? deployment.commit}>
+                  <span className="deploy-dot" aria-hidden="true" />
+                  <article>
+                    <div className="deploy-version-row">
+                      <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
+                        <Tag aria-hidden="true" /> v{deployment.version}
+                      </a>
+                      {isCurrentDeployment ? <span>Current</span> : null}
+                    </div>
+                    <p>Train {deployment.train} · patch {deployment.patch}</p>
+                    <dl>
+                      <div>
+                        <dt>
+                          <Clock3 aria-hidden="true" />
+                          {deploymentEvidenceLabel(deployment.evidence)}
+                        </dt>
+                        <dd>
+                          <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
+                        </dd>
+                      </div>
+                      {deployment.evidence !== "github-deployment-record" ? (
+                        <div>
+                          <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
+                          <dd>
+                            <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
+                          </dd>
+                        </div>
+                      ) : null}
+                    </dl>
+                    <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
+                      <GitCommitHorizontal aria-hidden="true" />
+                      Commit {deployment.commit.slice(0, 7)}
+                      <ExternalLink aria-hidden="true" />
                     </a>
-                    {index === 0 ? <span>Current</span> : null}
-                  </div>
-                  <p>Train {deployment.train} · patch {deployment.patch}</p>
-                  <dl>
-                    <div>
-                      <dt>
-                        <Clock3 aria-hidden="true" />
-                        {deployment.evidence === "observed" ? "First observed" : "Current snapshot"}
-                      </dt>
-                      <dd>
-                        <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
-                      </dd>
-                    </div>
-                    <div>
-                      <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
-                      <dd>
-                        <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
-                      </dd>
-                    </div>
-                  </dl>
-                  <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
-                    <GitCommitHorizontal aria-hidden="true" />
-                    Commit {deployment.commit.slice(0, 7)}
-                    <ExternalLink aria-hidden="true" />
-                  </a>
-                </article>
-              </li>
-            ))}
+                  </article>
+                </li>
+              );
+            })}
           </ol>
 
           {data.deployHistory.length <= 1 ? (
             <p className="history-note">
-              History starts with this release. The next endpoint change will add another event automatically.
+              Public history is initializing. The scheduled recorder will add deployment records automatically.
             </p>
           ) : null}
         </section>

@@ -40,8 +40,9 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.doesNotMatch(html, /Content server|Profile server|OAuth server/i);
   assert.match(html, /What’s riding this train\?/i);
   assert.match(html, /Deploy history/i);
-  assert.match(html, /Observed endpoint changes/i);
-  assert.match(html, /History starts with this release/i);
+  assert.match(html, /Git-backed deployment records/i);
+  assert.match(html, /View public history/i);
+  assert.match(html, /Public history is initializing/i);
   assert.match(html, /Search train commits/i);
   assert.match(html, /merged PRs/i);
   assert.match(html, /class="author-avatar"/i);

@@ -1,0 +1,44 @@
+name: Record FxA deployments
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/deploy-history.json"
+      - "history/**"
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: record-fxa-deployments
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out FxHey
+        uses: actions/checkout@v4
+
+      - name: Import public history and check endpoints
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/record-deployments.mjs
+
+      - name: Commit new observations
+        run: |
+          if [[ -z "$(git status --porcelain -- history data)" ]]; then
+            echo "No deployment changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add history data/deploy-history.json
+          git commit -m "Record FxA deployment observations"
+          git pull --rebase origin main
+          git push origin main

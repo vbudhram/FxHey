@@ -391,13 +391,31 @@ footer {
   stroke-width: 1.8;
 }
 
-.deploy-history-heading > p {
+.deploy-history-copy {
   justify-self: end;
   max-width: 640px;
+}
+
+.deploy-history-copy p {
   margin: 0;
   color: var(--muted);
   font-size: 0.74rem;
   line-height: 1.55;
+}
+
+.history-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-top: 0.55rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.history-source-link svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  stroke-width: 1.8;
 }
 
 .deploy-timeline {
@@ -1008,7 +1026,7 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .deploy-history-heading > p {
+  .deploy-history-copy {
     justify-self: start;
   }
 

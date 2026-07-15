@@ -329,6 +329,137 @@ footer {
   font-weight: 700;
 }
 
+.deploy-history-section {
+  border-top: 1px solid var(--line);
+  padding: 1.8rem 0 2.2rem;
+}
+
+.deploy-history-heading {
+  display: grid;
+  align-items: end;
+  gap: 1.5rem;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(300px, 1.2fr);
+  margin-bottom: 1.7rem;
+}
+
+.deploy-history-heading h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.deploy-history-heading > p {
+  justify-self: end;
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.deploy-timeline {
+  display: grid;
+  grid-auto-columns: minmax(230px, 1fr);
+  grid-auto-flow: column;
+  margin: 0;
+  overflow-x: auto;
+  border-top: 1px solid var(--green-line);
+  padding: 0 0 0.7rem;
+  list-style: none;
+  scrollbar-color: var(--green-line) transparent;
+}
+
+.deploy-timeline li {
+  position: relative;
+  min-width: 0;
+  padding: 1.15rem 1.5rem 0 0;
+}
+
+.deploy-dot {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #9d9d9d;
+  box-shadow: 0 0 0 1px #9d9d9d;
+}
+
+.deploy-timeline li.is-current .deploy-dot {
+  background: var(--green);
+  box-shadow: 0 0 0 1px var(--green-dark);
+}
+
+.deploy-version-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deploy-version-row > a {
+  font-family: var(--font-display), "Patua One", serif;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.deploy-version-row > span {
+  border: 1px solid var(--green);
+  color: var(--green-dark);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.32rem;
+  text-transform: uppercase;
+}
+
+.deploy-timeline article > p {
+  margin: 0.4rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.deploy-timeline dl,
+.deploy-timeline dt,
+.deploy-timeline dd {
+  margin: 0;
+}
+
+.deploy-timeline dl {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.deploy-timeline dt {
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.deploy-timeline dd {
+  margin-top: 0.18rem;
+  font-size: 0.65rem;
+}
+
+.deploy-commit {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+}
+
+.history-note {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.64rem;
+}
+
 .train-section {
   display: grid;
   align-items: start;
@@ -681,6 +812,15 @@ footer p {
 }
 
 @media (max-width: 799px) {
+  .deploy-history-heading {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .deploy-history-heading > p {
+    justify-self: start;
+  }
+
   .train-section {
     grid-template-columns: 1fr;
   }

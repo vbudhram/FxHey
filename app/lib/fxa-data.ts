@@ -1,3 +1,8 @@
+import {
+  recordAndReadDeploymentHistory,
+  type DeploymentHistoryEntry,
+} from "../../db/deploy-history";
+
 export type EnvironmentName = "stage" | "production";
 
 export type ServiceVersion = {
@@ -45,6 +50,7 @@ export type DashboardData = {
   compareUrl: string;
   availableTrains: TrainOption[];
   services: ServiceVersion[];
+  deployHistory: DeploymentHistoryEntry[];
   commits: TrainCommit[];
   pullRequestCount: number;
   lastCheckedAt: string;
@@ -344,6 +350,7 @@ export async function getDashboardData(
     services.find((service) => service.name === requestedEnvironment) ?? services.at(-1);
   const deployedTrain = deployedService?.train ?? 340;
   const deploymentUpdatedAt = deployedService?.updatedAt ?? FALLBACK_DEPLOYED_AT;
+  const deployHistoryPromise = recordAndReadDeploymentHistory(services, requestedEnvironment);
   const desiredTrain = requestedTrain && groups.has(requestedTrain) ? requestedTrain : deployedTrain;
   const selectedTrain = groups.has(desiredTrain) ? desiredTrain : sortedTrains[0] ?? 340;
   const selectedGroup = groups.get(selectedTrain) ?? [];
@@ -366,6 +373,7 @@ export async function getDashboardData(
   }
 
   const commits = compare.commits.map(parseCommit).reverse();
+  const deployHistory = await deployHistoryPromise;
   const pullRequestCount = new Set(
     commits.flatMap((commit) => (commit.prNumber ? [commit.prNumber] : [])),
   ).size;
@@ -390,6 +398,7 @@ export async function getDashboardData(
     compareUrl: compare.html_url,
     availableTrains,
     services,
+    deployHistory,
     commits,
     pullRequestCount,
     lastCheckedAt: checkedAt,

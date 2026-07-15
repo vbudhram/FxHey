@@ -154,6 +154,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
         </p>
         <nav className="topnav" aria-label="Primary navigation">
           <a href="#services">Environments</a>
+          <a href="#deploy-history">Deploy history</a>
           <a href="#train-contents">Train commits</a>
           <a href={data.compareUrl} target="_blank" rel="noreferrer">
             GitHub compare
@@ -215,6 +216,63 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
               </article>
             ) : null}
           </div>
+        </section>
+
+        <section
+          className="deploy-history-section"
+          id="deploy-history"
+          aria-labelledby="deploy-history-heading"
+        >
+          <div className="deploy-history-heading">
+            <div>
+              <p className="eyebrow">Observed endpoint changes</p>
+              <h2 id="deploy-history-heading">{activeService?.label ?? "Release"} deploy history</h2>
+            </div>
+            <p>
+              Recorded when the public version endpoint changes. “First observed” is FxHey’s
+              detection time; source time comes from the matching GitHub commit.
+            </p>
+          </div>
+
+          <ol className="deploy-timeline">
+            {data.deployHistory.map((deployment, index) => (
+              <li className={index === 0 ? "is-current" : ""} key={deployment.id ?? deployment.commit}>
+                <span className="deploy-dot" aria-hidden="true" />
+                <article>
+                  <div className="deploy-version-row">
+                    <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
+                      v{deployment.version}
+                    </a>
+                    {index === 0 ? <span>Current</span> : null}
+                  </div>
+                  <p>Train {deployment.train} · patch {deployment.patch}</p>
+                  <dl>
+                    <div>
+                      <dt>{deployment.evidence === "observed" ? "First observed" : "Current snapshot"}</dt>
+                      <dd>
+                        <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Source updated</dt>
+                      <dd>
+                        <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
+                      </dd>
+                    </div>
+                  </dl>
+                  <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
+                    Commit {deployment.commit.slice(0, 7)} <span aria-hidden="true">↗</span>
+                  </a>
+                </article>
+              </li>
+            ))}
+          </ol>
+
+          {data.deployHistory.length <= 1 ? (
+            <p className="history-note">
+              History starts with this release. The next endpoint change will add another event automatically.
+            </p>
+          ) : null}
         </section>
 
         <section className="train-section" id="train-contents" aria-labelledby="train-heading">

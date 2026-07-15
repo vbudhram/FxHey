@@ -39,6 +39,9 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /https:\/\/api\.accounts\.firefox\.com\/__version__/i);
   assert.doesNotMatch(html, /Content server|Profile server|OAuth server/i);
   assert.match(html, /What’s riding this train\?/i);
+  assert.match(html, /Deploy history/i);
+  assert.match(html, /Observed endpoint changes/i);
+  assert.match(html, /History starts with this release/i);
   assert.match(html, /Search train commits/i);
   assert.match(html, /merged PRs/i);
   assert.doesNotMatch(html, /Issues &amp; PRs|All areas|scope-badge/i);
@@ -63,5 +66,6 @@ test("selects the stage release and exact deployed tag", async () => {
   assert.match(html, /aria-label="Stage"[^>]+aria-pressed="true"/i);
   assert.match(html, /aria-label="Production"[^>]+aria-pressed="false"/i);
   assert.match(html, /class="eyebrow">Stage(?:<!-- -->)? inventory/i);
+  assert.match(html, /Stage(?:<!-- -->)? deploy history/i);
   assert.match(html, /v1\.340\.2/i);
 });

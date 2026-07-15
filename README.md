@@ -6,6 +6,7 @@ commits riding each FxA train.
 ## What it shows
 
 - Current versions from the Firefox Accounts stage and production endpoints
+- A Stage/Prod toggle that changes the status, exact deployed tag, and commit range
 - Source-commit and train-tag update timestamps
 - Recent train selection with the full GitHub comparison range
 - Searchable GitHub commit history with merged pull-request links when available
@@ -19,9 +20,10 @@ Environment versions come from:
 - `https://accounts.stage.mozaws.net/__version__`
 - `https://api.accounts.firefox.com/__version__`
 
-Production determines the deployed train. Stage can be on a newer patch without
-changing the production train shown in the page header. Update times come from
-the corresponding source commit in `mozilla/fxa`.
+Production is selected by default. Switching environments changes the page
+header and commit comparison to the exact tag reported by that environment's
+version endpoint. Update times come from the corresponding source commit in
+`mozilla/fxa`.
 
 Train contents come from `mozilla/fxa` tags and GitHub comparisons. For train
 `N`, FxHey compares `v1.(N-1).0` with the newest available `v1.N.patch` tag.
@@ -52,7 +54,7 @@ and its accessible train inventory.
 
 - `app/FxHeyDashboard.tsx` — interactive release dashboard
 - `app/lib/fxa-data.ts` — production and GitHub data aggregation
-- `app/api/train/route.ts` — cached train-selection API
+- `app/api/train/route.ts` — cached environment and train-selection API
 - `app/globals.css` — responsive visual system
 - `.openai/hosting.json` — Sites project binding
 

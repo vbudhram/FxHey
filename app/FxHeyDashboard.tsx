@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { DashboardData } from "./lib/fxa-data";
+import type { DashboardData, EnvironmentName } from "./lib/fxa-data";
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -42,6 +42,8 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const activeService =
+    data.services.find((service) => service.name === data.selectedEnvironment) ?? data.services[0];
 
   const filteredCommits = useMemo(() => {
     const search = query.trim().toLowerCase();
@@ -54,23 +56,35 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
     );
   }, [data.commits, query]);
 
-  async function loadTrain(train: number) {
+  async function loadDashboard(environment: EnvironmentName, train?: number) {
     setIsLoading(true);
     setError("");
     try {
-      const response = await fetch(`/api/train?train=${train}`, { cache: "no-store" });
+      const params = new URLSearchParams({ environment });
+      if (train !== undefined) params.set("train", String(train));
+      const response = await fetch(`/api/train?${params}`, { cache: "no-store" });
       if (!response.ok) throw new Error("The train data could not be loaded.");
       const nextData = (await response.json()) as DashboardData;
       setData(nextData);
       setQuery("");
       const url = new URL(window.location.href);
       url.searchParams.set("train", String(nextData.selectedTrain));
+      url.searchParams.set("environment", nextData.selectedEnvironment);
       window.history.replaceState({}, "", url);
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : "The train data could not be loaded.");
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function loadTrain(train: number) {
+    return loadDashboard(data.selectedEnvironment, train);
+  }
+
+  function loadEnvironment(environment: EnvironmentName) {
+    if (environment === data.selectedEnvironment) return;
+    void loadDashboard(environment);
   }
 
   const visibleCount = filteredCommits.length;
@@ -120,62 +134,82 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
         <section className="services-section" id="services" aria-labelledby="services-heading">
           <div className="section-heading-row">
             <h1 className="sr-only" id="services-heading">Deployment environments</h1>
+            <div className="environment-toggle" role="group" aria-label="Deployment environment">
+              <button
+                type="button"
+                aria-label="Stage"
+                aria-pressed={data.selectedEnvironment === "stage"}
+                onClick={() => loadEnvironment("stage")}
+                disabled={isLoading}
+              >
+                Stage
+              </button>
+              <button
+                type="button"
+                aria-label="Production"
+                aria-pressed={data.selectedEnvironment === "production"}
+                onClick={() => loadEnvironment("production")}
+                disabled={isLoading}
+              >
+                Prod
+              </button>
+            </div>
             <button
               className="quiet-button"
               type="button"
-              onClick={() => loadTrain(data.selectedTrain)}
+              onClick={() => loadDashboard(data.selectedEnvironment, data.selectedTrain)}
               disabled={isLoading}
             >
               {isLoading ? "Checking…" : "Refresh status"}
             </button>
           </div>
           <div className="service-grid">
-            {data.services.map((service) => (
-              <article className="service-card" key={service.name}>
-                <h2>{service.label}</h2>
+            {activeService ? (
+              <article className="service-card" key={activeService.name}>
+                <h2>{activeService.label}</h2>
                 <dl>
-                  <div><dt>Train:</dt><dd>{service.train}</dd></div>
-                  <div><dt>Patch:</dt><dd>{service.patch}</dd></div>
+                  <div><dt>Train:</dt><dd>{activeService.train}</dd></div>
+                  <div><dt>Patch:</dt><dd>{activeService.patch}</dd></div>
                   <div>
                     <dt>Updated:</dt>
                     <dd>
-                      <abbr title={formatDate(service.updatedAt)}>
-                        {formatRelative(service.updatedAt, data.lastCheckedAt)}
+                      <abbr title={formatDate(activeService.updatedAt)}>
+                        {formatRelative(activeService.updatedAt, data.lastCheckedAt)}
                       </abbr>
                     </dd>
                   </div>
                   <div>
                     <dt>Repo:</dt>
-                    <dd><a href={GITHUB_REPO} target="_blank" rel="noreferrer">{service.repo}</a></dd>
+                    <dd><a href={GITHUB_REPO} target="_blank" rel="noreferrer">{activeService.repo}</a></dd>
                   </div>
                   <div>
                     <dt>Tag:</dt>
                     <dd>
-                      <a href={`${GITHUB_REPO}/tree/${service.tag}`} target="_blank" rel="noreferrer">
-                        {service.tag}
+                      <a href={`${GITHUB_REPO}/tree/${activeService.tag}`} target="_blank" rel="noreferrer">
+                        {activeService.tag}
                       </a>
                     </dd>
                   </div>
                   <div>
                     <dt>Commit:</dt>
                     <dd>
-                      <a href={`${GITHUB_REPO}/commit/${service.commit}`} target="_blank" rel="noreferrer">
-                        {service.commit.slice(0, 7)}
+                      <a href={`${GITHUB_REPO}/commit/${activeService.commit}`} target="_blank" rel="noreferrer">
+                        {activeService.commit.slice(0, 7)}
                       </a>
                     </dd>
                   </div>
                 </dl>
-                <a className="endpoint-link" href={service.endpoint} target="_blank" rel="noreferrer">
+                <a className="endpoint-link" href={activeService.endpoint} target="_blank" rel="noreferrer">
                   version endpoint
                 </a>
               </article>
-            ))}
+            ) : null}
           </div>
         </section>
 
         <section className="train-section" id="train-contents" aria-labelledby="train-heading">
           <aside className="train-sidebar">
-            <p className="eyebrow">Release inventory</p>
+            <p className="eyebrow">{activeService?.label ?? "Release"} inventory</p>
             <h2 id="train-heading">What’s riding this train?</h2>
             <p className="sidebar-intro">
               Pick a train to see every GitHub commit between the previous train and its latest

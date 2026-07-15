@@ -1,5 +1,7 @@
+export type EnvironmentName = "stage" | "production";
+
 export type ServiceVersion = {
-  name: string;
+  name: EnvironmentName;
   label: string;
   endpoint: string;
   updatedAt: string;
@@ -31,6 +33,7 @@ export type TrainCommit = {
 };
 
 export type DashboardData = {
+  selectedEnvironment: EnvironmentName;
   selectedTrain: number;
   deployedTrain: number;
   deployedTag: string;
@@ -311,15 +314,22 @@ async function fetchTrainCompare(baseTag: string, headTag: string) {
 }
 
 function fallbackCompare(headTag: string): GitHubCompare {
-  const commits = fallbackCommits();
+  const allCommits = fallbackCommits().reverse();
+  const headSha = FALLBACK_TAGS.find((tag) => tag.name === headTag)?.commit.sha;
+  const headIndex = allCommits.findIndex((commit) => commit.sha === headSha);
+  const commits = headIndex >= 0 ? allCommits.slice(0, headIndex + 1) : allCommits;
+  const headCommit = commits.at(-1) ?? allCommits.at(-1)!;
   return {
     html_url: `${GITHUB_REPO}/compare/v1.339.0...${headTag}`,
-    head_commit: commits[0],
+    head_commit: headCommit,
     commits,
   };
 }
 
-export async function getDashboardData(requestedTrain?: number): Promise<DashboardData> {
+export async function getDashboardData(
+  requestedTrain?: number,
+  requestedEnvironment: EnvironmentName = "production",
+): Promise<DashboardData> {
   const checkedAt = new Date().toISOString();
   const [tagsResult, servicesResult] = await Promise.allSettled([
     fetchJson<GitHubTag[]>(`${GITHUB_API}/tags?per_page=100`),
@@ -330,12 +340,18 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
   const services = servicesResult.status === "fulfilled" ? servicesResult.value : fallbackServices();
   const groups = groupTags(tags);
   const sortedTrains = Array.from(groups.keys()).sort((a, b) => b - a);
-  const deployedService = services.find((service) => service.name === "production") ?? services.at(-1);
+  const deployedService =
+    services.find((service) => service.name === requestedEnvironment) ?? services.at(-1);
   const deployedTrain = deployedService?.train ?? 340;
   const deploymentUpdatedAt = deployedService?.updatedAt ?? FALLBACK_DEPLOYED_AT;
   const desiredTrain = requestedTrain && groups.has(requestedTrain) ? requestedTrain : deployedTrain;
   const selectedTrain = groups.has(desiredTrain) ? desiredTrain : sortedTrains[0] ?? 340;
-  const head = groups.get(selectedTrain)?.[0] ?? FALLBACK_TAGS[0];
+  const selectedGroup = groups.get(selectedTrain) ?? [];
+  const deployedHead =
+    selectedTrain === deployedTrain
+      ? selectedGroup.find((tag) => tag.name === deployedService?.tag)
+      : undefined;
+  const head = deployedHead ?? selectedGroup[0] ?? FALLBACK_TAGS[0];
   const previousGroup = groups.get(selectedTrain - 1) ?? [];
   const base = previousGroup.find((tag) => tag.patch === 0) ?? previousGroup.at(-1);
   const baseTag = base?.name ?? `v1.${selectedTrain - 1}.0`;
@@ -354,7 +370,7 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
     commits.flatMap((commit) => (commit.prNumber ? [commit.prNumber] : [])),
   ).size;
   const availableTrains = sortedTrains.slice(0, 8).map((train) => {
-    const latest = groups.get(train)?.[0];
+    const latest = train === selectedTrain ? head : groups.get(train)?.[0];
     return {
       train,
       tag: latest?.name ?? `v1.${train}.0`,
@@ -362,6 +378,7 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
     };
   });
   return {
+    selectedEnvironment: requestedEnvironment,
     selectedTrain,
     deployedTrain,
     deployedTag: deployedService?.tag ?? `v1.${deployedTrain}.0`,

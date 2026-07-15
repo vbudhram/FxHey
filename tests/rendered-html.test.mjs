@@ -31,8 +31,12 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /<title>FxHey! — Firefox Accounts release intelligence<\/title>/i);
   assert.match(html, /Firefox Accounts for Dummies \(i\.e\. me\)/i);
   assert.match(html, /<strong>Train<\/strong>/i);
-  assert.match(html, /Production services/i);
-  assert.match(html, /Content server/i);
+  assert.match(html, /Deployment environments/i);
+  assert.match(html, />Stage</i);
+  assert.match(html, />Production</i);
+  assert.match(html, /https:\/\/accounts\.stage\.mozaws\.net\/__version__/i);
+  assert.match(html, /https:\/\/api\.accounts\.firefox\.com\/__version__/i);
+  assert.doesNotMatch(html, /Content server|Profile server|OAuth server/i);
   assert.match(html, /What’s riding this train\?/i);
   assert.match(html, /Issues &amp; PRs/i);
   assert.match(html, /Commits/i);

@@ -130,7 +130,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
           </abbr>
         </p>
         <nav className="topnav" aria-label="Primary navigation">
-          <a href="#services">Production</a>
+          <a href="#services">Environments</a>
           <a href="#train-contents">Train contents</a>
           <a href={data.compareUrl} target="_blank" rel="noreferrer">
             GitHub compare
@@ -146,7 +146,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
       <main>
         <section className="services-section" id="services" aria-labelledby="services-heading">
           <div className="section-heading-row">
-            <h1 className="sr-only" id="services-heading">Production services</h1>
+            <h1 className="sr-only" id="services-heading">Deployment environments</h1>
             <button
               className="quiet-button"
               type="button"
@@ -166,8 +166,8 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                   <div>
                     <dt>Updated:</dt>
                     <dd>
-                      <abbr title={formatDate(data.deploymentUpdatedAt)}>
-                        {formatRelative(data.deploymentUpdatedAt, data.lastCheckedAt)}
+                      <abbr title={formatDate(service.updatedAt)}>
+                        {formatRelative(service.updatedAt, data.lastCheckedAt)}
                       </abbr>
                     </dd>
                   </div>

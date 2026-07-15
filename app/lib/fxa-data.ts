@@ -2,6 +2,7 @@ export type ServiceVersion = {
   name: string;
   label: string;
   endpoint: string;
+  updatedAt: string;
   version: string;
   train: number;
   patch: number;
@@ -87,29 +88,25 @@ const JIRA_BASE = "https://mozilla-hub.atlassian.net/browse";
 
 const SERVICE_ENDPOINTS = [
   {
-    name: "content",
-    label: "Content server",
-    endpoint: "https://accounts.firefox.com/ver.json",
+    name: "stage",
+    label: "Stage",
+    endpoint: "https://accounts.stage.mozaws.net/__version__",
+    fallbackVersion: "1.340.2",
+    fallbackCommit: "adb62a1fa56cd7b91bb6644364e76b725618f8e8",
+    fallbackUpdatedAt: "2026-07-09T18:31:45Z",
   },
   {
-    name: "auth",
-    label: "Auth server",
+    name: "production",
+    label: "Production",
     endpoint: "https://api.accounts.firefox.com/__version__",
-  },
-  {
-    name: "profile",
-    label: "Profile server",
-    endpoint: "https://profile.accounts.firefox.com/__version__",
-  },
-  {
-    name: "oauth",
-    label: "OAuth server",
-    endpoint: "https://oauth.accounts.firefox.com/__version__",
+    fallbackVersion: "1.340.1",
+    fallbackCommit: "b02b4e4154275a21ab3bf988f1b3183dba08e107",
+    fallbackUpdatedAt: "2026-07-07T00:00:20Z",
   },
 ] as const;
 
 const FALLBACK_UPDATED_AT = "2026-07-09T18:31:45Z";
-const FALLBACK_DEPLOYED_AT = "2026-07-08T20:32:53.176Z";
+const FALLBACK_DEPLOYED_AT = "2026-07-07T00:00:20Z";
 
 const FALLBACK_TAGS: GitHubTag[] = [
   { name: "v1.340.2", commit: { sha: "adb62a1fa56cd7b91bb6644364e76b725618f8e8" } },
@@ -224,8 +221,18 @@ async function fetchServiceVersions(): Promise<ServiceVersion[]> {
         source: string;
       }>(service.endpoint);
       const { train, patch } = parseVersion(data.version);
+      let updatedAt = service.fallbackUpdatedAt;
+      try {
+        const commit = await fetchJson<GitHubCommit>(`${GITHUB_API}/commits/${data.commit}`);
+        updatedAt = commit.commit.committer.date ?? commit.commit.author.date;
+      } catch {
+        // A version response is still useful when GitHub's commit endpoint is rate-limited.
+      }
       return {
-        ...service,
+        name: service.name,
+        label: service.label,
+        endpoint: service.endpoint,
+        updatedAt,
         version: data.version,
         train,
         patch,
@@ -239,25 +246,16 @@ async function fetchServiceVersions(): Promise<ServiceVersion[]> {
 
 function fallbackServices(): ServiceVersion[] {
   return SERVICE_ENDPOINTS.map((service) => ({
-    ...service,
-    version: "1.340.1",
-    train: 340,
-    patch: 1,
-    tag: "v1.340.1",
-    commit: "b02b4e4154275a21ab3bf988f1b3183dba08e107",
+    name: service.name,
+    label: service.label,
+    endpoint: service.endpoint,
+    updatedAt: service.fallbackUpdatedAt,
+    version: service.fallbackVersion,
+    ...parseVersion(service.fallbackVersion),
+    tag: `v${service.fallbackVersion}`,
+    commit: service.fallbackCommit,
     repo: "mozilla/fxa",
   }));
-}
-
-async function fetchDeploymentUpdatedAt(): Promise<string> {
-  const response = await fetch("https://fx-hey.herokuapp.com/fxa", {
-    signal: AbortSignal.timeout(6_000),
-  });
-  if (!response.ok) throw new Error("FxHey deployment history unavailable");
-  const html = await response.text();
-  const timestamp = html.match(/<abbr[^>]+title=["']([^"']+)["']/i)?.[1];
-  if (!timestamp) throw new Error("FxHey deployment timestamp unavailable");
-  return timestamp;
 }
 
 function groupTags(tags: GitHubTag[]) {
@@ -380,19 +378,18 @@ function fallbackCompare(headTag: string): GitHubCompare {
 
 export async function getDashboardData(requestedTrain?: number): Promise<DashboardData> {
   const checkedAt = new Date().toISOString();
-  const [tagsResult, servicesResult, deployedAtResult] = await Promise.allSettled([
+  const [tagsResult, servicesResult] = await Promise.allSettled([
     fetchJson<GitHubTag[]>(`${GITHUB_API}/tags?per_page=100`),
     fetchServiceVersions(),
-    fetchDeploymentUpdatedAt(),
   ]);
 
   const tags = tagsResult.status === "fulfilled" ? tagsResult.value : FALLBACK_TAGS;
   const services = servicesResult.status === "fulfilled" ? servicesResult.value : fallbackServices();
-  const deploymentUpdatedAt =
-    deployedAtResult.status === "fulfilled" ? deployedAtResult.value : FALLBACK_DEPLOYED_AT;
   const groups = groupTags(tags);
   const sortedTrains = Array.from(groups.keys()).sort((a, b) => b - a);
-  const deployedTrain = Math.max(...services.map((service) => service.train));
+  const deployedService = services.find((service) => service.name === "production") ?? services.at(-1);
+  const deployedTrain = deployedService?.train ?? 340;
+  const deploymentUpdatedAt = deployedService?.updatedAt ?? FALLBACK_DEPLOYED_AT;
   const desiredTrain = requestedTrain && groups.has(requestedTrain) ? requestedTrain : deployedTrain;
   const selectedTrain = groups.has(desiredTrain) ? desiredTrain : sortedTrains[0] ?? 340;
   const head = groups.get(selectedTrain)?.[0] ?? FALLBACK_TAGS[0];
@@ -422,8 +419,6 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
       patch: latest?.patch ?? 0,
     };
   });
-  const deployedService = services.find((service) => service.train === deployedTrain) ?? services[0];
-
   return {
     selectedTrain,
     deployedTrain,

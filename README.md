@@ -1,12 +1,12 @@
 # FxHey!
 
-Firefox Accounts release intelligence: live production versions plus the Jira
+Firefox Accounts release intelligence: live stage and production versions plus the Jira
 work, pull requests, and commits riding each FxA train.
 
 ## What it shows
 
-- Current versions from the four public Firefox Accounts production endpoints
-- The exact production-update and train-tag timestamps
+- Current versions from the Firefox Accounts stage and production endpoints
+- Source-commit and train-tag update timestamps
 - Recent train selection with the full GitHub comparison range
 - Jira work items and merged pull requests derived from commit history
 - Searchable, area-filtered commit history
@@ -14,12 +14,14 @@ work, pull requests, and commits riding each FxA train.
 
 ## Data model
 
-Production versions come from:
+Environment versions come from:
 
-- `https://accounts.firefox.com/ver.json`
+- `https://accounts.stage.mozaws.net/__version__`
 - `https://api.accounts.firefox.com/__version__`
-- `https://profile.accounts.firefox.com/__version__`
-- `https://oauth.accounts.firefox.com/__version__`
+
+Production determines the deployed train. Stage can be on a newer patch without
+changing the production train shown in the page header. Update times come from
+the corresponding source commit in `mozilla/fxa`.
 
 Train contents come from `mozilla/fxa` tags and GitHub comparisons. For train
 `N`, FxHey compares `v1.(N-1).0` with the newest available `v1.N.patch` tag.

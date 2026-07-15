@@ -53,7 +53,7 @@ function formatRelative(date: string, from: string) {
 
 function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number]["evidence"]) {
   if (evidence === "endpoint-observation") return "First observed";
-  if (evidence === "legacy-fxhey-record") return "Original FxHey record · ±30 min";
+  if (evidence === "legacy-fxhey-record") return "Imported FxHey record · ±30 min";
   if (evidence === "github-deployment-record") return "GitHub record";
   return "Current snapshot";
 }
@@ -339,26 +339,26 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             </div>
             <div className="deploy-history-copy">
               <p>
-                FxHey checks the version endpoint every five minutes. Production history comes from
-                the original FxHey deployment log (±30 minutes), with public GitHub records retained
-                as fallback evidence.
+                FxHey checks the version endpoint every five minutes. The production archive was
+                imported once from the original FxHey log (±30 minutes); its immutable GitHub copy
+                is now the source of truth.
               </p>
               <div className="history-source-links">
-                <a
-                  className="history-source-link"
-                  href="https://fx-hey.herokuapp.com/fxa#deployments"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Rocket aria-hidden="true" /> Original FxHey history <ExternalLink aria-hidden="true" />
-                </a>
                 <a
                   className="history-source-link"
                   href="https://github.com/vbudhram/FxHey/tree/main/history"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FaGithub aria-hidden="true" /> Stored records <ExternalLink aria-hidden="true" />
+                  <FaGithub aria-hidden="true" /> Source-of-truth records <ExternalLink aria-hidden="true" />
+                </a>
+                <a
+                  className="history-source-link"
+                  href="https://fx-hey.herokuapp.com/fxa#deployments"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Rocket aria-hidden="true" /> Original provenance <ExternalLink aria-hidden="true" />
                 </a>
               </div>
             </div>

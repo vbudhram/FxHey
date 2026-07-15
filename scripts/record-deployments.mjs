@@ -38,6 +38,10 @@ export function requestHeaders(url) {
   return headers;
 }
 
+export function shouldImportLegacyFxHey(args) {
+  return args.includes("--import-legacy-fxhey");
+}
+
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: requestHeaders(url),
@@ -249,7 +253,7 @@ async function resolveTagCommits(tags) {
   return commits;
 }
 
-async function recordLegacyFxHeyHistory() {
+async function importLegacyFxHeyHistory() {
   const records = parseLegacyFxHeyDeployments(await fetchText(LEGACY_FXHEY_URL));
   const existing = new Set((await readEventsFor("production")).map((entry) => entry.id));
   const newRecords = records.filter((record) => !existing.has(record.id));
@@ -330,10 +334,12 @@ async function buildIndex() {
 async function main() {
   if (!process.argv.includes("--index-only")) {
     await backfillGithubDeployments();
-    try {
-      await recordLegacyFxHeyHistory();
-    } catch (error) {
-      console.warn(`Could not import original FxHey history: ${error.message}`);
+    if (shouldImportLegacyFxHey(process.argv.slice(2))) {
+      try {
+        await importLegacyFxHeyHistory();
+      } catch (error) {
+        console.warn(`Could not import original FxHey history: ${error.message}`);
+      }
     }
     await recordCurrentEndpoints();
   }

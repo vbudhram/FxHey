@@ -25,7 +25,7 @@ jobs:
       - name: Check out FxHey
         uses: actions/checkout@v4
 
-      - name: Import public history and check endpoints
+      - name: Rebuild Git-backed history and check endpoints
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/record-deployments.mjs

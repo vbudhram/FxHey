@@ -28,13 +28,14 @@ version endpoint. Update times come from the corresponding source commit in
 `mozilla/fxa`.
 
 Deploy history is stored as immutable JSON events in this repository's
-`history/` directory. A scheduled GitHub Action imports the original production
-deployment log from `https://fx-hey.herokuapp.com/fxa`, whose timestamps are
-explicitly accurate to ±30 minutes. Public Stage and Production records from
-the `mozilla/fxa` Deployments API remain as fallback evidence. The recorder also
-checks both version endpoints every five minutes, appends a new event only when
-an environment reports a different commit, and rebuilds the public
-`data/deploy-history.json` index consumed by FxHey.
+`history/` directory, which is the source of truth. The original production
+deployment log from `https://fx-hey.herokuapp.com/fxa` was imported once with
+its explicit ±30-minute timestamp accuracy. It is not queried by the scheduled
+recorder. Public Stage and Production records from the `mozilla/fxa` Deployments
+API remain as fallback evidence. The recorder checks both version endpoints
+every five minutes, appends a new event only when an environment reports a
+different commit, and rebuilds the public `data/deploy-history.json` index from
+the checked-in events.
 
 Original FxHey and historical GitHub records are labeled separately from endpoint observations.
 The timeline calls the polling timestamp “first observed”; it does not claim
@@ -73,7 +74,7 @@ and its accessible train inventory.
 - `app/lib/deploy-history.ts` — public Git history reader and snapshot fallback
 - `app/api/train/route.ts` — cached environment and train-selection API
 - `app/globals.css` — responsive visual system
-- `scripts/record-deployments.mjs` — original FxHey/GitHub imports, endpoint checks, and index generation
+- `scripts/record-deployments.mjs` — optional one-time imports, endpoint checks, and index generation
 - `.github/workflows/record-deployments.yml` — five-minute scheduled recorder
 - `history/` — immutable Stage and Production event files
 - `data/deploy-history.json` — generated public timeline index
@@ -81,3 +82,10 @@ and its accessible train inventory.
 
 The app runs on the bundled vinext/Cloudflare Worker stack. It does not require
 a database or application-owned credentials for its public upstream data.
+
+The legacy importer is manual and idempotent; normal scheduled runs do not call
+the Heroku source:
+
+```bash
+node scripts/record-deployments.mjs --import-legacy-fxhey
+```

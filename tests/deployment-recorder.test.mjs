@@ -8,6 +8,7 @@ import {
   parseFxaVersion,
   parseLegacyFxHeyDeployments,
   requestHeaders,
+  shouldImportLegacyFxHey,
 } from "../scripts/record-deployments.mjs";
 
 test("parses FxA train and patch versions", () => {
@@ -70,6 +71,11 @@ test("parses the original FxHey production deployment history", () => {
   assert.equal(entry.evidence, "legacy-fxhey-record");
   assert.equal(entry.accuracyMinutes, 30);
   assert.equal(entry.environment, "production");
+});
+
+test("imports legacy FxHey only when explicitly requested", () => {
+  assert.equal(shouldImportLegacyFxHey([]), false);
+  assert.equal(shouldImportLegacyFxHey(["--import-legacy-fxhey"]), true);
 });
 
 test("sends the workflow token only to GitHub", () => {

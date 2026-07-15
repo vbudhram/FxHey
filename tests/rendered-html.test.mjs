@@ -38,8 +38,9 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /https:\/\/api\.accounts\.firefox\.com\/__version__/i);
   assert.doesNotMatch(html, /Content server|Profile server|OAuth server/i);
   assert.match(html, /What’s riding this train\?/i);
-  assert.match(html, /Issues &amp; PRs/i);
-  assert.match(html, /Commits/i);
+  assert.match(html, /Search train commits/i);
+  assert.match(html, /merged PRs/i);
+  assert.doesNotMatch(html, /Issues &amp; PRs|All areas|scope-badge/i);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
 
@@ -47,10 +48,8 @@ test("renders an accessible train inventory", async () => {
   const response = await render("/?train=340");
   const html = await response.text();
 
-  assert.match(html, /Skip to train contents/i);
-  assert.match(html, /aria-label="Train contents view"/i);
-  assert.match(html, /Search train contents/i);
-  assert.match(html, /All areas/i);
+  assert.match(html, /Skip to train commits/i);
+  assert.match(html, /Search train commits/i);
   assert.match(html, /Open full comparison/i);
   assert.match(html, /All times UTC/i);
 });

@@ -27,23 +27,28 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol =
     requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const socialImage = `${origin}/og-v2.png`;
+  const socialImage = `${origin}/og-v3.png`;
 
   return {
     metadataBase: new URL(origin),
     title: "FxHey! — Firefox Accounts release intelligence",
     description:
-      "Live Firefox Accounts deployment status with the issues, pull requests, and commits riding each release train.",
+      "Live Firefox Accounts deployment status and the GitHub commits riding each release train.",
     openGraph: {
       title: "FxHey! — What’s riding the Firefox Accounts train?",
-      description: "Live production status and complete FxA train contents.",
+      description: "Live stage and production status with every GitHub commit in each FxA train.",
       type: "website",
-      images: [{ url: socialImage, width: 1731, height: 909, alt: "FxHey Train 340 release intelligence" }],
+      images: [{
+        url: socialImage,
+        width: 1731,
+        height: 909,
+        alt: "FxHey Train 340 commits and pull requests",
+      }],
     },
     twitter: {
       card: "summary_large_image",
       title: "FxHey! — Firefox Accounts release intelligence",
-      description: "See the issues, pull requests, and commits in every FxA train.",
+      description: "See the GitHub commits and merged pull requests in every FxA train.",
       images: [socialImage],
     },
   };

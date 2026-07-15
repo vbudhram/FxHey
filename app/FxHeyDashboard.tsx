@@ -4,8 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { DashboardData } from "./lib/fxa-data";
 
-type View = "work" | "commits";
-
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
@@ -39,46 +37,22 @@ function formatRelative(date: string, from: string) {
   return `${months} ${months === 1 ? "month" : "months"} ago`;
 }
 
-function ScopeBadge({ scope }: { scope: string }) {
-  return <span className={`scope-badge scope-${scope}`}>{scope}</span>;
-}
-
 export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) {
   const [data, setData] = useState(initialData);
-  const [view, setView] = useState<View>("work");
   const [query, setQuery] = useState("");
-  const [scope, setScope] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const scopes = useMemo(
-    () =>
-      Array.from(new Set(data.commits.map((commit) => commit.scope))).sort((a, b) =>
-        a.localeCompare(b),
-      ),
-    [data.commits],
-  );
-
-  const filteredWorkItems = useMemo(() => {
-    const search = query.trim().toLowerCase();
-    return data.workItems.filter(
-      (item) =>
-        (scope === "all" || item.scope === scope) &&
-        (!search || `${item.id} ${item.title} ${item.scope}`.toLowerCase().includes(search)),
-    );
-  }, [data.workItems, query, scope]);
 
   const filteredCommits = useMemo(() => {
     const search = query.trim().toLowerCase();
     return data.commits.filter(
       (commit) =>
-        (scope === "all" || commit.scope === scope) &&
         (!search ||
           `${commit.shortSha} ${commit.title} ${commit.author} ${commit.issueKeys.join(" ")}`
             .toLowerCase()
             .includes(search)),
     );
-  }, [data.commits, query, scope]);
+  }, [data.commits, query]);
 
   async function loadTrain(train: number) {
     setIsLoading(true);
@@ -89,7 +63,6 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
       const nextData = (await response.json()) as DashboardData;
       setData(nextData);
       setQuery("");
-      setScope("all");
       const url = new URL(window.location.href);
       url.searchParams.set("train", String(nextData.selectedTrain));
       window.history.replaceState({}, "", url);
@@ -100,12 +73,12 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
     }
   }
 
-  const visibleCount = view === "work" ? filteredWorkItems.length : filteredCommits.length;
+  const visibleCount = filteredCommits.length;
 
   return (
     <div className="site-shell">
       <a className="skip-link" href="#train-contents">
-        Skip to train contents
+        Skip to train commits
       </a>
 
       <header className="page-header">
@@ -131,7 +104,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
         </p>
         <nav className="topnav" aria-label="Primary navigation">
           <a href="#services">Environments</a>
-          <a href="#train-contents">Train contents</a>
+          <a href="#train-contents">Train commits</a>
           <a href={data.compareUrl} target="_blank" rel="noreferrer">
             GitHub compare
           </a>
@@ -205,8 +178,8 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             <p className="eyebrow">Release inventory</p>
             <h2 id="train-heading">What’s riding this train?</h2>
             <p className="sidebar-intro">
-              Pick a train to see its Jira work, merged pull requests, and every commit between the
-              previous train and its latest patch.
+              Pick a train to see every GitHub commit between the previous train and its latest
+              patch. Jira tickets appear only when a commit message references one.
             </p>
 
             <label className="select-label" htmlFor="train-select">Train</label>
@@ -239,72 +212,27 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
 
           <div className="inventory-panel" aria-busy={isLoading}>
             <div className="inventory-summary">
-              <div><strong>{data.workItems.length}</strong><span>issues & PRs</span></div>
               <div><strong>{data.commits.length}</strong><span>commits</span></div>
               <div><strong>{data.pullRequestCount}</strong><span>merged PRs</span></div>
             </div>
 
             <div className="inventory-toolbar">
-              <div className="view-tabs" role="tablist" aria-label="Train contents view">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={view === "work"}
-                  onClick={() => setView("work")}
-                >
-                  Issues & PRs
-                </button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={view === "commits"}
-                  onClick={() => setView("commits")}
-                >
-                  Commits
-                </button>
-              </div>
               <div className="filters">
-                <label className="sr-only" htmlFor="train-search">Search train contents</label>
+                <label className="sr-only" htmlFor="train-search">Search train commits</label>
                 <input
                   id="train-search"
                   type="search"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search tickets, titles, authors…"
+                  placeholder="Search commits, tickets, authors…"
                 />
-                <label className="sr-only" htmlFor="scope-filter">Filter by area</label>
-                <select id="scope-filter" value={scope} onChange={(event) => setScope(event.target.value)}>
-                  <option value="all">All areas</option>
-                  {scopes.map((option) => (
-                    <option value={option} key={option}>{option}</option>
-                  ))}
-                </select>
               </div>
             </div>
 
             {error ? <p className="error-message" role="alert">{error}</p> : null}
 
             <div className={`inventory-list ${isLoading ? "is-loading" : ""}`}>
-              {view === "work"
-                ? filteredWorkItems.map((item) => (
-                    <article className="inventory-row work-row" key={item.id}>
-                      <div className="row-primary">
-                        <div className="row-meta">
-                          <a className="item-id" href={item.href} target="_blank" rel="noreferrer">
-                            {item.id} <span aria-hidden="true">↗</span>
-                          </a>
-                          <span className="source-label">{item.source}</span>
-                          <ScopeBadge scope={item.scope} />
-                        </div>
-                        <h3>{item.title}</h3>
-                      </div>
-                      <div className="row-counts">
-                        <span>{item.prNumbers.length} {item.prNumbers.length === 1 ? "PR" : "PRs"}</span>
-                        <span>{item.commitShas.length} {item.commitShas.length === 1 ? "commit" : "commits"}</span>
-                      </div>
-                    </article>
-                  ))
-                : filteredCommits.map((commit) => (
+              {filteredCommits.map((commit) => (
                     <article className="inventory-row commit-row" key={commit.sha}>
                       <div className="commit-rail">
                         <span className="commit-dot" aria-hidden="true" />
@@ -316,7 +244,11 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                             {commit.shortSha}
                           </a>
                           <span className="kind-label">{commit.kind}</span>
-                          <ScopeBadge scope={commit.scope} />
+                          {commit.prNumber ? (
+                            <a className="inline-pr" href={`${GITHUB_REPO}/pull/${commit.prNumber}`} target="_blank" rel="noreferrer">
+                              PR #{commit.prNumber}
+                            </a>
+                          ) : null}
                           {commit.issueKeys.slice(0, 2).map((key) => (
                             <a className="inline-issue" href={`${JIRA_BASE}/${key}`} target="_blank" rel="noreferrer" key={key}>
                               {key}
@@ -333,13 +265,13 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
               {!visibleCount && !isLoading ? (
                 <div className="empty-state">
                   <strong>No matches in this train.</strong>
-                  <span>Try a broader search or choose all areas.</span>
+                  <span>Try a broader search.</span>
                 </div>
               ) : null}
             </div>
 
             <div className="inventory-footer">
-              <span>Showing {visibleCount} of {view === "work" ? data.workItems.length : data.commits.length}</span>
+              <span>Showing {visibleCount} of {data.commits.length} commits</span>
               <span>Checked {formatRelative(data.lastCheckedAt, new Date().toISOString())}</span>
             </div>
           </div>

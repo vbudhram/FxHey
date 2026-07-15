@@ -1,15 +1,15 @@
 # FxHey!
 
-Firefox Accounts release intelligence: live stage and production versions plus the Jira
-work, pull requests, and commits riding each FxA train.
+Firefox Accounts release intelligence: live stage and production versions plus the GitHub
+commits riding each FxA train.
 
 ## What it shows
 
 - Current versions from the Firefox Accounts stage and production endpoints
 - Source-commit and train-tag update timestamps
 - Recent train selection with the full GitHub comparison range
-- Jira work items and merged pull requests derived from commit history
-- Searchable, area-filtered commit history
+- Searchable GitHub commit history with merged pull-request links when available
+- Jira links only when a ticket key appears in a public commit message
 - A verified fallback snapshot when a public upstream is unavailable or rate-limited
 
 ## Data model
@@ -25,8 +25,9 @@ the corresponding source commit in `mozilla/fxa`.
 
 Train contents come from `mozilla/fxa` tags and GitHub comparisons. For train
 `N`, FxHey compares `v1.(N-1).0` with the newest available `v1.N.patch` tag.
-Jira keys (`FXA-*`, `PAY-*`, and `ENT-*`) and merged PR numbers are extracted
-from those commit messages.
+Merged PR numbers are extracted from GitHub commit messages. Jira keys (`FXA-*`,
+`PAY-*`, and `ENT-*`) are shown only as optional links on the commits that
+already reference them; they are not promoted into a separate issue inventory.
 
 ## Development
 

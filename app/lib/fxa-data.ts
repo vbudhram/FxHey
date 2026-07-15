@@ -26,19 +26,8 @@ export type TrainCommit = {
   date: string;
   href: string;
   kind: string;
-  scope: string;
   issueKeys: string[];
   prNumber: number | null;
-};
-
-export type WorkItem = {
-  id: string;
-  title: string;
-  href: string;
-  source: "Jira" | "GitHub PR";
-  scope: string;
-  prNumbers: number[];
-  commitShas: string[];
 };
 
 export type DashboardData = {
@@ -54,7 +43,6 @@ export type DashboardData = {
   availableTrains: TrainOption[];
   services: ServiceVersion[];
   commits: TrainCommit[];
-  workItems: WorkItem[];
   pullRequestCount: number;
   lastCheckedAt: string;
   source: "live" | "fallback";
@@ -84,8 +72,6 @@ type GitHubCompare = {
 
 const GITHUB_REPO = "https://github.com/mozilla/fxa";
 const GITHUB_API = "https://api.github.com/repos/mozilla/fxa";
-const JIRA_BASE = "https://mozilla-hub.atlassian.net/browse";
-
 const SERVICE_ENDPOINTS = [
   {
     name: "stage",
@@ -275,17 +261,6 @@ function groupTags(tags: GitHubTag[]) {
   return grouped;
 }
 
-function normalizeScope(scope: string, title: string) {
-  const value = `${scope} ${title}`.toLowerCase();
-  if (value.includes("passkey") || value.includes("webauthn")) return "passkeys";
-  if (value.includes("payment") || value.includes("stripe") || value.includes("paypal")) return "payments";
-  if (value.includes("entitlement") || value.includes("metering")) return "entitlements";
-  if (value.includes("setting") || value.includes("content-server") || value.includes("ui")) return "settings";
-  if (value.includes("auth") || value.includes("oauth") || value.includes("session")) return "auth";
-  if (value.includes("test") || value.includes("ci") || value.includes("functional")) return "tooling";
-  return scope.toLowerCase() || "platform";
-}
-
 function parseCommit(commit: GitHubCommit): TrainCommit {
   const lines = commit.commit.message
     .split("\n")
@@ -312,8 +287,8 @@ function parseCommit(commit: GitHubCommit): TrainCommit {
   const issueKeys = Array.from(
     new Set((commit.commit.message.match(/\b(?:FXA|PAY|ENT)-\d+\b/gi) ?? []).map((key) => key.toUpperCase())),
   );
-  const prMatch = /Merge pull request #(\d+)/i.exec(commit.commit.message);
-  const scope = normalizeScope(conventional?.[2] ?? "", descriptiveLine);
+  const prMatch =
+    /Merge pull request #(\d+)/i.exec(commit.commit.message) ?? /\(#(\d+)\)\s*$/i.exec(firstLine);
 
   return {
     sha: commit.sha,
@@ -324,41 +299,9 @@ function parseCommit(commit: GitHubCommit): TrainCommit {
     date: commit.commit.committer.date ?? commit.commit.author.date,
     href: commit.html_url,
     kind,
-    scope,
     issueKeys,
     prNumber: prMatch ? Number(prMatch[1]) : null,
   };
-}
-
-function createWorkItems(commits: TrainCommit[]) {
-  const items = new Map<string, WorkItem>();
-  for (const commit of commits) {
-    const ids = commit.issueKeys.length
-      ? commit.issueKeys
-      : commit.prNumber
-        ? [`PR #${commit.prNumber}`]
-        : [];
-
-    for (const id of ids) {
-      const isPr = id.startsWith("PR #");
-      const existing = items.get(id);
-      const prNumbers = Array.from(
-        new Set([...(existing?.prNumbers ?? []), ...(commit.prNumber ? [commit.prNumber] : [])]),
-      );
-      items.set(id, {
-        id,
-        title: existing?.title ?? commit.title,
-        href: isPr
-          ? `${GITHUB_REPO}/pull/${id.replace("PR #", "")}`
-          : `${JIRA_BASE}/${id}`,
-        source: isPr ? "GitHub PR" : "Jira",
-        scope: existing?.scope ?? commit.scope,
-        prNumbers,
-        commitShas: Array.from(new Set([...(existing?.commitShas ?? []), commit.sha])),
-      });
-    }
-  }
-  return Array.from(items.values());
 }
 
 async function fetchTrainCompare(baseTag: string, headTag: string) {
@@ -407,7 +350,6 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
   }
 
   const commits = compare.commits.map(parseCommit).reverse();
-  const workItems = createWorkItems(commits);
   const pullRequestCount = new Set(
     commits.flatMap((commit) => (commit.prNumber ? [commit.prNumber] : [])),
   ).size;
@@ -432,7 +374,6 @@ export async function getDashboardData(requestedTrain?: number): Promise<Dashboa
     availableTrains,
     services,
     commits,
-    workItems,
     pullRequestCount,
     lastCheckedAt: checkedAt,
     source:

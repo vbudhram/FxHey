@@ -350,7 +350,7 @@ footer {
 
 .inventory-summary {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -383,40 +383,17 @@ footer {
   display: flex;
   align-items: center;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-bottom: 1px solid var(--line);
   padding: 0.75rem 0;
 }
 
-.view-tabs {
-  display: flex;
-}
-
-.view-tabs button {
-  min-height: 44px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  padding: 0.5rem 0.7rem;
-  font-size: 0.72rem;
-}
-
-.view-tabs button[aria-selected="true"] {
-  border-bottom-color: var(--green);
-  color: var(--ink);
-  font-weight: 700;
-}
-
 .filters {
-  display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(110px, 0.45fr);
-  gap: 0.5rem;
-  width: min(460px, 60%);
+  width: min(360px, 100%);
 }
 
-.filters input,
-.filters select {
+.filters input {
+  width: 100%;
   border-color: var(--line);
   font-size: 0.68rem;
 }
@@ -445,10 +422,6 @@ footer {
 
 .inventory-row:hover {
   background: #fbfff9;
-}
-
-.work-row {
-  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .commit-row {
@@ -489,9 +462,8 @@ footer {
   font-family: var(--font-mono), monospace;
 }
 
-.source-label,
 .kind-label,
-.scope-badge,
+.inline-pr,
 .inline-issue {
   border: 1px solid var(--line);
   background: #ffffff;
@@ -501,36 +473,6 @@ footer {
   line-height: 1;
   padding: 0.22rem 0.3rem;
   text-transform: uppercase;
-}
-
-.scope-badge {
-  color: var(--ink);
-}
-
-.scope-passkeys,
-.scope-settings {
-  border-color: #b5dbaa;
-  background: #f4fff0;
-}
-
-.scope-auth {
-  border-color: #b9cde8;
-  background: #f6f9ff;
-}
-
-.scope-payments,
-.scope-entitlements {
-  border-color: #e4d3a6;
-  background: #fffaf0;
-}
-
-.row-counts {
-  display: grid;
-  gap: 0.2rem;
-  justify-items: end;
-  color: var(--muted);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.56rem;
 }
 
 .commit-row time {
@@ -666,19 +608,6 @@ footer p {
     flex-direction: column;
     gap: 0.05rem;
     padding: 0.6rem;
-  }
-
-  .filters {
-    grid-template-columns: 1fr;
-  }
-
-  .work-row {
-    grid-template-columns: 1fr;
-  }
-
-  .row-counts {
-    display: flex;
-    justify-items: start;
   }
 
   .commit-row {

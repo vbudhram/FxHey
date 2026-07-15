@@ -154,8 +154,22 @@ select:disabled {
 }
 
 .topnav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
   font-size: 0.7rem;
   font-weight: 700;
+}
+
+.topnav svg,
+.quiet-button svg,
+.endpoint-link svg,
+.compare-link svg,
+.footer-github-link svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
 }
 
 .data-notice,
@@ -227,6 +241,10 @@ footer {
 
 .quiet-button,
 .compare-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
   min-height: 44px;
   border: 1px solid var(--green);
   border-radius: 0;
@@ -307,6 +325,9 @@ footer {
 }
 
 .service-facts dt {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   margin-bottom: 0.3rem;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
@@ -314,6 +335,13 @@ footer {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.service-facts dt svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  color: var(--green-dark);
+  stroke-width: 1.8;
 }
 
 .service-facts dd {
@@ -324,7 +352,9 @@ footer {
 }
 
 .endpoint-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.66rem;
   font-weight: 700;
 }
@@ -346,6 +376,19 @@ footer {
   margin: 0;
   font-size: 1.35rem;
   line-height: 1.2;
+}
+
+.heading-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heading-with-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--green);
+  stroke-width: 1.8;
 }
 
 .deploy-history-heading > p {
@@ -400,9 +443,18 @@ footer {
 }
 
 .deploy-version-row > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: var(--font-display), "Patua One", serif;
   font-size: 1.45rem;
   line-height: 1;
+}
+
+.deploy-version-row > a svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.8;
 }
 
 .deploy-version-row > span {
@@ -434,11 +486,21 @@ footer {
 }
 
 .deploy-timeline dt {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
   font-size: 0.52rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.deploy-timeline dt svg {
+  width: 0.7rem;
+  height: 0.7rem;
+  color: var(--green-dark);
+  stroke-width: 1.8;
 }
 
 .deploy-timeline dd {
@@ -447,11 +509,19 @@ footer {
 }
 
 .deploy-commit {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
   margin-top: 0.8rem;
   font-family: var(--font-mono), monospace;
   font-size: 0.58rem;
   font-weight: 600;
+}
+
+.deploy-commit svg {
+  width: 0.74rem;
+  height: 0.74rem;
+  stroke-width: 1.8;
 }
 
 .history-note {
@@ -552,7 +622,18 @@ footer {
 }
 
 .train-facts dt {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   font-weight: 700;
+}
+
+.train-facts dt svg {
+  width: 0.72rem;
+  height: 0.72rem;
+  flex: 0 0 auto;
+  color: var(--green-dark);
+  stroke-width: 1.8;
 }
 
 .train-facts dd {
@@ -561,9 +642,6 @@ footer {
 }
 
 .compare-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 1rem;
   text-decoration: none;
 }
@@ -587,6 +665,14 @@ footer {
   gap: 0.45rem;
   border-right: 1px solid var(--line);
   padding: 0.8rem 1rem;
+}
+
+.inventory-summary div > svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  color: var(--green-dark);
+  stroke-width: 1.7;
 }
 
 .inventory-summary div:last-child {
@@ -625,8 +711,26 @@ footer {
   font-size: 0.74rem;
 }
 
-.filters input {
+.search-wrap {
+  position: relative;
+}
+
+.search-wrap > svg {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0.85rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--muted);
+  pointer-events: none;
+  stroke-width: 1.8;
+  transform: translateY(-50%);
+}
+
+.filters .search-wrap input {
   padding-right: 0.7rem;
+  padding-left: 2.3rem;
 }
 
 .inventory-list {
@@ -659,6 +763,47 @@ footer {
   min-width: 0;
 }
 
+.commit-content {
+  display: grid;
+  align-items: start;
+  min-width: 0;
+  gap: 0.75rem;
+  grid-template-columns: 36px minmax(0, 1fr);
+}
+
+.author-avatar-link {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.author-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--green-line);
+  border-radius: 50%;
+  background: var(--green-soft);
+  object-fit: cover;
+}
+
+.author-avatar-link:hover .author-avatar {
+  border-color: var(--pink);
+}
+
+.author-avatar-fallback {
+  color: var(--green-dark);
+}
+
+.author-avatar-fallback svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.8;
+}
+
 .row-primary h3 {
   margin: 0.35rem 0 0;
   font-size: 0.84rem;
@@ -672,6 +817,15 @@ footer {
   font-size: 0.66rem;
 }
 
+.author-line a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.author-line a:hover {
+  color: var(--pink);
+}
+
 .row-meta {
   display: flex;
   align-items: center;
@@ -680,9 +834,18 @@ footer {
 }
 
 .item-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24rem;
   color: var(--green);
   font-size: 0.68rem;
   font-weight: 700;
+}
+
+.item-id svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  stroke-width: 1.8;
 }
 
 .mono {
@@ -700,6 +863,28 @@ footer {
   line-height: 1;
   padding: 0.22rem 0.3rem;
   text-transform: uppercase;
+}
+
+.inline-pr,
+.inline-issue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.inline-pr svg,
+.inline-issue svg {
+  width: 0.65rem;
+  height: 0.65rem;
+  stroke-width: 1.8;
+}
+
+.inline-pr {
+  color: #4f5968;
+}
+
+.inline-issue {
+  color: #075ca8;
 }
 
 .commit-row time {
@@ -771,6 +956,12 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+.footer-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .sr-only {

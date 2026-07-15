@@ -30,6 +30,8 @@ export type TrainCommit = {
   title: string;
   message: string;
   author: string;
+  authorAvatar: string | null;
+  authorHref: string | null;
   date: string;
   href: string;
   kind: string;
@@ -65,7 +67,11 @@ type GitHubTag = {
 type GitHubCommit = {
   sha: string;
   html_url: string;
-  author: { login: string } | null;
+  author: {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+  } | null;
   commit: {
     author: { name: string; date: string };
     committer: { date: string };
@@ -174,7 +180,11 @@ function fallbackCommits(): GitHubCommit[] {
   return FALLBACK_MESSAGES.map(([sha, message, author, date]) => ({
     sha,
     html_url: `${GITHUB_REPO}/commit/${sha}`,
-    author: { login: author },
+    author: {
+      login: author,
+      avatar_url: `https://github.com/${author}.png?size=80`,
+      html_url: `https://github.com/${author}`,
+    },
     commit: {
       author: { name: author, date },
       committer: { date },
@@ -298,13 +308,16 @@ function parseCommit(commit: GitHubCommit): TrainCommit {
   );
   const prMatch =
     /Merge pull request #(\d+)/i.exec(commit.commit.message) ?? /\(#(\d+)\)\s*$/i.exec(firstLine);
+  const author = commit.author?.login ?? commit.commit.author.name;
 
   return {
     sha: commit.sha,
     shortSha: commit.sha.slice(0, 7),
     title,
     message: commit.commit.message,
-    author: commit.author?.login ?? commit.commit.author.name,
+    author,
+    authorAvatar: commit.author?.avatar_url ?? null,
+    authorHref: commit.author?.html_url ?? null,
     date: commit.commit.committer.date ?? commit.commit.author.date,
     href: commit.html_url,
     kind,

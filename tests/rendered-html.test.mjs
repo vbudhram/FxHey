@@ -44,6 +44,9 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /History starts with this release/i);
   assert.match(html, /Search train commits/i);
   assert.match(html, /merged PRs/i);
+  assert.match(html, /class="author-avatar"/i);
+  assert.match(html, /aria-label="View [^"]+ on GitHub"/i);
+  assert.match(html, /aria-label="Jira ticket (?:FXA|PAY|ENT)-\d+"/i);
   assert.doesNotMatch(html, /Issues &amp; PRs|All areas|scope-badge/i);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });

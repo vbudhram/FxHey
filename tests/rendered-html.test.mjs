@@ -1,0 +1,50 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+
+async function render(path = "/") {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  return worker.fetch(
+    new Request(`http://localhost${path}`, {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: {
+        fetch: async () => new Response("Not found", { status: 404 }),
+      },
+    },
+    {
+      waitUntil() {},
+      passThroughOnException() {},
+    },
+  );
+}
+
+test("server-renders the FxHey release dashboard", async () => {
+  const response = await render();
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+
+  const html = await response.text();
+  assert.match(html, /<title>FxHey! — Firefox Accounts release intelligence<\/title>/i);
+  assert.match(html, /Current deployed train/i);
+  assert.match(html, /Production services/i);
+  assert.match(html, /What’s riding this train\?/i);
+  assert.match(html, /Issues &amp; PRs/i);
+  assert.match(html, /Commits/i);
+  assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
+});
+
+test("renders an accessible train inventory", async () => {
+  const response = await render("/?train=340");
+  const html = await response.text();
+
+  assert.match(html, /Skip to train contents/i);
+  assert.match(html, /aria-label="Train contents view"/i);
+  assert.match(html, /Search train contents/i);
+  assert.match(html, /All areas/i);
+  assert.match(html, /Open full comparison/i);
+  assert.match(html, /All times UTC/i);
+});

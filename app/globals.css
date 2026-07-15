@@ -8,6 +8,8 @@
   --muted: #6b6b6b;
   --line: #dedede;
   --soft: #f7f7f7;
+  --green-soft: #f7fff4;
+  --green-line: #bfe4b7;
   --warning: #ed8609;
 }
 
@@ -70,7 +72,7 @@ select:disabled {
 
 .site-shell {
   margin: 0 auto;
-  max-width: 1180px;
+  max-width: 1320px;
   min-height: 100vh;
   padding: 0 1rem;
 }
@@ -90,8 +92,9 @@ select:disabled {
 }
 
 .page-header {
-  margin-bottom: 2.8rem;
-  padding-top: 1rem;
+  margin: 0 auto 1.8rem;
+  max-width: 760px;
+  padding-top: 1.5rem;
   text-align: center;
 }
 
@@ -103,14 +106,14 @@ select:disabled {
 .brand-mark {
   color: var(--green);
   font-family: var(--font-display), "Patua One", Georgia, serif;
-  font-size: clamp(3.4rem, 8vw, 5.3rem);
+  font-size: clamp(3.4rem, 7vw, 4.8rem);
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1;
 }
 
 .tagline {
-  margin: 0.5rem 0 1.15rem;
+  margin: 0.35rem 0 1rem;
   color: var(--green);
   font-family: var(--font-display), "Patua One", Georgia, serif;
   font-size: clamp(0.95rem, 2.1vw, 1.35rem);
@@ -119,12 +122,21 @@ select:disabled {
 }
 
 .headline-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  justify-content: center;
   margin: 0 auto;
 }
 
 .headline-status p {
-  margin: 0.12rem 0;
-  font-size: 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.headline-status > span {
+  color: #a0a0a0;
 }
 
 .tag-update {
@@ -138,7 +150,7 @@ select:disabled {
   flex-wrap: wrap;
   gap: 0.35rem 1.1rem;
   justify-content: center;
-  margin-top: 1.15rem;
+  margin-top: 0.9rem;
 }
 
 .topnav a {
@@ -162,16 +174,25 @@ footer {
 }
 
 .services-section {
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.7rem;
 }
 
-.section-heading-row {
+.environment-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2rem;
-  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.environment-label {
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .environment-toggle {
@@ -180,7 +201,7 @@ footer {
 }
 
 .environment-toggle button {
-  min-width: 5rem;
+  min-width: 4.8rem;
   min-height: 44px;
   border: 0;
   border-right: 1px solid var(--green);
@@ -224,17 +245,36 @@ footer {
 
 .service-grid {
   display: grid;
-  grid-template-columns: minmax(0, 36rem);
+  grid-template-columns: 1fr;
 }
 
 .service-card {
   min-width: 0;
+  border: 1px solid var(--green-line);
+  background: var(--green-soft);
+  padding: 1.25rem 1.5rem;
 }
 
-.service-card h2 {
-  margin: 0 0 0.8rem;
-  font-size: 0.82rem;
-  font-weight: 700;
+.service-card-lead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.service-card-lead h2 {
+  margin: 0;
+  color: var(--green);
+  font-family: var(--font-display), "Patua One", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.service-card-lead p:not(.eyebrow) {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
 }
 
 .service-card dl,
@@ -243,43 +283,65 @@ footer {
   margin: 0;
 }
 
-.service-card dl div {
+.service-facts {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  gap: 0.35rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.15rem !important;
+  border-top: 1px solid var(--green-line);
+  padding-top: 1rem;
 }
 
-.service-card dt {
-  font-weight: 700;
-}
-
-.service-card dd {
+.service-facts div {
   min-width: 0;
+  border-right: 1px solid var(--green-line);
+  padding: 0 1rem;
+}
+
+.service-facts div:first-child {
+  padding-left: 0;
+}
+
+.service-facts div:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.service-facts dt {
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.service-facts dd {
+  min-width: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
   overflow-wrap: anywhere;
 }
 
 .endpoint-link {
   display: inline-block;
-  margin-top: 0.55rem;
-  font-size: 0.6rem;
-  text-transform: lowercase;
+  font-size: 0.66rem;
+  font-weight: 700;
 }
 
 .train-section {
   display: grid;
   align-items: start;
-  gap: 2.5rem;
-  grid-template-columns: minmax(230px, 0.3fr) minmax(0, 1fr);
+  gap: 2rem;
+  grid-template-columns: minmax(250px, 0.28fr) minmax(0, 1fr);
   border-top: 1px solid var(--line);
-  padding: 2.8rem 0 3.5rem;
+  padding: 2.2rem 0 3.5rem;
 }
 
 .train-sidebar h2 {
   margin: 0 0 0.8rem;
   font-family: var(--font-body), Roboto, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -288,7 +350,7 @@ footer {
   margin: 0 0 0.4rem;
   color: var(--green-dark);
   font-family: var(--font-mono), monospace;
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -297,14 +359,14 @@ footer {
 .sidebar-intro {
   margin: 0 0 1.4rem;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   line-height: 1.55;
 }
 
 .select-label {
   display: block;
   margin-bottom: 0.35rem;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
@@ -355,7 +417,7 @@ footer {
   gap: 0.5rem;
   border-bottom: 1px solid var(--line);
   padding: 0.55rem 0;
-  font-size: 0.64rem;
+  font-size: 0.68rem;
 }
 
 .train-facts dt {
@@ -377,13 +439,15 @@ footer {
 
 .inventory-panel {
   min-width: 0;
+  border-left: 1px solid var(--line);
+  padding-left: 1.5rem;
 }
 
 .inventory-summary {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border: 1px solid var(--green-line);
+  background: var(--green-soft);
 }
 
 .inventory-summary div {
@@ -391,7 +455,7 @@ footer {
   align-items: baseline;
   gap: 0.45rem;
   border-right: 1px solid var(--line);
-  padding: 0.7rem 0.8rem;
+  padding: 0.8rem 1rem;
 }
 
 .inventory-summary div:last-child {
@@ -401,13 +465,13 @@ footer {
 .inventory-summary strong {
   color: var(--green);
   font-family: var(--font-display), "Patua One", serif;
-  font-size: 1.65rem;
+  font-size: 1.9rem;
   font-weight: 400;
 }
 
 .inventory-summary span {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
 }
 
 .inventory-toolbar {
@@ -416,17 +480,18 @@ footer {
   gap: 1rem;
   justify-content: flex-end;
   border-bottom: 1px solid var(--line);
-  padding: 0.75rem 0;
+  padding: 0.8rem 0;
 }
 
 .filters {
-  width: min(360px, 100%);
+  width: 100%;
 }
 
 .filters input {
   width: 100%;
   border-color: var(--line);
-  font-size: 0.68rem;
+  min-height: 48px;
+  font-size: 0.74rem;
 }
 
 .filters input {
@@ -446,9 +511,9 @@ footer {
   display: grid;
   align-items: center;
   gap: 0.9rem;
-  min-height: 84px;
+  min-height: 90px;
   border-bottom: 1px solid var(--line);
-  padding: 0.75rem 0.3rem;
+  padding: 0.95rem 0.5rem;
 }
 
 .inventory-row:hover {
@@ -465,15 +530,15 @@ footer {
 
 .row-primary h3 {
   margin: 0.35rem 0 0;
-  font-size: 0.76rem;
-  font-weight: 500;
+  font-size: 0.84rem;
+  font-weight: 600;
   line-height: 1.4;
 }
 
 .row-primary p {
   margin: 0.25rem 0 0;
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
 }
 
 .row-meta {
@@ -485,7 +550,7 @@ footer {
 
 .item-id {
   color: var(--green);
-  font-size: 0.64rem;
+  font-size: 0.68rem;
   font-weight: 700;
 }
 
@@ -500,7 +565,7 @@ footer {
   background: #ffffff;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.5rem;
+  font-size: 0.53rem;
   line-height: 1;
   padding: 0.22rem 0.3rem;
   text-transform: uppercase;
@@ -509,7 +574,7 @@ footer {
 .commit-row time {
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.57rem;
+  font-size: 0.61rem;
   white-space: nowrap;
 }
 
@@ -560,7 +625,7 @@ footer {
   padding: 0.7rem 0.3rem;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.52rem;
+  font-size: 0.58rem;
 }
 
 footer {
@@ -604,19 +669,44 @@ footer p {
 }
 
 @media (min-width: 1024px) {
-  body {
-    font-size: 20px;
+  .site-shell {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 
-  .site-shell {
-    padding-right: 5rem;
-    padding-left: 5rem;
+  .train-sidebar {
+    position: sticky;
+    top: 1.5rem;
   }
 }
 
 @media (max-width: 799px) {
   .train-section {
     grid-template-columns: 1fr;
+  }
+
+  .inventory-panel {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    padding-top: 1.5rem;
+    padding-left: 0;
+  }
+
+  .service-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-facts div {
+    border-bottom: 1px solid var(--green-line);
+    padding: 0.75rem 1rem;
+  }
+
+  .service-facts div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .service-facts div:nth-last-child(-n + 2) {
+    border-bottom: 0;
   }
 
   .inventory-toolbar {
@@ -630,17 +720,46 @@ footer p {
 }
 
 @media (max-width: 539px) {
-  .section-heading-row {
-    align-items: stretch;
-    flex-direction: column;
+  .environment-bar {
+    gap: 0.5rem;
+  }
+
+  .environment-label {
+    width: 100%;
   }
 
   .environment-toggle button {
-    flex: 1;
+    min-width: 4.5rem;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 1rem;
+  }
+
+  .service-card-lead {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .service-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .service-facts div,
+  .service-facts div:first-child,
+  .service-facts div:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--green-line);
+    padding: 0.75rem 0;
+  }
+
+  .service-facts div:last-child {
+    border-bottom: 0;
   }
 
   .inventory-summary div {

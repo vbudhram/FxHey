@@ -31,7 +31,7 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /<title>FxHey! — Firefox Accounts release intelligence<\/title>/i);
   assert.match(html, /Firefox Accounts for Dummies \(i\.e\. me\)/i);
   assert.match(html, /<strong>Train<\/strong>/i);
-  assert.match(html, /Deployment environments/i);
+  assert.match(html, /Deployment environment/i);
   assert.match(html, /aria-label="Deployment environment"/i);
   assert.match(html, /aria-label="Stage"[^>]+aria-pressed="false"/i);
   assert.match(html, /aria-label="Production"[^>]+aria-pressed="true"/i);

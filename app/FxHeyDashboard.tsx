@@ -100,8 +100,44 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
           <span className="brand-mark">FxHey!</span>
         </Link>
         <p className="tagline">Firefox Accounts for Dummies (i.e. me)</p>
+
+        <div className="environment-bar">
+          <span className="environment-label">Environment</span>
+          <div className="environment-toggle" role="group" aria-label="Deployment environment">
+            <button
+              type="button"
+              aria-label="Stage"
+              aria-pressed={data.selectedEnvironment === "stage"}
+              onClick={() => loadEnvironment("stage")}
+              disabled={isLoading}
+            >
+              Stage
+            </button>
+            <button
+              type="button"
+              aria-label="Production"
+              aria-pressed={data.selectedEnvironment === "production"}
+              onClick={() => loadEnvironment("production")}
+              disabled={isLoading}
+            >
+              Prod
+            </button>
+          </div>
+          <button
+            className="quiet-button"
+            type="button"
+            onClick={() => loadDashboard(data.selectedEnvironment, data.selectedTrain)}
+            disabled={isLoading}
+          >
+            {isLoading ? "Checking…" : "Refresh"}
+          </button>
+        </div>
+
         <div className="headline-status">
+          <p><strong>{activeService?.label ?? "Release"}</strong></p>
+          <span aria-hidden="true">·</span>
           <p><strong>Train</strong> {data.deployedTrain}</p>
+          <span aria-hidden="true">·</span>
           <p>
             <strong>Updated</strong>{" "}
             <abbr title={data.deploymentUpdatedAt}>
@@ -132,46 +168,23 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
 
       <main>
         <section className="services-section" id="services" aria-labelledby="services-heading">
-          <div className="section-heading-row">
-            <h1 className="sr-only" id="services-heading">Deployment environments</h1>
-            <div className="environment-toggle" role="group" aria-label="Deployment environment">
-              <button
-                type="button"
-                aria-label="Stage"
-                aria-pressed={data.selectedEnvironment === "stage"}
-                onClick={() => loadEnvironment("stage")}
-                disabled={isLoading}
-              >
-                Stage
-              </button>
-              <button
-                type="button"
-                aria-label="Production"
-                aria-pressed={data.selectedEnvironment === "production"}
-                onClick={() => loadEnvironment("production")}
-                disabled={isLoading}
-              >
-                Prod
-              </button>
-            </div>
-            <button
-              className="quiet-button"
-              type="button"
-              onClick={() => loadDashboard(data.selectedEnvironment, data.selectedTrain)}
-              disabled={isLoading}
-            >
-              {isLoading ? "Checking…" : "Refresh status"}
-            </button>
-          </div>
+          <h1 className="sr-only" id="services-heading">Deployment environment</h1>
           <div className="service-grid">
             {activeService ? (
               <article className="service-card" key={activeService.name}>
-                <h2>{activeService.label}</h2>
-                <dl>
-                  <div><dt>Train:</dt><dd>{activeService.train}</dd></div>
-                  <div><dt>Patch:</dt><dd>{activeService.patch}</dd></div>
+                <div className="service-card-lead">
                   <div>
-                    <dt>Updated:</dt>
+                    <p className="eyebrow">{activeService.label} release</p>
+                    <h2>v{activeService.version}</h2>
+                    <p>Train {activeService.train} · patch {activeService.patch}</p>
+                  </div>
+                  <a className="endpoint-link" href={activeService.endpoint} target="_blank" rel="noreferrer">
+                    Open version endpoint <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+                <dl className="service-facts">
+                  <div>
+                    <dt>Updated</dt>
                     <dd>
                       <abbr title={formatDate(activeService.updatedAt)}>
                         {formatRelative(activeService.updatedAt, data.lastCheckedAt)}
@@ -179,11 +192,11 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                     </dd>
                   </div>
                   <div>
-                    <dt>Repo:</dt>
+                    <dt>Repository</dt>
                     <dd><a href={GITHUB_REPO} target="_blank" rel="noreferrer">{activeService.repo}</a></dd>
                   </div>
                   <div>
-                    <dt>Tag:</dt>
+                    <dt>Tag</dt>
                     <dd>
                       <a href={`${GITHUB_REPO}/tree/${activeService.tag}`} target="_blank" rel="noreferrer">
                         {activeService.tag}
@@ -191,7 +204,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                     </dd>
                   </div>
                   <div>
-                    <dt>Commit:</dt>
+                    <dt>Commit</dt>
                     <dd>
                       <a href={`${GITHUB_REPO}/commit/${activeService.commit}`} target="_blank" rel="noreferrer">
                         {activeService.commit.slice(0, 7)}
@@ -199,9 +212,6 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                     </dd>
                   </div>
                 </dl>
-                <a className="endpoint-link" href={activeService.endpoint} target="_blank" rel="noreferrer">
-                  version endpoint
-                </a>
               </article>
             ) : null}
           </div>
@@ -267,34 +277,34 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
 
             <div className={`inventory-list ${isLoading ? "is-loading" : ""}`}>
               {filteredCommits.map((commit) => (
-                    <article className="inventory-row commit-row" key={commit.sha}>
-                      <div className="commit-rail">
-                        <span className="commit-dot" aria-hidden="true" />
-                        <span className="commit-line" aria-hidden="true" />
-                      </div>
-                      <div className="row-primary">
-                        <div className="row-meta">
-                          <a className="item-id mono" href={commit.href} target="_blank" rel="noreferrer">
-                            {commit.shortSha}
-                          </a>
-                          <span className="kind-label">{commit.kind}</span>
-                          {commit.prNumber ? (
-                            <a className="inline-pr" href={`${GITHUB_REPO}/pull/${commit.prNumber}`} target="_blank" rel="noreferrer">
-                              PR #{commit.prNumber}
-                            </a>
-                          ) : null}
-                          {commit.issueKeys.slice(0, 2).map((key) => (
-                            <a className="inline-issue" href={`${JIRA_BASE}/${key}`} target="_blank" rel="noreferrer" key={key}>
-                              {key}
-                            </a>
-                          ))}
-                        </div>
-                        <h3>{commit.title}</h3>
-                        <p>by {commit.author}</p>
-                      </div>
-                      <time dateTime={commit.date}>{formatShortDate(commit.date)}</time>
-                    </article>
-                  ))}
+                <article className="inventory-row commit-row" key={commit.sha}>
+                  <div className="commit-rail">
+                    <span className="commit-dot" aria-hidden="true" />
+                    <span className="commit-line" aria-hidden="true" />
+                  </div>
+                  <div className="row-primary">
+                    <div className="row-meta">
+                      <a className="item-id mono" href={commit.href} target="_blank" rel="noreferrer">
+                        {commit.shortSha}
+                      </a>
+                      <span className="kind-label">{commit.kind}</span>
+                      {commit.prNumber ? (
+                        <a className="inline-pr" href={`${GITHUB_REPO}/pull/${commit.prNumber}`} target="_blank" rel="noreferrer">
+                          PR #{commit.prNumber}
+                        </a>
+                      ) : null}
+                      {commit.issueKeys.slice(0, 2).map((key) => (
+                        <a className="inline-issue" href={`${JIRA_BASE}/${key}`} target="_blank" rel="noreferrer" key={key}>
+                          {key}
+                        </a>
+                      ))}
+                    </div>
+                    <h3>{commit.title}</h3>
+                    <p>by {commit.author}</p>
+                  </div>
+                  <time dateTime={commit.date}>{formatShortDate(commit.date)}</time>
+                </article>
+              ))}
 
               {!visibleCount && !isLoading ? (
                 <div className="empty-state">

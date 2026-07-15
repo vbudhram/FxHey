@@ -75,12 +75,23 @@ export async function readDeploymentHistory(
     const history = entries
       .filter(isHistoryEntry)
       .filter((entry) => entry.environment === selectedEnvironment)
-      .sort((a, b) => b.observedAt.localeCompare(a.observedAt))
-      .slice(0, 12);
+      .sort((a, b) => b.observedAt.localeCompare(a.observedAt));
 
     if (!history.length) return [currentSnapshot(selectedService)];
-    if (history.some((entry) => entry.commit === selectedService.commit)) return history;
-    return [currentSnapshot(selectedService), ...history].slice(0, 12);
+
+    const observations = history
+      .filter((entry) => entry.evidence === "endpoint-observation")
+      .slice(0, 6);
+    const archive = history
+      .filter((entry) => entry.evidence === "github-deployment-record")
+      .slice(0, 6);
+    const currentObservations = observations.some(
+      (entry) => entry.commit === selectedService.commit,
+    )
+      ? observations
+      : [currentSnapshot(selectedService), ...observations].slice(0, 6);
+
+    return [...currentObservations, ...archive];
   } catch {
     return [currentSnapshot(selectedService)];
   }

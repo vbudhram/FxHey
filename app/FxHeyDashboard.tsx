@@ -57,6 +57,70 @@ function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number
   return "Current snapshot";
 }
 
+type DeploymentEntry = DashboardData["deployHistory"][number];
+
+function deploymentGapLabel(fromTrain: number, toTrain: number) {
+  if (fromTrain > toTrain) return null;
+  if (fromTrain === toTrain) return `Train ${fromTrain} is`;
+  return `${toTrain - fromTrain + 1} trains (${fromTrain}–${toTrain}) are`;
+}
+
+function DeploymentTimeline({
+  deployments,
+  activeCommit,
+}: {
+  deployments: DeploymentEntry[];
+  activeCommit?: string;
+}) {
+  return (
+    <ol className="deploy-timeline">
+      {deployments.map((deployment) => {
+        const isCurrentDeployment = deployment.commit === activeCommit;
+        return (
+          <li className={isCurrentDeployment ? "is-current" : ""} key={deployment.id ?? deployment.commit}>
+            <span className="deploy-dot" aria-hidden="true" />
+            <article>
+              <div className="deploy-version">
+                <div className="deploy-version-row">
+                  <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
+                    <Tag aria-hidden="true" /> v{deployment.version}
+                  </a>
+                  {isCurrentDeployment ? <span>Current</span> : null}
+                </div>
+                <p>Train {deployment.train} · patch {deployment.patch}</p>
+              </div>
+              <dl>
+                <div>
+                  <dt>
+                    <Clock3 aria-hidden="true" />
+                    {deploymentEvidenceLabel(deployment.evidence)}
+                  </dt>
+                  <dd>
+                    <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
+                  </dd>
+                </div>
+                {deployment.evidence !== "github-deployment-record" ? (
+                  <div>
+                    <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
+                    <dd>
+                      <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
+                    </dd>
+                  </div>
+                ) : null}
+              </dl>
+              <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
+                <GitCommitHorizontal aria-hidden="true" />
+                Commit {deployment.commit.slice(0, 7)}
+                <ExternalLink aria-hidden="true" />
+              </a>
+            </article>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
 export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) {
   const [data, setData] = useState(initialData);
   const [query, setQuery] = useState("");
@@ -64,6 +128,18 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
   const [error, setError] = useState("");
   const activeService =
     data.services.find((service) => service.name === data.selectedEnvironment) ?? data.services[0];
+  const observedDeployments = data.deployHistory.filter(
+    (deployment) => deployment.evidence !== "github-deployment-record",
+  );
+  const archivedDeployments = data.deployHistory.filter(
+    (deployment) => deployment.evidence === "github-deployment-record",
+  );
+  const firstObservation = observedDeployments.at(-1);
+  const latestArchiveRecord = archivedDeployments[0];
+  const missingTrainRange =
+    firstObservation && latestArchiveRecord
+      ? deploymentGapLabel(latestArchiveRecord.train + 1, firstObservation.train - 1)
+      : null;
 
   const filteredCommits = useMemo(() => {
     const search = query.trim().toLowerCase();
@@ -254,8 +330,9 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             </div>
             <div className="deploy-history-copy">
               <p>
-                Backfilled from public GitHub deployment records, then checked every five minutes.
-                “First observed” is FxHey’s detection time—not an inferred deploy time.
+                FxHey checks the version endpoint every five minutes. Earlier entries come from
+                public GitHub deployment records; the sources stay separate because their coverage
+                is not continuous.
               </p>
               <a
                 className="history-source-link"
@@ -268,55 +345,59 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             </div>
           </div>
 
-          <ol className="deploy-timeline">
-            {data.deployHistory.map((deployment) => {
-              const isCurrentDeployment = deployment.commit === activeService?.commit;
-              return (
-                <li className={isCurrentDeployment ? "is-current" : ""} key={deployment.id ?? deployment.commit}>
-                  <span className="deploy-dot" aria-hidden="true" />
-                  <article>
-                    <div className="deploy-version-row">
-                      <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
-                        <Tag aria-hidden="true" /> v{deployment.version}
-                      </a>
-                      {isCurrentDeployment ? <span>Current</span> : null}
-                    </div>
-                    <p>Train {deployment.train} · patch {deployment.patch}</p>
-                    <dl>
-                      <div>
-                        <dt>
-                          <Clock3 aria-hidden="true" />
-                          {deploymentEvidenceLabel(deployment.evidence)}
-                        </dt>
-                        <dd>
-                          <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
-                        </dd>
-                      </div>
-                      {deployment.evidence !== "github-deployment-record" ? (
-                        <div>
-                          <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
-                          <dd>
-                            <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
-                          </dd>
-                        </div>
-                      ) : null}
-                    </dl>
-                    <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
-                      <GitCommitHorizontal aria-hidden="true" />
-                      Commit {deployment.commit.slice(0, 7)}
-                      <ExternalLink aria-hidden="true" />
-                    </a>
-                  </article>
-                </li>
-              );
-            })}
-          </ol>
+          <div className="deployment-lanes">
+            <section className="deploy-lane deploy-lane-live" aria-labelledby="observed-deployments-heading">
+              <div className="deploy-lane-heading">
+                <div>
+                  <p className="eyebrow">Live record</p>
+                  <h3 id="observed-deployments-heading">Observed by FxHey</h3>
+                </div>
+                <span>Checked every 5 minutes</span>
+              </div>
+              <DeploymentTimeline deployments={observedDeployments} activeCommit={activeService?.commit} />
+              {observedDeployments.length <= 1 ? (
+                <p className="history-note">
+                  <RefreshCw aria-hidden="true" /> Monitoring for the next endpoint change.
+                </p>
+              ) : null}
+            </section>
 
-          {data.deployHistory.length <= 1 ? (
-            <p className="history-note">
-              Public history is initializing. The scheduled recorder will add deployment records automatically.
-            </p>
-          ) : null}
+            {firstObservation && latestArchiveRecord ? (
+              <aside className="coverage-gap" aria-label="Deployment history coverage gap">
+                <div className="coverage-gap-rail" aria-hidden="true">
+                  <span />
+                </div>
+                <div>
+                  <p className="eyebrow">Coverage gap</p>
+                  <h3>The sources do not form one continuous timeline</h3>
+                  <p>
+                    GitHub’s public records stop at v{latestArchiveRecord.version} on{" "}
+                    <time dateTime={latestArchiveRecord.observedAt}>{formatDate(latestArchiveRecord.observedAt)}</time>.
+                    FxHey observations begin at v{firstObservation.version} on{" "}
+                    <time dateTime={firstObservation.observedAt}>{formatDate(firstObservation.observedAt)}</time>.
+                  </p>
+                  {missingTrainRange ? (
+                    <strong>{missingTrainRange} not represented by either source.</strong>
+                  ) : null}
+                </div>
+              </aside>
+            ) : null}
+
+            <section className="deploy-lane deploy-lane-archive" aria-labelledby="archived-deployments-heading">
+              <div className="deploy-lane-heading">
+                <div>
+                  <p className="eyebrow">Historical archive</p>
+                  <h3 id="archived-deployments-heading">Earlier GitHub records</h3>
+                </div>
+                {archivedDeployments.length ? <span>{archivedDeployments.length} latest records</span> : null}
+              </div>
+              {archivedDeployments.length ? (
+                <DeploymentTimeline deployments={archivedDeployments} />
+              ) : (
+                <p className="history-note">Earlier public GitHub records are unavailable right now.</p>
+              )}
+            </section>
+          </div>
         </section>
 
         <section className="train-section" id="train-contents" aria-labelledby="train-heading">

@@ -108,63 +108,45 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
         Skip to train contents
       </a>
 
-      <header className="topbar">
+      <header className="page-header">
         <Link className="brand" href="/" aria-label="FxHey home">
           <span className="brand-mark">FxHey!</span>
-          <span className="brand-subtitle">Release intelligence</span>
         </Link>
+        <p className="tagline">Firefox Accounts for Dummies (i.e. me)</p>
+        <div className="headline-status">
+          <p><strong>Train</strong> {data.deployedTrain}</p>
+          <p>
+            <strong>Updated</strong>{" "}
+            <abbr title={data.deploymentUpdatedAt}>
+              {formatRelative(data.deploymentUpdatedAt, data.lastCheckedAt)}
+            </abbr>
+          </p>
+        </div>
+        <p className="tag-update">
+          Latest tag <a href={data.compareUrl} target="_blank" rel="noreferrer">{data.headTag}</a>
+          {" · updated "}
+          <abbr title={formatDate(data.trainUpdatedAt)}>
+            {formatRelative(data.trainUpdatedAt, data.lastCheckedAt)}
+          </abbr>
+        </p>
         <nav className="topnav" aria-label="Primary navigation">
           <a href="#services">Production</a>
           <a href="#train-contents">Train contents</a>
           <a href={data.compareUrl} target="_blank" rel="noreferrer">
-            GitHub compare <span aria-hidden="true">↗</span>
+            GitHub compare
           </a>
         </nav>
+        {data.source === "fallback" ? (
+          <p className="data-notice" role="status">
+            Live data is temporarily limited. Showing the most recent verified snapshot.
+          </p>
+        ) : null}
       </header>
 
       <main>
-        <section className="status-hero" aria-labelledby="current-train-heading">
-          <div className="hero-kicker">
-            <span className="live-dot" aria-hidden="true" />
-            Production status
-          </div>
-          <div className="hero-layout">
-            <div className="train-lockup">
-              <p className="eyebrow">Current deployed train</p>
-              <h1 id="current-train-heading">
-                Train <span>{data.deployedTrain}</span>
-              </h1>
-              <p className="hero-summary">
-                Firefox Accounts is running <strong>{data.deployedTag}</strong> across all four public
-                services.
-              </p>
-            </div>
-            <div className="hero-timestamps">
-              <div>
-                <span>Production updated</span>
-                <strong>{formatRelative(data.deploymentUpdatedAt, data.lastCheckedAt)}</strong>
-                <time dateTime={data.deploymentUpdatedAt}>{formatDate(data.deploymentUpdatedAt)}</time>
-              </div>
-              <div>
-                <span>Train tag updated</span>
-                <strong>{formatRelative(data.trainUpdatedAt, data.lastCheckedAt)}</strong>
-                <time dateTime={data.trainUpdatedAt}>{formatDate(data.trainUpdatedAt)}</time>
-              </div>
-            </div>
-          </div>
-          {data.source === "fallback" ? (
-            <p className="data-notice" role="status">
-              Live data is temporarily limited. Showing the most recent verified snapshot.
-            </p>
-          ) : null}
-        </section>
-
         <section className="services-section" id="services" aria-labelledby="services-heading">
           <div className="section-heading-row">
-            <div>
-              <p className="eyebrow">Live version endpoints</p>
-              <h2 id="services-heading">Production services</h2>
-            </div>
+            <h1 className="sr-only" id="services-heading">Production services</h1>
             <button
               className="quiet-button"
               type="button"
@@ -177,16 +159,32 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
           <div className="service-grid">
             {data.services.map((service) => (
               <article className="service-card" key={service.name}>
-                <div className="service-title-row">
-                  <h3>{service.label}</h3>
-                  <span className="service-health"><span /> live</span>
-                </div>
-                <p className="service-version">{service.tag}</p>
+                <h2>{service.label}</h2>
                 <dl>
-                  <div><dt>Train</dt><dd>{service.train}</dd></div>
-                  <div><dt>Patch</dt><dd>{service.patch}</dd></div>
+                  <div><dt>Train:</dt><dd>{service.train}</dd></div>
+                  <div><dt>Patch:</dt><dd>{service.patch}</dd></div>
                   <div>
-                    <dt>Commit</dt>
+                    <dt>Updated:</dt>
+                    <dd>
+                      <abbr title={formatDate(data.deploymentUpdatedAt)}>
+                        {formatRelative(data.deploymentUpdatedAt, data.lastCheckedAt)}
+                      </abbr>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Repo:</dt>
+                    <dd><a href={GITHUB_REPO} target="_blank" rel="noreferrer">{service.repo}</a></dd>
+                  </div>
+                  <div>
+                    <dt>Tag:</dt>
+                    <dd>
+                      <a href={`${GITHUB_REPO}/tree/${service.tag}`} target="_blank" rel="noreferrer">
+                        {service.tag}
+                      </a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Commit:</dt>
                     <dd>
                       <a href={`${GITHUB_REPO}/commit/${service.commit}`} target="_blank" rel="noreferrer">
                         {service.commit.slice(0, 7)}
@@ -195,7 +193,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                   </div>
                 </dl>
                 <a className="endpoint-link" href={service.endpoint} target="_blank" rel="noreferrer">
-                  View version endpoint <span aria-hidden="true">↗</span>
+                  version endpoint
                 </a>
               </article>
             ))}

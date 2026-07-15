@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol =
     requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const socialImage = `${origin}/og.png`;
+  const socialImage = `${origin}/og-v2.png`;
 
   return {
     metadataBase: new URL(origin),
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "FxHey! — What’s riding the Firefox Accounts train?",
       description: "Live production status and complete FxA train contents.",
       type: "website",
-      images: [{ url: socialImage, width: 1728, height: 927, alt: "FxHey Train 340 release intelligence" }],
+      images: [{ url: socialImage, width: 1731, height: 909, alt: "FxHey Train 340 release intelligence" }],
     },
     twitter: {
       card: "summary_large_image",

@@ -412,6 +412,13 @@ footer {
   font-weight: 700;
 }
 
+.history-source-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
 .history-source-link svg {
   width: 0.78rem;
   height: 0.78rem;

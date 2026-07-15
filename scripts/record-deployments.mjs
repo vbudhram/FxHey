@@ -7,6 +7,7 @@ const HISTORY_ROOT = path.join(ROOT, "history");
 const INDEX_PATH = path.join(ROOT, "data", "deploy-history.json");
 const BACKFILL_MARKER = path.join(HISTORY_ROOT, ".github-deployments-backfilled");
 const FXA_REPOSITORY = "mozilla/fxa";
+const LEGACY_FXHEY_URL = "https://fx-hey.herokuapp.com/fxa";
 const ENDPOINTS = [
   {
     environment: "stage",
@@ -19,9 +20,15 @@ const ENDPOINTS = [
 ];
 
 export function requestHeaders(url) {
-  const isGithub = new URL(url).hostname === "api.github.com";
+  const hostname = new URL(url).hostname;
+  const isGithub = hostname === "api.github.com";
+  const isHtml = hostname === "fx-hey.herokuapp.com";
   const headers = {
-    Accept: isGithub ? "application/vnd.github+json" : "application/json",
+    Accept: isGithub
+      ? "application/vnd.github+json"
+      : isHtml
+        ? "text/html,application/xhtml+xml"
+        : "application/json",
     "User-Agent": "FxHey-Deployment-Recorder",
   };
   if (isGithub) {
@@ -38,6 +45,15 @@ async function fetchJson(url) {
   });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
   return response.json();
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, {
+    headers: requestHeaders(url),
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+  return response.text();
 }
 
 export function parseFxaVersion(version) {
@@ -78,6 +94,79 @@ export function endpointObservationEntry(service, sourceUpdatedAt, observedAt) {
     sourceUpdatedAt,
     observedAt,
     evidence: "endpoint-observation",
+  };
+}
+
+export function parseLegacyFxHeyDate(value) {
+  const match = /^(\d{2})-([A-Z][a-z]{2})-(\d{4}) (\d{2}):(\d{2}) UTC$/.exec(value);
+  if (!match) return null;
+  const months = {
+    Jan: 0,
+    Feb: 1,
+    Mar: 2,
+    Apr: 3,
+    May: 4,
+    Jun: 5,
+    Jul: 6,
+    Aug: 7,
+    Sep: 8,
+    Oct: 9,
+    Nov: 10,
+    Dec: 11,
+  };
+  const month = months[match[2]];
+  if (month === undefined) return null;
+  return new Date(
+    Date.UTC(Number(match[3]), month, Number(match[1]), Number(match[4]), Number(match[5])),
+  ).toISOString();
+}
+
+export function parseLegacyFxHeyDeployments(html) {
+  const section = /<h2 id="deployments"[\s\S]*?<\/section>/.exec(html)?.[0];
+  if (!section) return [];
+
+  return [...section.matchAll(/<dt>([^<]+):<\/dt>\s*<dd>([\s\S]*?)<\/dd>/g)].flatMap(
+    ([, dateLabel, description]) => {
+      const observedAt = parseLegacyFxHeyDate(dateLabel);
+      if (!observedAt) return [];
+
+      const deployments = new Map();
+      for (const match of description.matchAll(
+        /(Auth|Profile|Content|OAuth) server\s*<a[^>]+\/tree\/v(\d+\.\d+\.\d+)[^>]*>/g,
+      )) {
+        const service = `${match[1]} server`;
+        const services = deployments.get(match[2]) ?? [];
+        if (!services.includes(service)) services.push(service);
+        deployments.set(match[2], services);
+      }
+
+      return [...deployments].map(([version, services]) => ({
+        id: `legacy-fxhey-production-${observedAt}-${version}`,
+        version,
+        observedAt,
+        services,
+      }));
+    },
+  );
+}
+
+export function legacyFxHeyDeploymentEntry(deployment, commit) {
+  const parsed = parseFxaVersion(deployment.version);
+  if (!parsed || typeof commit !== "string" || !commit) return null;
+
+  return {
+    id: deployment.id,
+    environment: "production",
+    version: deployment.version,
+    ...parsed,
+    tag: `v${deployment.version}`,
+    commit,
+    sourceUpdatedAt: deployment.observedAt,
+    observedAt: deployment.observedAt,
+    evidence: "legacy-fxhey-record",
+    services: deployment.services,
+    accuracyMinutes: 30,
+    sourceUrl: LEGACY_FXHEY_URL,
   };
 }
 
@@ -136,6 +225,43 @@ async function backfillGithubDeployments() {
     `Imported public ${FXA_REPOSITORY} deployment records at ${new Date().toISOString()}.\n`,
     "utf8",
   );
+}
+
+async function resolveTagCommits(tags) {
+  const unresolved = new Set(tags);
+  const commits = new Map();
+
+  for (let page = 1; page <= 20 && unresolved.size; page += 1) {
+    const url = new URL(`https://api.github.com/repos/${FXA_REPOSITORY}/tags`);
+    url.searchParams.set("per_page", "100");
+    url.searchParams.set("page", String(page));
+    const pageTags = await fetchJson(url);
+    if (!Array.isArray(pageTags)) throw new Error("GitHub tags response was not an array");
+
+    for (const tag of pageTags) {
+      if (!unresolved.has(tag.name) || typeof tag.commit?.sha !== "string") continue;
+      commits.set(tag.name, tag.commit.sha);
+      unresolved.delete(tag.name);
+    }
+    if (pageTags.length < 100) break;
+  }
+
+  return commits;
+}
+
+async function recordLegacyFxHeyHistory() {
+  const records = parseLegacyFxHeyDeployments(await fetchText(LEGACY_FXHEY_URL));
+  const existing = new Set((await readEventsFor("production")).map((entry) => entry.id));
+  const newRecords = records.filter((record) => !existing.has(record.id));
+  if (!newRecords.length) return;
+
+  const commits = await resolveTagCommits(
+    [...new Set(newRecords.map((record) => `v${record.version}`))],
+  );
+  for (const record of newRecords) {
+    const entry = legacyFxHeyDeploymentEntry(record, commits.get(`v${record.version}`));
+    if (entry) await writeEvent(entry);
+  }
 }
 
 async function sourceUpdatedAt(commit, observedAt) {
@@ -204,6 +330,11 @@ async function buildIndex() {
 async function main() {
   if (!process.argv.includes("--index-only")) {
     await backfillGithubDeployments();
+    try {
+      await recordLegacyFxHeyHistory();
+    } catch (error) {
+      console.warn(`Could not import original FxHey history: ${error.message}`);
+    }
     await recordCurrentEndpoints();
   }
   await buildIndex();

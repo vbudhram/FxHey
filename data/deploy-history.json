@@ -24,6 +24,1270 @@
     "evidence": "endpoint-observation"
   },
   {
+    "id": "legacy-fxhey-production-2026-07-08T20:32:00.000Z-1.340.1",
+    "environment": "production",
+    "version": "1.340.1",
+    "train": 340,
+    "patch": 1,
+    "tag": "v1.340.1",
+    "commit": "b02b4e4154275a21ab3bf988f1b3183dba08e107",
+    "sourceUpdatedAt": "2026-07-08T20:32:00.000Z",
+    "observedAt": "2026-07-08T20:32:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-24T17:38:00.000Z-1.339.3",
+    "environment": "production",
+    "version": "1.339.3",
+    "train": 339,
+    "patch": 3,
+    "tag": "v1.339.3",
+    "commit": "d4a6c496d95e560ac29fd50d6c439c3cc6b99173",
+    "sourceUpdatedAt": "2026-06-24T17:38:00.000Z",
+    "observedAt": "2026-06-24T17:38:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-11T15:41:00.000Z-1.338.4",
+    "environment": "production",
+    "version": "1.338.4",
+    "train": 338,
+    "patch": 4,
+    "tag": "v1.338.4",
+    "commit": "6ba1063b6c9f6f728369cb0772964552f60fbb08",
+    "sourceUpdatedAt": "2026-06-11T15:41:00.000Z",
+    "observedAt": "2026-06-11T15:41:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-10T21:10:00.000Z-1.337.8",
+    "environment": "production",
+    "version": "1.337.8",
+    "train": 337,
+    "patch": 8,
+    "tag": "v1.337.8",
+    "commit": "a3dc767bba51f0adf0dd4a1e4b40e99f4b83dc3d",
+    "sourceUpdatedAt": "2026-06-10T21:10:00.000Z",
+    "observedAt": "2026-06-10T21:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-10T17:10:00.000Z-1.338.3",
+    "environment": "production",
+    "version": "1.338.3",
+    "train": 338,
+    "patch": 3,
+    "tag": "v1.338.3",
+    "commit": "b9bb49a34c4f7314545aa79f470d6b9019265d46",
+    "sourceUpdatedAt": "2026-06-10T17:10:00.000Z",
+    "observedAt": "2026-06-10T17:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-09T18:49:00.000Z-1.337.8",
+    "environment": "production",
+    "version": "1.337.8",
+    "train": 337,
+    "patch": 8,
+    "tag": "v1.337.8",
+    "commit": "a3dc767bba51f0adf0dd4a1e4b40e99f4b83dc3d",
+    "sourceUpdatedAt": "2026-06-09T18:49:00.000Z",
+    "observedAt": "2026-06-09T18:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-08T22:35:00.000Z-1.337.7",
+    "environment": "production",
+    "version": "1.337.7",
+    "train": 337,
+    "patch": 7,
+    "tag": "v1.337.7",
+    "commit": "c9e126bf7335b8d94e76489cd9f0a0819142e5f4",
+    "sourceUpdatedAt": "2026-06-08T22:35:00.000Z",
+    "observedAt": "2026-06-08T22:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-06-04T20:06:00.000Z-1.337.6",
+    "environment": "production",
+    "version": "1.337.6",
+    "train": 337,
+    "patch": 6,
+    "tag": "v1.337.6",
+    "commit": "5930dddae1ffac7c2dd1ecff0dd5a915427246c7",
+    "sourceUpdatedAt": "2026-06-04T20:06:00.000Z",
+    "observedAt": "2026-06-04T20:06:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-05-29T20:35:00.000Z-1.337.4",
+    "environment": "production",
+    "version": "1.337.4",
+    "train": 337,
+    "patch": 4,
+    "tag": "v1.337.4",
+    "commit": "0e906135b945c6925eafc15daf8200c54cb0087e",
+    "sourceUpdatedAt": "2026-05-29T20:35:00.000Z",
+    "observedAt": "2026-05-29T20:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-05-27T20:40:00.000Z-1.337.3",
+    "environment": "production",
+    "version": "1.337.3",
+    "train": 337,
+    "patch": 3,
+    "tag": "v1.337.3",
+    "commit": "6f315d3e7842dc3516daed6f41f096ce5e16956e",
+    "sourceUpdatedAt": "2026-05-27T20:40:00.000Z",
+    "observedAt": "2026-05-27T20:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-05-26T23:13:00.000Z-1.336.9",
+    "environment": "production",
+    "version": "1.336.9",
+    "train": 336,
+    "patch": 9,
+    "tag": "v1.336.9",
+    "commit": "ce245cfd5748e13b6eac02f323a44d1408dc0b07",
+    "sourceUpdatedAt": "2026-05-26T23:13:00.000Z",
+    "observedAt": "2026-05-26T23:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-05-14T00:26:00.000Z-1.336.8",
+    "environment": "production",
+    "version": "1.336.8",
+    "train": 336,
+    "patch": 8,
+    "tag": "v1.336.8",
+    "commit": "94577154a729bbd6805f7d3b908644a381a8d710",
+    "sourceUpdatedAt": "2026-05-14T00:26:00.000Z",
+    "observedAt": "2026-05-14T00:26:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-05-13T20:33:00.000Z-1.336.6",
+    "environment": "production",
+    "version": "1.336.6",
+    "train": 336,
+    "patch": 6,
+    "tag": "v1.336.6",
+    "commit": "6053b39e3d4ac8dc001d32b00557415185668cd1",
+    "sourceUpdatedAt": "2026-05-13T20:33:00.000Z",
+    "observedAt": "2026-05-13T20:33:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-29T23:39:00.000Z-1.335.6",
+    "environment": "production",
+    "version": "1.335.6",
+    "train": 335,
+    "patch": 6,
+    "tag": "v1.335.6",
+    "commit": "f61f4a4e4d26bea18746ccea6bd48de2d8047757",
+    "sourceUpdatedAt": "2026-04-29T23:39:00.000Z",
+    "observedAt": "2026-04-29T23:39:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-29T23:09:00.000Z-1.335.6",
+    "environment": "production",
+    "version": "1.335.6",
+    "train": 335,
+    "patch": 6,
+    "tag": "v1.335.6",
+    "commit": "f61f4a4e4d26bea18746ccea6bd48de2d8047757",
+    "sourceUpdatedAt": "2026-04-29T23:09:00.000Z",
+    "observedAt": "2026-04-29T23:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-29T19:13:00.000Z-1.335.5",
+    "environment": "production",
+    "version": "1.335.5",
+    "train": 335,
+    "patch": 5,
+    "tag": "v1.335.5",
+    "commit": "d4b27e0bcb37e90df4eba0af191f216dbcc5c2a6",
+    "sourceUpdatedAt": "2026-04-29T19:13:00.000Z",
+    "observedAt": "2026-04-29T19:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-29T18:43:00.000Z-1.335.5",
+    "environment": "production",
+    "version": "1.335.5",
+    "train": 335,
+    "patch": 5,
+    "tag": "v1.335.5",
+    "commit": "d4b27e0bcb37e90df4eba0af191f216dbcc5c2a6",
+    "sourceUpdatedAt": "2026-04-29T18:43:00.000Z",
+    "observedAt": "2026-04-29T18:43:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-15T17:42:00.000Z-1.334.3",
+    "environment": "production",
+    "version": "1.334.3",
+    "train": 334,
+    "patch": 3,
+    "tag": "v1.334.3",
+    "commit": "b789b6c7efe2b19b317fb0b88ed0d5eb80b98f9c",
+    "sourceUpdatedAt": "2026-04-15T17:42:00.000Z",
+    "observedAt": "2026-04-15T17:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-06T15:59:00.000Z-1.333.6",
+    "environment": "production",
+    "version": "1.333.6",
+    "train": 333,
+    "patch": 6,
+    "tag": "v1.333.6",
+    "commit": "4d71e3b5692a51d37874ea1b62fd5c6370ac4d06",
+    "sourceUpdatedAt": "2026-04-06T15:59:00.000Z",
+    "observedAt": "2026-04-06T15:59:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-04-01T18:35:00.000Z-1.333.4",
+    "environment": "production",
+    "version": "1.333.4",
+    "train": 333,
+    "patch": 4,
+    "tag": "v1.333.4",
+    "commit": "790e8bd7d04a957f7b3ab43e260b3e376584cd1f",
+    "sourceUpdatedAt": "2026-04-01T18:35:00.000Z",
+    "observedAt": "2026-04-01T18:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-24T18:09:00.000Z-1.332.3",
+    "environment": "production",
+    "version": "1.332.3",
+    "train": 332,
+    "patch": 3,
+    "tag": "v1.332.3",
+    "commit": "a8f7d843cdaa55ce723e053b119ef27f76119f74",
+    "sourceUpdatedAt": "2026-03-24T18:09:00.000Z",
+    "observedAt": "2026-03-24T18:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-23T18:03:00.000Z-1.332.2",
+    "environment": "production",
+    "version": "1.332.2",
+    "train": 332,
+    "patch": 2,
+    "tag": "v1.332.2",
+    "commit": "eb0def2b3788d675d36cb30146ba9d6cfdedf357",
+    "sourceUpdatedAt": "2026-03-23T18:03:00.000Z",
+    "observedAt": "2026-03-23T18:03:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-19T22:43:00.000Z-1.332.1",
+    "environment": "production",
+    "version": "1.332.1",
+    "train": 332,
+    "patch": 1,
+    "tag": "v1.332.1",
+    "commit": "707ee6ebd89acc96ce586cf47ac50c5c9649d241",
+    "sourceUpdatedAt": "2026-03-19T22:43:00.000Z",
+    "observedAt": "2026-03-19T22:43:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-18T18:25:00.000Z-1.332.0",
+    "environment": "production",
+    "version": "1.332.0",
+    "train": 332,
+    "patch": 0,
+    "tag": "v1.332.0",
+    "commit": "5dcc11ed6438293204001ef0511d5084253536f3",
+    "sourceUpdatedAt": "2026-03-18T18:25:00.000Z",
+    "observedAt": "2026-03-18T18:25:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-18T17:55:00.000Z-1.332.0",
+    "environment": "production",
+    "version": "1.332.0",
+    "train": 332,
+    "patch": 0,
+    "tag": "v1.332.0",
+    "commit": "5dcc11ed6438293204001ef0511d5084253536f3",
+    "sourceUpdatedAt": "2026-03-18T17:55:00.000Z",
+    "observedAt": "2026-03-18T17:55:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-12T19:09:00.000Z-1.331.4",
+    "environment": "production",
+    "version": "1.331.4",
+    "train": 331,
+    "patch": 4,
+    "tag": "v1.331.4",
+    "commit": "eebbfa72c8781ecef4928c482e3674b529264ad1",
+    "sourceUpdatedAt": "2026-03-12T19:09:00.000Z",
+    "observedAt": "2026-03-12T19:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-11T16:52:00.000Z-1.331.3",
+    "environment": "production",
+    "version": "1.331.3",
+    "train": 331,
+    "patch": 3,
+    "tag": "v1.331.3",
+    "commit": "ff6c05c05eb70d545e6c49d319c119004d69a95a",
+    "sourceUpdatedAt": "2026-03-11T16:52:00.000Z",
+    "observedAt": "2026-03-11T16:52:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-11T16:22:00.000Z-1.331.3",
+    "environment": "production",
+    "version": "1.331.3",
+    "train": 331,
+    "patch": 3,
+    "tag": "v1.331.3",
+    "commit": "ff6c05c05eb70d545e6c49d319c119004d69a95a",
+    "sourceUpdatedAt": "2026-03-11T16:22:00.000Z",
+    "observedAt": "2026-03-11T16:22:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-03-04T22:04:00.000Z-1.331.1",
+    "environment": "production",
+    "version": "1.331.1",
+    "train": 331,
+    "patch": 1,
+    "tag": "v1.331.1",
+    "commit": "b7237b6562ae9b1a1758a4558fd9b91a7a5c9a43",
+    "sourceUpdatedAt": "2026-03-04T22:04:00.000Z",
+    "observedAt": "2026-03-04T22:04:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-25T15:14:00.000Z-1.330.7",
+    "environment": "production",
+    "version": "1.330.7",
+    "train": 330,
+    "patch": 7,
+    "tag": "v1.330.7",
+    "commit": "ce4e94449e9ca194a69d0ca3eed4e09e7daf2781",
+    "sourceUpdatedAt": "2026-02-25T15:14:00.000Z",
+    "observedAt": "2026-02-25T15:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-25T14:44:00.000Z-1.330.7",
+    "environment": "production",
+    "version": "1.330.7",
+    "train": 330,
+    "patch": 7,
+    "tag": "v1.330.7",
+    "commit": "ce4e94449e9ca194a69d0ca3eed4e09e7daf2781",
+    "sourceUpdatedAt": "2026-02-25T14:44:00.000Z",
+    "observedAt": "2026-02-25T14:44:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-25T14:14:00.000Z-1.330.7",
+    "environment": "production",
+    "version": "1.330.7",
+    "train": 330,
+    "patch": 7,
+    "tag": "v1.330.7",
+    "commit": "ce4e94449e9ca194a69d0ca3eed4e09e7daf2781",
+    "sourceUpdatedAt": "2026-02-25T14:14:00.000Z",
+    "observedAt": "2026-02-25T14:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-19T20:14:00.000Z-1.330.6",
+    "environment": "production",
+    "version": "1.330.6",
+    "train": 330,
+    "patch": 6,
+    "tag": "v1.330.6",
+    "commit": "325f307210568ddb44c6e755910380fa4ec448af",
+    "sourceUpdatedAt": "2026-02-19T20:14:00.000Z",
+    "observedAt": "2026-02-19T20:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-07T03:09:00.000Z-1.329.8",
+    "environment": "production",
+    "version": "1.329.8",
+    "train": 329,
+    "patch": 8,
+    "tag": "v1.329.8",
+    "commit": "56a73358f7cd392ebc38883746dc9b650fd0bce5",
+    "sourceUpdatedAt": "2026-02-07T03:09:00.000Z",
+    "observedAt": "2026-02-07T03:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-02-04T19:06:00.000Z-1.329.5",
+    "environment": "production",
+    "version": "1.329.5",
+    "train": 329,
+    "patch": 5,
+    "tag": "v1.329.5",
+    "commit": "f0743c9620267c23193dd7090016ded2459097eb",
+    "sourceUpdatedAt": "2026-02-04T19:06:00.000Z",
+    "observedAt": "2026-02-04T19:06:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-30T19:58:00.000Z-1.328.6",
+    "environment": "production",
+    "version": "1.328.6",
+    "train": 328,
+    "patch": 6,
+    "tag": "v1.328.6",
+    "commit": "d4bc1acd7eac0ba40aff94517cfec6029b1fa08b",
+    "sourceUpdatedAt": "2026-01-30T19:58:00.000Z",
+    "observedAt": "2026-01-30T19:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-21T18:31:00.000Z-1.328.1",
+    "environment": "production",
+    "version": "1.328.1",
+    "train": 328,
+    "patch": 1,
+    "tag": "v1.328.1",
+    "commit": "6a203ef7251205e3477d3e7b8073ab82f3aed076",
+    "sourceUpdatedAt": "2026-01-21T18:31:00.000Z",
+    "observedAt": "2026-01-21T18:31:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-21T18:01:00.000Z-1.328.1",
+    "environment": "production",
+    "version": "1.328.1",
+    "train": 328,
+    "patch": 1,
+    "tag": "v1.328.1",
+    "commit": "6a203ef7251205e3477d3e7b8073ab82f3aed076",
+    "sourceUpdatedAt": "2026-01-21T18:01:00.000Z",
+    "observedAt": "2026-01-21T18:01:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-15T18:47:00.000Z-1.327.5",
+    "environment": "production",
+    "version": "1.327.5",
+    "train": 327,
+    "patch": 5,
+    "tag": "v1.327.5",
+    "commit": "5844b346492ae66a5caa3da7391cdf2be8eb632a",
+    "sourceUpdatedAt": "2026-01-15T18:47:00.000Z",
+    "observedAt": "2026-01-15T18:47:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-13T23:40:00.000Z-1.327.4",
+    "environment": "production",
+    "version": "1.327.4",
+    "train": 327,
+    "patch": 4,
+    "tag": "v1.327.4",
+    "commit": "a082f21c715973dc043c9c7dbc61a377f3fb048c",
+    "sourceUpdatedAt": "2026-01-13T23:40:00.000Z",
+    "observedAt": "2026-01-13T23:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-12T20:57:00.000Z-1.325.12",
+    "environment": "production",
+    "version": "1.325.12",
+    "train": 325,
+    "patch": 12,
+    "tag": "v1.325.12",
+    "commit": "0954023892b99f6a6ccae1b33ee6caa6a7a48bca",
+    "sourceUpdatedAt": "2026-01-12T20:57:00.000Z",
+    "observedAt": "2026-01-12T20:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-12T19:27:00.000Z-1.327.3",
+    "environment": "production",
+    "version": "1.327.3",
+    "train": 327,
+    "patch": 3,
+    "tag": "v1.327.3",
+    "commit": "94757b06ca5694793bff68b7a0c6d231dda0fc03",
+    "sourceUpdatedAt": "2026-01-12T19:27:00.000Z",
+    "observedAt": "2026-01-12T19:27:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2026-01-06T19:57:00.000Z-1.325.12",
+    "environment": "production",
+    "version": "1.325.12",
+    "train": 325,
+    "patch": 12,
+    "tag": "v1.325.12",
+    "commit": "0954023892b99f6a6ccae1b33ee6caa6a7a48bca",
+    "sourceUpdatedAt": "2026-01-06T19:57:00.000Z",
+    "observedAt": "2026-01-06T19:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-31T19:35:00.000Z-1.325.11",
+    "environment": "production",
+    "version": "1.325.11",
+    "train": 325,
+    "patch": 11,
+    "tag": "v1.325.11",
+    "commit": "3c43cf231cfec41a1fa8ab2bb051b6ecdb284967",
+    "sourceUpdatedAt": "2025-12-31T19:35:00.000Z",
+    "observedAt": "2025-12-31T19:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-19T20:47:00.000Z-1.325.7",
+    "environment": "production",
+    "version": "1.325.7",
+    "train": 325,
+    "patch": 7,
+    "tag": "v1.325.7",
+    "commit": "c580b1c1a4c3e9ba14b01184ebfd7e0e562d7755",
+    "sourceUpdatedAt": "2025-12-19T20:47:00.000Z",
+    "observedAt": "2025-12-19T20:47:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-19T01:49:00.000Z-1.325.6",
+    "environment": "production",
+    "version": "1.325.6",
+    "train": 325,
+    "patch": 6,
+    "tag": "v1.325.6",
+    "commit": "8d7df6c4318c5dc09a1e9ed0ccdced8f70aa2940",
+    "sourceUpdatedAt": "2025-12-19T01:49:00.000Z",
+    "observedAt": "2025-12-19T01:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-16T22:58:00.000Z-1.325.5",
+    "environment": "production",
+    "version": "1.325.5",
+    "train": 325,
+    "patch": 5,
+    "tag": "v1.325.5",
+    "commit": "feaa62edd62c9e9e2f52c5c5dfa4bca1a177d3df",
+    "sourceUpdatedAt": "2025-12-16T22:58:00.000Z",
+    "observedAt": "2025-12-16T22:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-16T22:28:00.000Z-1.325.5",
+    "environment": "production",
+    "version": "1.325.5",
+    "train": 325,
+    "patch": 5,
+    "tag": "v1.325.5",
+    "commit": "feaa62edd62c9e9e2f52c5c5dfa4bca1a177d3df",
+    "sourceUpdatedAt": "2025-12-16T22:28:00.000Z",
+    "observedAt": "2025-12-16T22:28:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-11T19:27:00.000Z-1.325.4",
+    "environment": "production",
+    "version": "1.325.4",
+    "train": 325,
+    "patch": 4,
+    "tag": "v1.325.4",
+    "commit": "5795710a45ce11ecf1e76219e298a4aa510002eb",
+    "sourceUpdatedAt": "2025-12-11T19:27:00.000Z",
+    "observedAt": "2025-12-11T19:27:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-10T19:23:00.000Z-1.325.3",
+    "environment": "production",
+    "version": "1.325.3",
+    "train": 325,
+    "patch": 3,
+    "tag": "v1.325.3",
+    "commit": "dd1829d11061573673b452f24151daec7b0fdbac",
+    "sourceUpdatedAt": "2025-12-10T19:23:00.000Z",
+    "observedAt": "2025-12-10T19:23:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-05T20:39:00.000Z-1.324.9",
+    "environment": "production",
+    "version": "1.324.9",
+    "train": 324,
+    "patch": 9,
+    "tag": "v1.324.9",
+    "commit": "2ca5f399b94ef14f3429c8d2c7803fbabcd5a4b7",
+    "sourceUpdatedAt": "2025-12-05T20:39:00.000Z",
+    "observedAt": "2025-12-05T20:39:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-04T21:09:00.000Z-1.323.6",
+    "environment": "production",
+    "version": "1.323.6",
+    "train": 323,
+    "patch": 6,
+    "tag": "v1.323.6",
+    "commit": "70ac89996f26b44d17203738d4fc0f8fbd78ba15",
+    "sourceUpdatedAt": "2025-12-04T21:09:00.000Z",
+    "observedAt": "2025-12-04T21:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-03T01:38:00.000Z-1.324.8",
+    "environment": "production",
+    "version": "1.324.8",
+    "train": 324,
+    "patch": 8,
+    "tag": "v1.324.8",
+    "commit": "7dd23f84f48b2141b1d48d0b66f14ab5b86dfa2a",
+    "sourceUpdatedAt": "2025-12-03T01:38:00.000Z",
+    "observedAt": "2025-12-03T01:38:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-12-02T00:14:00.000Z-1.323.6",
+    "environment": "production",
+    "version": "1.323.6",
+    "train": 323,
+    "patch": 6,
+    "tag": "v1.323.6",
+    "commit": "70ac89996f26b44d17203738d4fc0f8fbd78ba15",
+    "sourceUpdatedAt": "2025-12-02T00:14:00.000Z",
+    "observedAt": "2025-12-02T00:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-11-12T18:51:00.000Z-1.323.3",
+    "environment": "production",
+    "version": "1.323.3",
+    "train": 323,
+    "patch": 3,
+    "tag": "v1.323.3",
+    "commit": "894af371d5a06f29d45160bb6128b9c005e016d6",
+    "sourceUpdatedAt": "2025-11-12T18:51:00.000Z",
+    "observedAt": "2025-11-12T18:51:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-10-30T20:37:00.000Z-1.322.6",
+    "environment": "production",
+    "version": "1.322.6",
+    "train": 322,
+    "patch": 6,
+    "tag": "v1.322.6",
+    "commit": "d92ef61788d7ac10a32450e5df41dbf694efc304",
+    "sourceUpdatedAt": "2025-10-30T20:37:00.000Z",
+    "observedAt": "2025-10-30T20:37:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-10-29T21:57:00.000Z-1.322.3",
+    "environment": "production",
+    "version": "1.322.3",
+    "train": 322,
+    "patch": 3,
+    "tag": "v1.322.3",
+    "commit": "c43901b3b0be9b17c5de749787e52cbe9a07a8bb",
+    "sourceUpdatedAt": "2025-10-29T21:57:00.000Z",
+    "observedAt": "2025-10-29T21:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-10-28T20:46:00.000Z-1.321.4",
+    "environment": "production",
+    "version": "1.321.4",
+    "train": 321,
+    "patch": 4,
+    "tag": "v1.321.4",
+    "commit": "2b18260740d9ed3e939a1aa21a81f30c50f73709",
+    "sourceUpdatedAt": "2025-10-28T20:46:00.000Z",
+    "observedAt": "2025-10-28T20:46:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-10-15T17:36:00.000Z-1.321.2",
+    "environment": "production",
+    "version": "1.321.2",
+    "train": 321,
+    "patch": 2,
+    "tag": "v1.321.2",
+    "commit": "79557af5dfaff472e2c738646a5ac8b272eaffdd",
+    "sourceUpdatedAt": "2025-10-15T17:36:00.000Z",
+    "observedAt": "2025-10-15T17:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-10-01T17:39:00.000Z-1.320.7",
+    "environment": "production",
+    "version": "1.320.7",
+    "train": 320,
+    "patch": 7,
+    "tag": "v1.320.7",
+    "commit": "9dac026c36c2da67d27fc20c7bf3995681af7529",
+    "sourceUpdatedAt": "2025-10-01T17:39:00.000Z",
+    "observedAt": "2025-10-01T17:39:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-25T20:19:00.000Z-1.319.16",
+    "environment": "production",
+    "version": "1.319.16",
+    "train": 319,
+    "patch": 16,
+    "tag": "v1.319.16",
+    "commit": "3b640f454a687807da6ae7b09ba676b2a3980873",
+    "sourceUpdatedAt": "2025-09-25T20:19:00.000Z",
+    "observedAt": "2025-09-25T20:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-24T14:41:00.000Z-1.319.14",
+    "environment": "production",
+    "version": "1.319.14",
+    "train": 319,
+    "patch": 14,
+    "tag": "v1.319.14",
+    "commit": "e76e8778906b0996e1bd1661e0ef46c9ba3e5da4",
+    "sourceUpdatedAt": "2025-09-24T14:41:00.000Z",
+    "observedAt": "2025-09-24T14:41:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-23T21:09:00.000Z-1.319.13",
+    "environment": "production",
+    "version": "1.319.13",
+    "train": 319,
+    "patch": 13,
+    "tag": "v1.319.13",
+    "commit": "be587a1e2e6d54a57ea3824ba84f912acfc26cc7",
+    "sourceUpdatedAt": "2025-09-23T21:09:00.000Z",
+    "observedAt": "2025-09-23T21:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-23T20:39:00.000Z-1.319.13",
+    "environment": "production",
+    "version": "1.319.13",
+    "train": 319,
+    "patch": 13,
+    "tag": "v1.319.13",
+    "commit": "be587a1e2e6d54a57ea3824ba84f912acfc26cc7",
+    "sourceUpdatedAt": "2025-09-23T20:39:00.000Z",
+    "observedAt": "2025-09-23T20:39:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-22T20:13:00.000Z-1.319.9",
+    "environment": "production",
+    "version": "1.319.9",
+    "train": 319,
+    "patch": 9,
+    "tag": "v1.319.9",
+    "commit": "79be9a86a4c677ebdf5e70168a99159fb079860e",
+    "sourceUpdatedAt": "2025-09-22T20:13:00.000Z",
+    "observedAt": "2025-09-22T20:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-3032552206",
     "environment": "stage",
     "version": "1.319.9",
@@ -34,6 +1298,42 @@
     "sourceUpdatedAt": "2025-09-19T13:49:03Z",
     "observedAt": "2025-09-19T13:49:03Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-17T22:39:00.000Z-1.319.8",
+    "environment": "production",
+    "version": "1.319.8",
+    "train": 319,
+    "patch": 8,
+    "tag": "v1.319.8",
+    "commit": "34e56c712d276b127891ed5a6c67d248e3cfb600",
+    "sourceUpdatedAt": "2025-09-17T22:39:00.000Z",
+    "observedAt": "2025-09-17T22:39:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-17T22:09:00.000Z-1.319.8",
+    "environment": "production",
+    "version": "1.319.8",
+    "train": 319,
+    "patch": 8,
+    "tag": "v1.319.8",
+    "commit": "34e56c712d276b127891ed5a6c67d248e3cfb600",
+    "sourceUpdatedAt": "2025-09-17T22:09:00.000Z",
+    "observedAt": "2025-09-17T22:09:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-3023504286",
@@ -180,6 +1480,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-09-04T15:40:00.000Z-1.318.4",
+    "environment": "production",
+    "version": "1.318.4",
+    "train": 318,
+    "patch": 4,
+    "tag": "v1.318.4",
+    "commit": "c2229879d9cb38e7386d53f38aa2564f9f3bb202",
+    "sourceUpdatedAt": "2025-09-04T15:40:00.000Z",
+    "observedAt": "2025-09-04T15:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2962012732",
     "environment": "stage",
     "version": "1.318.4",
@@ -192,6 +1512,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-09-03T22:30:00.000Z-1.318.3",
+    "environment": "production",
+    "version": "1.318.3",
+    "train": 318,
+    "patch": 3,
+    "tag": "v1.318.3",
+    "commit": "888e02b9d0c26df2ed2c161965b69812cd0df34e",
+    "sourceUpdatedAt": "2025-09-03T22:30:00.000Z",
+    "observedAt": "2025-09-03T22:30:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2958400262",
     "environment": "stage",
     "version": "1.318.3",
@@ -202,6 +1542,62 @@
     "sourceUpdatedAt": "2025-09-03T21:47:32Z",
     "observedAt": "2025-09-03T21:47:32Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-03T19:30:00.000Z-1.317.5",
+    "environment": "production",
+    "version": "1.317.5",
+    "train": 317,
+    "patch": 5,
+    "tag": "v1.317.5",
+    "commit": "8d02f85a42e8602931ecda7d6dec9e4b053e1bad",
+    "sourceUpdatedAt": "2025-09-03T19:30:00.000Z",
+    "observedAt": "2025-09-03T19:30:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-03T19:00:00.000Z-1.317.5",
+    "environment": "production",
+    "version": "1.317.5",
+    "train": 317,
+    "patch": 5,
+    "tag": "v1.317.5",
+    "commit": "8d02f85a42e8602931ecda7d6dec9e4b053e1bad",
+    "sourceUpdatedAt": "2025-09-03T19:00:00.000Z",
+    "observedAt": "2025-09-03T19:00:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-09-03T18:30:00.000Z-1.318.2",
+    "environment": "production",
+    "version": "1.318.2",
+    "train": 318,
+    "patch": 2,
+    "tag": "v1.318.2",
+    "commit": "95d693c34d104e484abcaa5d854e7a3a173bdcbb",
+    "sourceUpdatedAt": "2025-09-03T18:30:00.000Z",
+    "observedAt": "2025-09-03T18:30:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2952602388",
@@ -228,6 +1624,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-08-28T19:06:00.000Z-1.317.5",
+    "environment": "production",
+    "version": "1.317.5",
+    "train": 317,
+    "patch": 5,
+    "tag": "v1.317.5",
+    "commit": "8d02f85a42e8602931ecda7d6dec9e4b053e1bad",
+    "sourceUpdatedAt": "2025-08-28T19:06:00.000Z",
+    "observedAt": "2025-08-28T19:06:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-08-28T18:36:00.000Z-1.317.5",
+    "environment": "production",
+    "version": "1.317.5",
+    "train": 317,
+    "patch": 5,
+    "tag": "v1.317.5",
+    "commit": "8d02f85a42e8602931ecda7d6dec9e4b053e1bad",
+    "sourceUpdatedAt": "2025-08-28T18:36:00.000Z",
+    "observedAt": "2025-08-28T18:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2932320726",
     "environment": "stage",
     "version": "1.317.5",
@@ -252,6 +1684,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-08-25T14:55:00.000Z-1.317.4",
+    "environment": "production",
+    "version": "1.317.4",
+    "train": 317,
+    "patch": 4,
+    "tag": "v1.317.4",
+    "commit": "db3cd3d669d6be4d1689179076b08182c89f4e44",
+    "sourceUpdatedAt": "2025-08-25T14:55:00.000Z",
+    "observedAt": "2025-08-25T14:55:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2902200946",
     "environment": "stage",
     "version": "1.317.4",
@@ -264,6 +1716,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-08-21T20:45:00.000Z-1.317.3",
+    "environment": "production",
+    "version": "1.317.3",
+    "train": 317,
+    "patch": 3,
+    "tag": "v1.317.3",
+    "commit": "9b532eae3a071f551edcfe4e7aaac429a80d337b",
+    "sourceUpdatedAt": "2025-08-21T20:45:00.000Z",
+    "observedAt": "2025-08-21T20:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2901769739",
     "environment": "stage",
     "version": "1.317.3",
@@ -274,6 +1746,26 @@
     "sourceUpdatedAt": "2025-08-21T19:45:36Z",
     "observedAt": "2025-08-21T19:45:36Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-08-20T18:03:00.000Z-1.317.2",
+    "environment": "production",
+    "version": "1.317.2",
+    "train": 317,
+    "patch": 2,
+    "tag": "v1.317.2",
+    "commit": "a196ad5c0b0c63da6a045c5f840052cd0accbe08",
+    "sourceUpdatedAt": "2025-08-20T18:03:00.000Z",
+    "observedAt": "2025-08-20T18:03:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2890895904",
@@ -312,6 +1804,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-08-07T22:33:00.000Z-1.316.4",
+    "environment": "production",
+    "version": "1.316.4",
+    "train": 316,
+    "patch": 4,
+    "tag": "v1.316.4",
+    "commit": "124d4e23cc55e36ac24d1014109155d01da5e15a",
+    "sourceUpdatedAt": "2025-08-07T22:33:00.000Z",
+    "observedAt": "2025-08-07T22:33:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2841772962",
     "environment": "stage",
     "version": "1.316.4",
@@ -334,6 +1846,46 @@
     "sourceUpdatedAt": "2025-08-07T02:26:04Z",
     "observedAt": "2025-08-07T02:26:04Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-08-06T17:33:00.000Z-1.316.2",
+    "environment": "production",
+    "version": "1.316.2",
+    "train": 316,
+    "patch": 2,
+    "tag": "v1.316.2",
+    "commit": "71aae88b6d8feed6b647af33a9452952c3b7649f",
+    "sourceUpdatedAt": "2025-08-06T17:33:00.000Z",
+    "observedAt": "2025-08-06T17:33:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-08-01T15:46:00.000Z-1.315.7",
+    "environment": "production",
+    "version": "1.315.7",
+    "train": 315,
+    "patch": 7,
+    "tag": "v1.315.7",
+    "commit": "273158503540e990f1227fcc5f1b51eca2366517",
+    "sourceUpdatedAt": "2025-08-01T15:46:00.000Z",
+    "observedAt": "2025-08-01T15:46:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2812958187",
@@ -396,6 +1948,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-07-29T18:38:00.000Z-1.315.5",
+    "environment": "production",
+    "version": "1.315.5",
+    "train": 315,
+    "patch": 5,
+    "tag": "v1.315.5",
+    "commit": "38cde7ad91445cfbc84e7e0360a82e89f5a7f849",
+    "sourceUpdatedAt": "2025-07-29T18:38:00.000Z",
+    "observedAt": "2025-07-29T18:38:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2801476760",
     "environment": "stage",
     "version": "1.315.5",
@@ -406,6 +1978,26 @@
     "sourceUpdatedAt": "2025-07-29T17:47:05Z",
     "observedAt": "2025-07-29T17:47:05Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-07-23T17:58:00.000Z-1.315.3",
+    "environment": "production",
+    "version": "1.315.3",
+    "train": 315,
+    "patch": 3,
+    "tag": "v1.315.3",
+    "commit": "665a47f4a46a9d6fab5871d730b53731e12a2dc6",
+    "sourceUpdatedAt": "2025-07-23T17:58:00.000Z",
+    "observedAt": "2025-07-23T17:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2772908715",
@@ -456,6 +2048,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-07-14T17:12:00.000Z-1.314.7",
+    "environment": "production",
+    "version": "1.314.7",
+    "train": 314,
+    "patch": 7,
+    "tag": "v1.314.7",
+    "commit": "e6a1459e36692c86a14a9dfda085bd6197b2ab3e",
+    "sourceUpdatedAt": "2025-07-14T17:12:00.000Z",
+    "observedAt": "2025-07-14T17:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2738515194",
     "environment": "stage",
     "version": "1.314.7",
@@ -480,6 +2092,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-07-10T22:10:00.000Z-1.314.5",
+    "environment": "production",
+    "version": "1.314.5",
+    "train": 314,
+    "patch": 5,
+    "tag": "v1.314.5",
+    "commit": "b676986f5c52ee02924f74fd41614c50ac005573",
+    "sourceUpdatedAt": "2025-07-10T22:10:00.000Z",
+    "observedAt": "2025-07-10T22:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2726540032",
     "environment": "stage",
     "version": "1.314.5",
@@ -490,6 +2122,26 @@
     "sourceUpdatedAt": "2025-07-10T21:29:45Z",
     "observedAt": "2025-07-10T21:29:45Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-07-09T19:14:00.000Z-1.314.4",
+    "environment": "production",
+    "version": "1.314.4",
+    "train": 314,
+    "patch": 4,
+    "tag": "v1.314.4",
+    "commit": "e1342dc2bfe317d1c78a28ac74de5345d28c30d4",
+    "sourceUpdatedAt": "2025-07-09T19:14:00.000Z",
+    "observedAt": "2025-07-09T19:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2720900874",
@@ -528,6 +2180,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-07-03T21:58:00.000Z-1.313.11",
+    "environment": "production",
+    "version": "1.313.11",
+    "train": 313,
+    "patch": 11,
+    "tag": "v1.313.11",
+    "commit": "fa5a4d72da682452b4431731d0e3756df550f13b",
+    "sourceUpdatedAt": "2025-07-03T21:58:00.000Z",
+    "observedAt": "2025-07-03T21:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2698987373",
     "environment": "stage",
     "version": "1.313.11",
@@ -564,6 +2236,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-07-01T20:18:00.000Z-1.313.10",
+    "environment": "production",
+    "version": "1.313.10",
+    "train": 313,
+    "patch": 10,
+    "tag": "v1.313.10",
+    "commit": "3d33012799b7e2fbf420430dea4f24556b69e581",
+    "sourceUpdatedAt": "2025-07-01T20:18:00.000Z",
+    "observedAt": "2025-07-01T20:18:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2688994688",
     "environment": "stage",
     "version": "1.313.10",
@@ -574,6 +2266,42 @@
     "sourceUpdatedAt": "2025-07-01T19:33:40Z",
     "observedAt": "2025-07-01T19:33:40Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-06-25T18:22:00.000Z-1.313.9",
+    "environment": "production",
+    "version": "1.313.9",
+    "train": 313,
+    "patch": 9,
+    "tag": "v1.313.9",
+    "commit": "ba254b805260257e6f3075bbae2ec0643977bf91",
+    "sourceUpdatedAt": "2025-06-25T18:22:00.000Z",
+    "observedAt": "2025-06-25T18:22:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-06-25T17:52:00.000Z-1.313.9",
+    "environment": "production",
+    "version": "1.313.9",
+    "train": 313,
+    "patch": 9,
+    "tag": "v1.313.9",
+    "commit": "ba254b805260257e6f3075bbae2ec0643977bf91",
+    "sourceUpdatedAt": "2025-06-25T17:52:00.000Z",
+    "observedAt": "2025-06-25T17:52:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2665387617",
@@ -622,6 +2350,26 @@
     "sourceUpdatedAt": "2025-06-18T15:47:14Z",
     "observedAt": "2025-06-18T15:47:14Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-06-18T15:26:00.000Z-1.312.9",
+    "environment": "production",
+    "version": "1.312.9",
+    "train": 312,
+    "patch": 9,
+    "tag": "v1.312.9",
+    "commit": "2519d37d19417d919b83ae5a69c5e93eb9d4030e",
+    "sourceUpdatedAt": "2025-06-18T15:26:00.000Z",
+    "observedAt": "2025-06-18T15:26:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2638138419",
@@ -684,6 +2432,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-06-13T15:31:00.000Z-1.312.3",
+    "environment": "production",
+    "version": "1.312.3",
+    "train": 312,
+    "patch": 3,
+    "tag": "v1.312.3",
+    "commit": "6e64db833c6972cb11cc931976e0dfaf1ba223b7",
+    "sourceUpdatedAt": "2025-06-13T15:31:00.000Z",
+    "observedAt": "2025-06-13T15:31:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2617328204",
     "environment": "stage",
     "version": "1.312.3",
@@ -694,6 +2462,26 @@
     "sourceUpdatedAt": "2025-06-12T22:13:43Z",
     "observedAt": "2025-06-12T22:13:43Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-06-11T18:47:00.000Z-1.312.2",
+    "environment": "production",
+    "version": "1.312.2",
+    "train": 312,
+    "patch": 2,
+    "tag": "v1.312.2",
+    "commit": "370ecdfe5ad319ce8bb764c86eea40f4b8babab7",
+    "sourceUpdatedAt": "2025-06-11T18:47:00.000Z",
+    "observedAt": "2025-06-11T18:47:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2595077135",
@@ -732,6 +2520,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-06-03T19:58:00.000Z-1.311.7",
+    "environment": "production",
+    "version": "1.311.7",
+    "train": 311,
+    "patch": 7,
+    "tag": "v1.311.7",
+    "commit": "555a6b149465bc4a465296de49646b9998e9003e",
+    "sourceUpdatedAt": "2025-06-03T19:58:00.000Z",
+    "observedAt": "2025-06-03T19:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2580767907",
     "environment": "stage",
     "version": "1.311.7",
@@ -768,6 +2576,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-05-29T17:57:00.000Z-1.311.4",
+    "environment": "production",
+    "version": "1.311.4",
+    "train": 311,
+    "patch": 4,
+    "tag": "v1.311.4",
+    "commit": "3edd59cddc46c06766354837e8cf5dbc979be15d",
+    "sourceUpdatedAt": "2025-05-29T17:57:00.000Z",
+    "observedAt": "2025-05-29T17:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2560376484",
     "environment": "stage",
     "version": "1.311.4",
@@ -780,6 +2608,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-05-28T17:18:00.000Z-1.311.3",
+    "environment": "production",
+    "version": "1.311.3",
+    "train": 311,
+    "patch": 3,
+    "tag": "v1.311.3",
+    "commit": "2be51d68d11ca5a009e9faba11f47906f052d89b",
+    "sourceUpdatedAt": "2025-05-28T17:18:00.000Z",
+    "observedAt": "2025-05-28T17:18:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2555421823",
     "environment": "stage",
     "version": "1.311.3",
@@ -790,6 +2638,46 @@
     "sourceUpdatedAt": "2025-05-27T19:43:43Z",
     "observedAt": "2025-05-27T19:43:43Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-27T18:00:00.000Z-1.310.12",
+    "environment": "production",
+    "version": "1.310.12",
+    "train": 310,
+    "patch": 12,
+    "tag": "v1.310.12",
+    "commit": "77bb0d7c8f2ae6884c1d0f12c11e41d5a206f5a3",
+    "sourceUpdatedAt": "2025-05-27T18:00:00.000Z",
+    "observedAt": "2025-05-27T18:00:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-23T13:44:00.000Z-1.310.10",
+    "environment": "production",
+    "version": "1.310.10",
+    "train": 310,
+    "patch": 10,
+    "tag": "v1.310.10",
+    "commit": "4cc23f06cac072745fb118a334c0e802b30291c0",
+    "sourceUpdatedAt": "2025-05-23T13:44:00.000Z",
+    "observedAt": "2025-05-23T13:44:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2540179674",
@@ -816,6 +2704,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-05-22T21:34:00.000Z-1.310.9",
+    "environment": "production",
+    "version": "1.310.9",
+    "train": 310,
+    "patch": 9,
+    "tag": "v1.310.9",
+    "commit": "7f026bff8d9fdbb29b515c4b5c638779aaddace8",
+    "sourceUpdatedAt": "2025-05-22T21:34:00.000Z",
+    "observedAt": "2025-05-22T21:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-22T21:04:00.000Z-1.310.9",
+    "environment": "production",
+    "version": "1.310.9",
+    "train": 310,
+    "patch": 9,
+    "tag": "v1.310.9",
+    "commit": "7f026bff8d9fdbb29b515c4b5c638779aaddace8",
+    "sourceUpdatedAt": "2025-05-22T21:04:00.000Z",
+    "observedAt": "2025-05-22T21:04:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2539235997",
     "environment": "stage",
     "version": "1.310.9",
@@ -828,6 +2752,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-05-22T13:34:00.000Z-1.310.8",
+    "environment": "production",
+    "version": "1.310.8",
+    "train": 310,
+    "patch": 8,
+    "tag": "v1.310.8",
+    "commit": "d94cdb03d3d2f7100403cf59f760fc2baf89ca1f",
+    "sourceUpdatedAt": "2025-05-22T13:34:00.000Z",
+    "observedAt": "2025-05-22T13:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2535008715",
     "environment": "stage",
     "version": "1.311.1",
@@ -838,6 +2782,26 @@
     "sourceUpdatedAt": "2025-05-21T21:47:36Z",
     "observedAt": "2025-05-21T21:47:36Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-21T13:13:00.000Z-1.310.7",
+    "environment": "production",
+    "version": "1.310.7",
+    "train": 310,
+    "patch": 7,
+    "tag": "v1.310.7",
+    "commit": "c7e64c94931326fd6faf77fa800af19c695ace97",
+    "sourceUpdatedAt": "2025-05-21T13:13:00.000Z",
+    "observedAt": "2025-05-21T13:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2530267564",
@@ -862,6 +2826,26 @@
     "sourceUpdatedAt": "2025-05-20T17:33:58Z",
     "observedAt": "2025-05-20T17:33:58Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-19T16:35:00.000Z-1.310.3",
+    "environment": "production",
+    "version": "1.310.3",
+    "train": 310,
+    "patch": 3,
+    "tag": "v1.310.3",
+    "commit": "a00ddca36e8f8035ef22307759acaac8b1b7c85d",
+    "sourceUpdatedAt": "2025-05-19T16:35:00.000Z",
+    "observedAt": "2025-05-19T16:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2517718993",
@@ -912,6 +2896,46 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-05-14T21:50:00.000Z-1.310.2",
+    "environment": "production",
+    "version": "1.310.2",
+    "train": 310,
+    "patch": 2,
+    "tag": "v1.310.2",
+    "commit": "c571b854c90ba025d5cec5144f691b01d2a19c42",
+    "sourceUpdatedAt": "2025-05-14T21:50:00.000Z",
+    "observedAt": "2025-05-14T21:50:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-05-14T18:20:00.000Z-1.310.1",
+    "environment": "production",
+    "version": "1.310.1",
+    "train": 310,
+    "patch": 1,
+    "tag": "v1.310.1",
+    "commit": "54d7e4b9af7b10e7e1f7cc3e040ddac40785d5d5",
+    "sourceUpdatedAt": "2025-05-14T18:20:00.000Z",
+    "observedAt": "2025-05-14T18:20:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2488043620",
     "environment": "stage",
     "version": "1.310.1",
@@ -934,6 +2958,26 @@
     "sourceUpdatedAt": "2025-05-07T20:37:36Z",
     "observedAt": "2025-05-07T20:37:36Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-30T17:32:00.000Z-1.309.2",
+    "environment": "production",
+    "version": "1.309.2",
+    "train": 309,
+    "patch": 2,
+    "tag": "v1.309.2",
+    "commit": "a1fb217159b2a886df2958a29fabb1c32a1d3447",
+    "sourceUpdatedAt": "2025-04-30T17:32:00.000Z",
+    "observedAt": "2025-04-30T17:32:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2455224598",
@@ -972,6 +3016,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-04-17T16:27:00.000Z-1.308.3",
+    "environment": "production",
+    "version": "1.308.3",
+    "train": 308,
+    "patch": 3,
+    "tag": "v1.308.3",
+    "commit": "3464736270b2dce7bf81ae205e518a872b8a7f18",
+    "sourceUpdatedAt": "2025-04-17T16:27:00.000Z",
+    "observedAt": "2025-04-17T16:27:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-17T15:57:00.000Z-1.308.3",
+    "environment": "production",
+    "version": "1.308.3",
+    "train": 308,
+    "patch": 3,
+    "tag": "v1.308.3",
+    "commit": "3464736270b2dce7bf81ae205e518a872b8a7f18",
+    "sourceUpdatedAt": "2025-04-17T15:57:00.000Z",
+    "observedAt": "2025-04-17T15:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2416168875",
     "environment": "stage",
     "version": "1.308.3",
@@ -982,6 +3062,46 @@
     "sourceUpdatedAt": "2025-04-17T14:40:29Z",
     "observedAt": "2025-04-17T14:40:29Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-16T21:48:00.000Z-1.307.5",
+    "environment": "production",
+    "version": "1.307.5",
+    "train": 307,
+    "patch": 5,
+    "tag": "v1.307.5",
+    "commit": "873ed4f616e23b7995d52265d6a193b0d885c9a5",
+    "sourceUpdatedAt": "2025-04-16T21:48:00.000Z",
+    "observedAt": "2025-04-16T21:48:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-16T20:48:00.000Z-1.308.2",
+    "environment": "production",
+    "version": "1.308.2",
+    "train": 308,
+    "patch": 2,
+    "tag": "v1.308.2",
+    "commit": "642f918d89ff5654df8ffec3c6d10637b1b40fc7",
+    "sourceUpdatedAt": "2025-04-16T20:48:00.000Z",
+    "observedAt": "2025-04-16T20:48:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2412953356",
@@ -1020,6 +3140,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-04-08T21:59:00.000Z-1.307.5",
+    "environment": "production",
+    "version": "1.307.5",
+    "train": 307,
+    "patch": 5,
+    "tag": "v1.307.5",
+    "commit": "873ed4f616e23b7995d52265d6a193b0d885c9a5",
+    "sourceUpdatedAt": "2025-04-08T21:59:00.000Z",
+    "observedAt": "2025-04-08T21:59:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2384074657",
     "environment": "stage",
     "version": "1.307.5",
@@ -1032,6 +3172,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-04-07T20:32:00.000Z-1.307.4",
+    "environment": "production",
+    "version": "1.307.4",
+    "train": 307,
+    "patch": 4,
+    "tag": "v1.307.4",
+    "commit": "b6fd53b523e5dbc5f5691af8ee05ea6663b62ad8",
+    "sourceUpdatedAt": "2025-04-07T20:32:00.000Z",
+    "observedAt": "2025-04-07T20:32:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-07T20:02:00.000Z-1.307.4",
+    "environment": "production",
+    "version": "1.307.4",
+    "train": 307,
+    "patch": 4,
+    "tag": "v1.307.4",
+    "commit": "b6fd53b523e5dbc5f5691af8ee05ea6663b62ad8",
+    "sourceUpdatedAt": "2025-04-07T20:02:00.000Z",
+    "observedAt": "2025-04-07T20:02:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2379312301",
     "environment": "stage",
     "version": "1.307.4",
@@ -1042,6 +3218,26 @@
     "sourceUpdatedAt": "2025-04-07T19:35:35Z",
     "observedAt": "2025-04-07T19:35:35Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-04-02T16:36:00.000Z-1.307.3",
+    "environment": "production",
+    "version": "1.307.3",
+    "train": 307,
+    "patch": 3,
+    "tag": "v1.307.3",
+    "commit": "1bf8161490e96eb769b535dcad41dcb7f703a567",
+    "sourceUpdatedAt": "2025-04-02T16:36:00.000Z",
+    "observedAt": "2025-04-02T16:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2347733071",
@@ -1104,6 +3300,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-03-20T17:44:00.000Z-1.306.5",
+    "environment": "production",
+    "version": "1.306.5",
+    "train": 306,
+    "patch": 5,
+    "tag": "v1.306.5",
+    "commit": "cddd82f751cfb084017a23d985614043b1f04e89",
+    "sourceUpdatedAt": "2025-03-20T17:44:00.000Z",
+    "observedAt": "2025-03-20T17:44:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-03-20T17:14:00.000Z-1.306.5",
+    "environment": "production",
+    "version": "1.306.5",
+    "train": 306,
+    "patch": 5,
+    "tag": "v1.306.5",
+    "commit": "cddd82f751cfb084017a23d985614043b1f04e89",
+    "sourceUpdatedAt": "2025-03-20T17:14:00.000Z",
+    "observedAt": "2025-03-20T17:14:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2318393414",
     "environment": "stage",
     "version": "1.306.5",
@@ -1114,6 +3346,58 @@
     "sourceUpdatedAt": "2025-03-20T16:08:49Z",
     "observedAt": "2025-03-20T16:08:49Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-03-19T18:42:00.000Z-1.306.4",
+    "environment": "production",
+    "version": "1.306.4",
+    "train": 306,
+    "patch": 4,
+    "tag": "v1.306.4",
+    "commit": "eac950b4054d185d9c20fb41a47856da1b919a0c",
+    "sourceUpdatedAt": "2025-03-19T18:42:00.000Z",
+    "observedAt": "2025-03-19T18:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-03-19T18:12:00.000Z-1.306.4",
+    "environment": "production",
+    "version": "1.306.4",
+    "train": 306,
+    "patch": 4,
+    "tag": "v1.306.4",
+    "commit": "eac950b4054d185d9c20fb41a47856da1b919a0c",
+    "sourceUpdatedAt": "2025-03-19T18:12:00.000Z",
+    "observedAt": "2025-03-19T18:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-03-19T17:42:00.000Z-1.306.4",
+    "environment": "production",
+    "version": "1.306.4",
+    "train": 306,
+    "patch": 4,
+    "tag": "v1.306.4",
+    "commit": "eac950b4054d185d9c20fb41a47856da1b919a0c",
+    "sourceUpdatedAt": "2025-03-19T17:42:00.000Z",
+    "observedAt": "2025-03-19T17:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2310938689",
@@ -1176,6 +3460,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-03-05T20:24:00.000Z-1.305.0",
+    "environment": "production",
+    "version": "1.305.0",
+    "train": 305,
+    "patch": 0,
+    "tag": "v1.305.0",
+    "commit": "d7917de3de9763254d3ce144c539d286d344a01e",
+    "sourceUpdatedAt": "2025-03-05T20:24:00.000Z",
+    "observedAt": "2025-03-05T20:24:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2245103289",
     "environment": "stage",
     "version": "1.305.0",
@@ -1186,6 +3490,24 @@
     "sourceUpdatedAt": "2025-02-26T22:34:21Z",
     "observedAt": "2025-02-26T22:34:21Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-02-26T19:44:00.000Z-1.304.9",
+    "environment": "production",
+    "version": "1.304.9",
+    "train": 304,
+    "patch": 9,
+    "tag": "v1.304.9",
+    "commit": "734f91369863490d7a16ed2d2eaf22cfe6ece2fc",
+    "sourceUpdatedAt": "2025-02-26T19:44:00.000Z",
+    "observedAt": "2025-02-26T19:44:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2244350135",
@@ -1212,6 +3534,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-02-20T18:20:00.000Z-1.304.4",
+    "environment": "production",
+    "version": "1.304.4",
+    "train": 304,
+    "patch": 4,
+    "tag": "v1.304.4",
+    "commit": "6904854f64ae96237238c74e0607a3b067bf20db",
+    "sourceUpdatedAt": "2025-02-20T18:20:00.000Z",
+    "observedAt": "2025-02-20T18:20:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2222346992",
     "environment": "stage",
     "version": "1.304.4",
@@ -1222,6 +3564,46 @@
     "sourceUpdatedAt": "2025-02-20T00:48:57Z",
     "observedAt": "2025-02-20T00:48:57Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-02-19T22:50:00.000Z-1.303.5",
+    "environment": "production",
+    "version": "1.303.5",
+    "train": 303,
+    "patch": 5,
+    "tag": "v1.303.5",
+    "commit": "7c1ac52277fa6845ed433aa584cf1c1218d99dec",
+    "sourceUpdatedAt": "2025-02-19T22:50:00.000Z",
+    "observedAt": "2025-02-19T22:50:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-02-19T18:50:00.000Z-1.304.3",
+    "environment": "production",
+    "version": "1.304.3",
+    "train": 304,
+    "patch": 3,
+    "tag": "v1.304.3",
+    "commit": "a88bb11a8efd557d6386e051fa0b567a28000692",
+    "sourceUpdatedAt": "2025-02-19T18:50:00.000Z",
+    "observedAt": "2025-02-19T18:50:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2206983179",
@@ -1272,6 +3654,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-02-06T22:04:00.000Z-1.303.5",
+    "environment": "production",
+    "version": "1.303.5",
+    "train": 303,
+    "patch": 5,
+    "tag": "v1.303.5",
+    "commit": "7c1ac52277fa6845ed433aa584cf1c1218d99dec",
+    "sourceUpdatedAt": "2025-02-06T22:04:00.000Z",
+    "observedAt": "2025-02-06T22:04:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2180788887",
     "environment": "stage",
     "version": "1.303.5",
@@ -1284,6 +3686,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-02-05T23:23:00.000Z-1.303.4",
+    "environment": "production",
+    "version": "1.303.4",
+    "train": 303,
+    "patch": 4,
+    "tag": "v1.303.4",
+    "commit": "a910c1f53067165d6251bab321b59ccdf302f9fb",
+    "sourceUpdatedAt": "2025-02-05T23:23:00.000Z",
+    "observedAt": "2025-02-05T23:23:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-02-05T22:53:00.000Z-1.303.4",
+    "environment": "production",
+    "version": "1.303.4",
+    "train": 303,
+    "patch": 4,
+    "tag": "v1.303.4",
+    "commit": "a910c1f53067165d6251bab321b59ccdf302f9fb",
+    "sourceUpdatedAt": "2025-02-05T22:53:00.000Z",
+    "observedAt": "2025-02-05T22:53:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2177523392",
     "environment": "stage",
     "version": "1.303.4",
@@ -1294,6 +3732,26 @@
     "sourceUpdatedAt": "2025-02-05T22:20:16Z",
     "observedAt": "2025-02-05T22:20:16Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-02-05T18:53:00.000Z-1.303.3",
+    "environment": "production",
+    "version": "1.303.3",
+    "train": 303,
+    "patch": 3,
+    "tag": "v1.303.3",
+    "commit": "0abe024110728dd3e9e2724df77cb08bfe48fd74",
+    "sourceUpdatedAt": "2025-02-05T18:53:00.000Z",
+    "observedAt": "2025-02-05T18:53:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2176865453",
@@ -1344,6 +3802,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-01-22T20:46:00.000Z-1.302.2",
+    "environment": "production",
+    "version": "1.302.2",
+    "train": 302,
+    "patch": 2,
+    "tag": "v1.302.2",
+    "commit": "e364c80d4ee9960f508a933755b4e76a37cbc6da",
+    "sourceUpdatedAt": "2025-01-22T20:46:00.000Z",
+    "observedAt": "2025-01-22T20:46:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2131309725",
     "environment": "stage",
     "version": "1.302.2",
@@ -1354,6 +3832,142 @@
     "sourceUpdatedAt": "2025-01-21T23:44:30Z",
     "observedAt": "2025-01-21T23:44:30Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-21T19:48:00.000Z-1.301.8",
+    "environment": "production",
+    "version": "1.301.8",
+    "train": 301,
+    "patch": 8,
+    "tag": "v1.301.8",
+    "commit": "d2389e7686f5eae7f20ebd2b9911c0ea5121b3b6",
+    "sourceUpdatedAt": "2025-01-21T19:48:00.000Z",
+    "observedAt": "2025-01-21T19:48:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-21T19:18:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-21T19:18:00.000Z",
+    "observedAt": "2025-01-21T19:18:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-17T17:15:00.000Z-1.301.8",
+    "environment": "production",
+    "version": "1.301.8",
+    "train": 301,
+    "patch": 8,
+    "tag": "v1.301.8",
+    "commit": "d2389e7686f5eae7f20ebd2b9911c0ea5121b3b6",
+    "sourceUpdatedAt": "2025-01-17T17:15:00.000Z",
+    "observedAt": "2025-01-17T17:15:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-17T16:45:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-17T16:45:00.000Z",
+    "observedAt": "2025-01-17T16:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-17T08:15:00.000Z-1.301.8",
+    "environment": "production",
+    "version": "1.301.8",
+    "train": 301,
+    "patch": 8,
+    "tag": "v1.301.8",
+    "commit": "d2389e7686f5eae7f20ebd2b9911c0ea5121b3b6",
+    "sourceUpdatedAt": "2025-01-17T08:15:00.000Z",
+    "observedAt": "2025-01-17T08:15:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-17T07:45:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-17T07:45:00.000Z",
+    "observedAt": "2025-01-17T07:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-16T03:31:00.000Z-1.301.8",
+    "environment": "production",
+    "version": "1.301.8",
+    "train": 301,
+    "patch": 8,
+    "tag": "v1.301.8",
+    "commit": "d2389e7686f5eae7f20ebd2b9911c0ea5121b3b6",
+    "sourceUpdatedAt": "2025-01-16T03:31:00.000Z",
+    "observedAt": "2025-01-16T03:31:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-16T03:00:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-16T03:00:00.000Z",
+    "observedAt": "2025-01-16T03:00:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2114784283",
@@ -1380,6 +3994,43 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-01-15T16:16:00.000Z-1.301.8",
+    "environment": "production",
+    "version": "1.301.8",
+    "train": 301,
+    "patch": 8,
+    "tag": "v1.301.8",
+    "commit": "d2389e7686f5eae7f20ebd2b9911c0ea5121b3b6",
+    "sourceUpdatedAt": "2025-01-15T16:16:00.000Z",
+    "observedAt": "2025-01-15T16:16:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-15T15:46:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-15T15:46:00.000Z",
+    "observedAt": "2025-01-15T15:46:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2111156548",
     "environment": "stage",
     "version": "1.301.8",
@@ -1404,6 +4055,176 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2025-01-14T19:19:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-14T19:19:00.000Z",
+    "observedAt": "2025-01-14T19:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-14T18:49:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-14T18:49:00.000Z",
+    "observedAt": "2025-01-14T18:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-13T22:19:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-13T22:19:00.000Z",
+    "observedAt": "2025-01-13T22:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-13T21:49:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-13T21:49:00.000Z",
+    "observedAt": "2025-01-13T21:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-13T07:19:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-13T07:19:00.000Z",
+    "observedAt": "2025-01-13T07:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-13T06:49:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-13T06:49:00.000Z",
+    "observedAt": "2025-01-13T06:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-10T08:10:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-10T08:10:00.000Z",
+    "observedAt": "2025-01-10T08:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-10T07:40:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-10T07:40:00.000Z",
+    "observedAt": "2025-01-10T07:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-09T10:56:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-09T10:56:00.000Z",
+    "observedAt": "2025-01-09T10:56:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-09T10:26:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2025-01-09T10:26:00.000Z",
+    "observedAt": "2025-01-09T10:26:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2095221424",
     "environment": "stage",
     "version": "1.301.5",
@@ -1414,6 +4235,26 @@
     "sourceUpdatedAt": "2025-01-08T23:24:06Z",
     "observedAt": "2025-01-08T23:24:06Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2025-01-08T21:33:00.000Z-1.301.4",
+    "environment": "production",
+    "version": "1.301.4",
+    "train": 301,
+    "patch": 4,
+    "tag": "v1.301.4",
+    "commit": "3c3dfd5df685717070fb4572bd552a77c5bee5f3",
+    "sourceUpdatedAt": "2025-01-08T21:33:00.000Z",
+    "observedAt": "2025-01-08T21:33:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2094890955",
@@ -1488,6 +4329,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-12-11T18:42:00.000Z-1.299.3",
+    "environment": "production",
+    "version": "1.299.3",
+    "train": 299,
+    "patch": 3,
+    "tag": "v1.299.3",
+    "commit": "8745d1203224b3278156a1dfd98cfcc11e9a0d48",
+    "sourceUpdatedAt": "2024-12-11T18:42:00.000Z",
+    "observedAt": "2024-12-11T18:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2029968988",
     "environment": "stage",
     "version": "1.299.3",
@@ -1498,6 +4359,26 @@
     "sourceUpdatedAt": "2024-12-11T02:18:33Z",
     "observedAt": "2024-12-11T02:18:33Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-12-10T00:02:00.000Z-1.298.9",
+    "environment": "production",
+    "version": "1.298.9",
+    "train": 298,
+    "patch": 9,
+    "tag": "v1.298.9",
+    "commit": "9185458b5a95f36a40a11b2f3fe7ae2db5f23c70",
+    "sourceUpdatedAt": "2024-12-10T00:02:00.000Z",
+    "observedAt": "2024-12-10T00:02:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-2025989248",
@@ -1536,6 +4417,46 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-12-05T20:13:00.000Z-1.298.8",
+    "environment": "production",
+    "version": "1.298.8",
+    "train": 298,
+    "patch": 8,
+    "tag": "v1.298.8",
+    "commit": "9f3c0c981f11e25fb1468fc05a6eb420806cdf69",
+    "sourceUpdatedAt": "2024-12-05T20:13:00.000Z",
+    "observedAt": "2024-12-05T20:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-12-05T18:13:00.000Z-1.298.7",
+    "environment": "production",
+    "version": "1.298.7",
+    "train": 298,
+    "patch": 7,
+    "tag": "v1.298.7",
+    "commit": "a43b8467fc3c9e058a32a163f1e093ecaea26acf",
+    "sourceUpdatedAt": "2024-12-05T18:13:00.000Z",
+    "observedAt": "2024-12-05T18:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-2013141649",
     "environment": "stage",
     "version": "1.299.1",
@@ -1570,6 +4491,46 @@
     "sourceUpdatedAt": "2024-12-04T21:06:53Z",
     "observedAt": "2024-12-04T21:06:53Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-12-02T17:45:00.000Z-1.298.6",
+    "environment": "production",
+    "version": "1.298.6",
+    "train": 298,
+    "patch": 6,
+    "tag": "v1.298.6",
+    "commit": "386dc0151bc579a55245e256e24bb1f292dedad6",
+    "sourceUpdatedAt": "2024-12-02T17:45:00.000Z",
+    "observedAt": "2024-12-02T17:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-12-02T16:45:00.000Z-1.298.3",
+    "environment": "production",
+    "version": "1.298.3",
+    "train": 298,
+    "patch": 3,
+    "tag": "v1.298.3",
+    "commit": "506cc4164c998583290d5503e4f72ebaf6067d3b",
+    "sourceUpdatedAt": "2024-12-02T16:45:00.000Z",
+    "observedAt": "2024-12-02T16:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1997912624",
@@ -1620,6 +4581,46 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-11-27T21:12:00.000Z-1.297.3",
+    "environment": "production",
+    "version": "1.297.3",
+    "train": 297,
+    "patch": 3,
+    "tag": "v1.297.3",
+    "commit": "52af2f15c6beb0453f29a6b14dc7250b7f979eaf",
+    "sourceUpdatedAt": "2024-11-27T21:12:00.000Z",
+    "observedAt": "2024-11-27T21:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-11-27T20:12:00.000Z-1.298.3",
+    "environment": "production",
+    "version": "1.298.3",
+    "train": 298,
+    "patch": 3,
+    "tag": "v1.298.3",
+    "commit": "506cc4164c998583290d5503e4f72ebaf6067d3b",
+    "sourceUpdatedAt": "2024-11-27T20:12:00.000Z",
+    "observedAt": "2024-11-27T20:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-1991372658",
     "environment": "stage",
     "version": "1.298.3",
@@ -1666,6 +4667,26 @@
     "sourceUpdatedAt": "2024-11-20T23:21:24Z",
     "observedAt": "2024-11-20T23:21:24Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-11-13T18:33:00.000Z-1.297.3",
+    "environment": "production",
+    "version": "1.297.3",
+    "train": 297,
+    "patch": 3,
+    "tag": "v1.297.3",
+    "commit": "52af2f15c6beb0453f29a6b14dc7250b7f979eaf",
+    "sourceUpdatedAt": "2024-11-13T18:33:00.000Z",
+    "observedAt": "2024-11-13T18:33:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1943790622",
@@ -1716,6 +4737,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-11-04T20:34:00.000Z-1.296.9",
+    "environment": "production",
+    "version": "1.296.9",
+    "train": 296,
+    "patch": 9,
+    "tag": "v1.296.9",
+    "commit": "f4be6c3fb0513dfff220524903f2c5a5521cf7de",
+    "sourceUpdatedAt": "2024-11-04T20:34:00.000Z",
+    "observedAt": "2024-11-04T20:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-1930445293",
     "environment": "stage",
     "version": "1.296.9",
@@ -1726,6 +4767,42 @@
     "sourceUpdatedAt": "2024-11-04T19:39:55Z",
     "observedAt": "2024-11-04T19:39:55Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-31T21:35:00.000Z-1.296.8",
+    "environment": "production",
+    "version": "1.296.8",
+    "train": 296,
+    "patch": 8,
+    "tag": "v1.296.8",
+    "commit": "f9f8e66b4ad8f7549858101b714768813e3a7a18",
+    "sourceUpdatedAt": "2024-10-31T21:35:00.000Z",
+    "observedAt": "2024-10-31T21:35:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-31T21:05:00.000Z-1.296.8",
+    "environment": "production",
+    "version": "1.296.8",
+    "train": 296,
+    "patch": 8,
+    "tag": "v1.296.8",
+    "commit": "f9f8e66b4ad8f7549858101b714768813e3a7a18",
+    "sourceUpdatedAt": "2024-10-31T21:05:00.000Z",
+    "observedAt": "2024-10-31T21:05:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1922369194",
@@ -1752,6 +4829,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-10-30T17:42:00.000Z-1.296.6",
+    "environment": "production",
+    "version": "1.296.6",
+    "train": 296,
+    "patch": 6,
+    "tag": "v1.296.6",
+    "commit": "cf8060f05dbf952195f0bd1daad14ea970eb2fe0",
+    "sourceUpdatedAt": "2024-10-30T17:42:00.000Z",
+    "observedAt": "2024-10-30T17:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-1918463542",
     "environment": "stage",
     "version": "1.296.6",
@@ -1774,6 +4871,42 @@
     "sourceUpdatedAt": "2024-10-29T19:36:23Z",
     "observedAt": "2024-10-29T19:36:23Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-29T18:36:00.000Z-1.295.9",
+    "environment": "production",
+    "version": "1.295.9",
+    "train": 295,
+    "patch": 9,
+    "tag": "v1.295.9",
+    "commit": "19a23a3696ca4125b30a5dabb78344e0783f23ae",
+    "sourceUpdatedAt": "2024-10-29T18:36:00.000Z",
+    "observedAt": "2024-10-29T18:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-29T18:06:00.000Z-1.295.9",
+    "environment": "production",
+    "version": "1.295.9",
+    "train": 295,
+    "patch": 9,
+    "tag": "v1.295.9",
+    "commit": "19a23a3696ca4125b30a5dabb78344e0783f23ae",
+    "sourceUpdatedAt": "2024-10-29T18:06:00.000Z",
+    "observedAt": "2024-10-29T18:06:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1915497697",
@@ -1810,6 +4943,26 @@
     "sourceUpdatedAt": "2024-10-28T21:04:50Z",
     "observedAt": "2024-10-28T21:04:50Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-28T20:56:00.000Z-1.295.8",
+    "environment": "production",
+    "version": "1.295.8",
+    "train": 295,
+    "patch": 8,
+    "tag": "v1.295.8",
+    "commit": "a5e66a709400ed6dac37434cb19fccae4a1bfcd1",
+    "sourceUpdatedAt": "2024-10-28T20:56:00.000Z",
+    "observedAt": "2024-10-28T20:56:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1912375036",
@@ -1860,6 +5013,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-10-21T15:30:00.000Z-1.295.7",
+    "environment": "production",
+    "version": "1.295.7",
+    "train": 295,
+    "patch": 7,
+    "tag": "v1.295.7",
+    "commit": "7ce5f512b27009e7084f7e702732a29f3bccbaf9",
+    "sourceUpdatedAt": "2024-10-21T15:30:00.000Z",
+    "observedAt": "2024-10-21T15:30:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-1892690993",
     "environment": "stage",
     "version": "1.295.7",
@@ -1884,6 +5057,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-10-17T21:57:00.000Z-1.295.5",
+    "environment": "production",
+    "version": "1.295.5",
+    "train": 295,
+    "patch": 5,
+    "tag": "v1.295.5",
+    "commit": "a1249e40d4c5cb219305ad4eb4eead192708f266",
+    "sourceUpdatedAt": "2024-10-17T21:57:00.000Z",
+    "observedAt": "2024-10-17T21:57:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-stage-1885203171",
     "environment": "stage",
     "version": "1.295.5",
@@ -1894,6 +5087,46 @@
     "sourceUpdatedAt": "2024-10-17T21:05:43Z",
     "observedAt": "2024-10-17T21:05:43Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-16T18:16:00.000Z-1.295.4",
+    "environment": "production",
+    "version": "1.295.4",
+    "train": 295,
+    "patch": 4,
+    "tag": "v1.295.4",
+    "commit": "2d251a1721a4992df74f2aaa5bac457f307f6f41",
+    "sourceUpdatedAt": "2024-10-16T18:16:00.000Z",
+    "observedAt": "2024-10-16T18:16:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-10-15T16:12:00.000Z-1.294.2",
+    "environment": "production",
+    "version": "1.294.2",
+    "train": 294,
+    "patch": 2,
+    "tag": "v1.294.2",
+    "commit": "fea4fac06664da7676ef926913d8a47928deb73f",
+    "sourceUpdatedAt": "2024-10-15T16:12:00.000Z",
+    "observedAt": "2024-10-15T16:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-stage-1874804525",
@@ -2124,6 +5357,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-07-24T19:10:00.000Z-1.289.4",
+    "environment": "production",
+    "version": "1.289.4",
+    "train": 289,
+    "patch": 4,
+    "tag": "v1.289.4",
+    "commit": "fa8dcfb79b3f5b5bb3d3b09f357306918eb32bc1",
+    "sourceUpdatedAt": "2024-07-24T19:10:00.000Z",
+    "observedAt": "2024-07-24T19:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-07-24T18:40:00.000Z-1.289.4",
+    "environment": "production",
+    "version": "1.289.4",
+    "train": 289,
+    "patch": 4,
+    "tag": "v1.289.4",
+    "commit": "fa8dcfb79b3f5b5bb3d3b09f357306918eb32bc1",
+    "sourceUpdatedAt": "2024-07-24T18:40:00.000Z",
+    "observedAt": "2024-07-24T18:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1673312297",
     "environment": "production",
     "version": "1.289.4",
@@ -2134,6 +5403,42 @@
     "sourceUpdatedAt": "2024-07-24T18:36:58Z",
     "observedAt": "2024-07-24T18:36:58Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-07-10T18:01:00.000Z-1.288.2",
+    "environment": "production",
+    "version": "1.288.2",
+    "train": 288,
+    "patch": 2,
+    "tag": "v1.288.2",
+    "commit": "675bb4e6adde5293595fc2ac5749bb63ad4fef89",
+    "sourceUpdatedAt": "2024-07-10T18:01:00.000Z",
+    "observedAt": "2024-07-10T18:01:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-07-10T17:31:00.000Z-1.288.2",
+    "environment": "production",
+    "version": "1.288.2",
+    "train": 288,
+    "patch": 2,
+    "tag": "v1.288.2",
+    "commit": "675bb4e6adde5293595fc2ac5749bb63ad4fef89",
+    "sourceUpdatedAt": "2024-07-10T17:31:00.000Z",
+    "observedAt": "2024-07-10T17:31:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1640954413",
@@ -2148,6 +5453,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-06-26T20:05:00.000Z-1.287.3",
+    "environment": "production",
+    "version": "1.287.3",
+    "train": 287,
+    "patch": 3,
+    "tag": "v1.287.3",
+    "commit": "21a936461cae508f418f85d88aaad90aa08fc87a",
+    "sourceUpdatedAt": "2024-06-26T20:05:00.000Z",
+    "observedAt": "2024-06-26T20:05:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1610262967",
     "environment": "production",
     "version": "1.287.3",
@@ -2158,6 +5483,26 @@
     "sourceUpdatedAt": "2024-06-26T19:46:49Z",
     "observedAt": "2024-06-26T19:46:49Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-06-12T17:53:00.000Z-1.286.6",
+    "environment": "production",
+    "version": "1.286.6",
+    "train": 286,
+    "patch": 6,
+    "tag": "v1.286.6",
+    "commit": "c7e572f9b5a79bcd5ef49469e8521af0a19c6dfb",
+    "sourceUpdatedAt": "2024-06-12T17:53:00.000Z",
+    "observedAt": "2024-06-12T17:53:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1578211710",
@@ -2172,6 +5517,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-05-29T17:19:00.000Z-1.285.4",
+    "environment": "production",
+    "version": "1.285.4",
+    "train": 285,
+    "patch": 4,
+    "tag": "v1.285.4",
+    "commit": "d6ca445284441edf87727ea4aeabc5d96de5495e",
+    "sourceUpdatedAt": "2024-05-29T17:19:00.000Z",
+    "observedAt": "2024-05-29T17:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1546693524",
     "environment": "production",
     "version": "1.285.4",
@@ -2182,6 +5547,26 @@
     "sourceUpdatedAt": "2024-05-29T16:56:42Z",
     "observedAt": "2024-05-29T16:56:42Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-05-20T20:41:00.000Z-1.284.7",
+    "environment": "production",
+    "version": "1.284.7",
+    "train": 284,
+    "patch": 7,
+    "tag": "v1.284.7",
+    "commit": "13ab1e0d38020852f2ad06a2dffb58e30bc3f302",
+    "sourceUpdatedAt": "2024-05-20T20:41:00.000Z",
+    "observedAt": "2024-05-20T20:41:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1526344332",
@@ -2196,6 +5581,82 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-05-16T16:10:00.000Z-1.284.5",
+    "environment": "production",
+    "version": "1.284.5",
+    "train": 284,
+    "patch": 5,
+    "tag": "v1.284.5",
+    "commit": "a063a4fb6030023b4b8f4047b53e7d604360432c",
+    "sourceUpdatedAt": "2024-05-16T16:10:00.000Z",
+    "observedAt": "2024-05-16T16:10:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-05-16T15:40:00.000Z-1.284.5",
+    "environment": "production",
+    "version": "1.284.5",
+    "train": 284,
+    "patch": 5,
+    "tag": "v1.284.5",
+    "commit": "a063a4fb6030023b4b8f4047b53e7d604360432c",
+    "sourceUpdatedAt": "2024-05-16T15:40:00.000Z",
+    "observedAt": "2024-05-16T15:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-05-16T12:40:00.000Z-1.283.4",
+    "environment": "production",
+    "version": "1.283.4",
+    "train": 283,
+    "patch": 4,
+    "tag": "v1.283.4",
+    "commit": "da0e3ea14ed0d1e5707cafe50128ee838da3cca5",
+    "sourceUpdatedAt": "2024-05-16T12:40:00.000Z",
+    "observedAt": "2024-05-16T12:40:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-05-15T18:23:00.000Z-1.284.5",
+    "environment": "production",
+    "version": "1.284.5",
+    "train": 284,
+    "patch": 5,
+    "tag": "v1.284.5",
+    "commit": "a063a4fb6030023b4b8f4047b53e7d604360432c",
+    "sourceUpdatedAt": "2024-05-15T18:23:00.000Z",
+    "observedAt": "2024-05-15T18:23:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1516284684",
     "environment": "production",
     "version": "1.284.5",
@@ -2206,6 +5667,26 @@
     "sourceUpdatedAt": "2024-05-15T17:57:03Z",
     "observedAt": "2024-05-15T17:57:03Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-05-01T20:05:00.000Z-1.283.4",
+    "environment": "production",
+    "version": "1.283.4",
+    "train": 283,
+    "patch": 4,
+    "tag": "v1.283.4",
+    "commit": "da0e3ea14ed0d1e5707cafe50128ee838da3cca5",
+    "sourceUpdatedAt": "2024-05-01T20:05:00.000Z",
+    "observedAt": "2024-05-01T20:05:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1487019171",
@@ -2220,6 +5701,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-04-17T18:12:00.000Z-1.282.5",
+    "environment": "production",
+    "version": "1.282.5",
+    "train": 282,
+    "patch": 5,
+    "tag": "v1.282.5",
+    "commit": "300e060560ceccbee6ebbb0493bb995c4d21f93b",
+    "sourceUpdatedAt": "2024-04-17T18:12:00.000Z",
+    "observedAt": "2024-04-17T18:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1457647850",
     "environment": "production",
     "version": "1.282.5",
@@ -2230,6 +5731,26 @@
     "sourceUpdatedAt": "2024-04-17T17:49:07Z",
     "observedAt": "2024-04-17T17:49:07Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-04-03T17:34:00.000Z-1.281.2",
+    "environment": "production",
+    "version": "1.281.2",
+    "train": 281,
+    "patch": 2,
+    "tag": "v1.281.2",
+    "commit": "ee1c7e113da4266b3593002041d6200c4e8c4e5e",
+    "sourceUpdatedAt": "2024-04-03T17:34:00.000Z",
+    "observedAt": "2024-04-03T17:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1428629499",
@@ -2244,6 +5765,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-03-20T17:23:00.000Z-1.280.1",
+    "environment": "production",
+    "version": "1.280.1",
+    "train": 280,
+    "patch": 1,
+    "tag": "v1.280.1",
+    "commit": "ce64fded27a7a5bdd09fca16e3b353152b1dbc5e",
+    "sourceUpdatedAt": "2024-03-20T17:23:00.000Z",
+    "observedAt": "2024-03-20T17:23:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1401069244",
     "environment": "production",
     "version": "1.280.1",
@@ -2254,6 +5795,42 @@
     "sourceUpdatedAt": "2024-03-20T17:04:08Z",
     "observedAt": "2024-03-20T17:04:08Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-03-06T20:21:00.000Z-1.279.1",
+    "environment": "production",
+    "version": "1.279.1",
+    "train": 279,
+    "patch": 1,
+    "tag": "v1.279.1",
+    "commit": "1bb4dd62a29324983291d3350b516d4c9757c9f2",
+    "sourceUpdatedAt": "2024-03-06T20:21:00.000Z",
+    "observedAt": "2024-03-06T20:21:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-03-06T19:51:00.000Z-1.279.1",
+    "environment": "production",
+    "version": "1.279.1",
+    "train": 279,
+    "patch": 1,
+    "tag": "v1.279.1",
+    "commit": "1bb4dd62a29324983291d3350b516d4c9757c9f2",
+    "sourceUpdatedAt": "2024-03-06T19:51:00.000Z",
+    "observedAt": "2024-03-06T19:51:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1372412795",
@@ -2268,6 +5845,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-02-08T18:12:00.000Z-1.277.3",
+    "environment": "production",
+    "version": "1.277.3",
+    "train": 277,
+    "patch": 3,
+    "tag": "v1.277.3",
+    "commit": "f2cae1e37b68616eaabe2cb4f194e23a79df402f",
+    "sourceUpdatedAt": "2024-02-08T18:12:00.000Z",
+    "observedAt": "2024-02-08T18:12:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1318869922",
     "environment": "production",
     "version": "1.277.3",
@@ -2278,6 +5875,26 @@
     "sourceUpdatedAt": "2024-02-08T17:37:37Z",
     "observedAt": "2024-02-08T17:37:37Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-02-08T15:42:00.000Z-1.277.0",
+    "environment": "production",
+    "version": "1.277.0",
+    "train": 277,
+    "patch": 0,
+    "tag": "v1.277.0",
+    "commit": "010efaee84339f535c59e21484eba45b73ae82c6",
+    "sourceUpdatedAt": "2024-02-08T15:42:00.000Z",
+    "observedAt": "2024-02-08T15:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1318521220",
@@ -2292,6 +5909,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-02-07T19:58:00.000Z-1.277.1",
+    "environment": "production",
+    "version": "1.277.1",
+    "train": 277,
+    "patch": 1,
+    "tag": "v1.277.1",
+    "commit": "bcd3693ae25c3e3b55e30e2bd9d78d64aeeb3e21",
+    "sourceUpdatedAt": "2024-02-07T19:58:00.000Z",
+    "observedAt": "2024-02-07T19:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1316730912",
     "environment": "production",
     "version": "1.277.1",
@@ -2302,6 +5939,26 @@
     "sourceUpdatedAt": "2024-02-07T19:48:22Z",
     "observedAt": "2024-02-07T19:48:22Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-02-01T16:49:00.000Z-1.276.3",
+    "environment": "production",
+    "version": "1.276.3",
+    "train": 276,
+    "patch": 3,
+    "tag": "v1.276.3",
+    "commit": "2a13dcf33a9f84819a80209d45e30e5633a93ed5",
+    "sourceUpdatedAt": "2024-02-01T16:49:00.000Z",
+    "observedAt": "2024-02-01T16:49:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1304965349",
@@ -2316,6 +5973,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-01-30T00:22:00.000Z-1.276.2",
+    "environment": "production",
+    "version": "1.276.2",
+    "train": 276,
+    "patch": 2,
+    "tag": "v1.276.2",
+    "commit": "10a3f17b3b7051d52311ac7241781501371a9a16",
+    "sourceUpdatedAt": "2024-01-30T00:22:00.000Z",
+    "observedAt": "2024-01-30T00:22:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1298658186",
     "environment": "production",
     "version": "1.276.2",
@@ -2326,6 +6003,26 @@
     "sourceUpdatedAt": "2024-01-29T23:53:31Z",
     "observedAt": "2024-01-29T23:53:31Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2024-01-24T18:56:00.000Z-1.276.1",
+    "environment": "production",
+    "version": "1.276.1",
+    "train": 276,
+    "patch": 1,
+    "tag": "v1.276.1",
+    "commit": "649e30c5f1b259fc052945ef5e6b0d771d7efd23",
+    "sourceUpdatedAt": "2024-01-24T18:56:00.000Z",
+    "observedAt": "2024-01-24T18:56:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1289740310",
@@ -2340,6 +6037,26 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2024-01-10T20:45:00.000Z-1.275.3",
+    "environment": "production",
+    "version": "1.275.3",
+    "train": 275,
+    "patch": 3,
+    "tag": "v1.275.3",
+    "commit": "86d30b169e6860b1337db7526c0963ea7fb5d1c0",
+    "sourceUpdatedAt": "2024-01-10T20:45:00.000Z",
+    "observedAt": "2024-01-10T20:45:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1264079198",
     "environment": "production",
     "version": "1.275.3",
@@ -2350,6 +6067,26 @@
     "sourceUpdatedAt": "2024-01-10T19:54:24Z",
     "observedAt": "2024-01-10T19:54:24Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-12-13T18:52:00.000Z-1.273.1",
+    "environment": "production",
+    "version": "1.273.1",
+    "train": 273,
+    "patch": 1,
+    "tag": "v1.273.1",
+    "commit": "eed056d56f0f4f8281ef6ec555d711bab4615468",
+    "sourceUpdatedAt": "2023-12-13T18:52:00.000Z",
+    "observedAt": "2023-12-13T18:52:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1223038363",
@@ -2364,6 +6101,282 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2023-11-29T19:19:00.000Z-1.272.2",
+    "environment": "production",
+    "version": "1.272.2",
+    "train": 272,
+    "patch": 2,
+    "tag": "v1.272.2",
+    "commit": "3ea72425e5d8b6caff46664aa2f4c690b11a5071",
+    "sourceUpdatedAt": "2023-11-29T19:19:00.000Z",
+    "observedAt": "2023-11-29T19:19:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-11-15T18:58:00.000Z-1.271.1",
+    "environment": "production",
+    "version": "1.271.1",
+    "train": 271,
+    "patch": 1,
+    "tag": "v1.271.1",
+    "commit": "b6c3943d190bc13e39c0cf3b2815e29b1ec6b2a2",
+    "sourceUpdatedAt": "2023-11-15T18:58:00.000Z",
+    "observedAt": "2023-11-15T18:58:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-11-02T20:42:00.000Z-1.270.7",
+    "environment": "production",
+    "version": "1.270.7",
+    "train": 270,
+    "patch": 7,
+    "tag": "v1.270.7",
+    "commit": "423fd98ba80e2054674b48a9e1b9ba11f44e0dde",
+    "sourceUpdatedAt": "2023-11-02T20:42:00.000Z",
+    "observedAt": "2023-11-02T20:42:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-11-01T17:55:00.000Z-1.270.3",
+    "environment": "production",
+    "version": "1.270.3",
+    "train": 270,
+    "patch": 3,
+    "tag": "v1.270.3",
+    "commit": "39b4802fd9036bc9b25d2b8aecb3ad78087528ef",
+    "sourceUpdatedAt": "2023-11-01T17:55:00.000Z",
+    "observedAt": "2023-11-01T17:55:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-10-18T20:34:00.000Z-1.269.2",
+    "environment": "production",
+    "version": "1.269.2",
+    "train": 269,
+    "patch": 2,
+    "tag": "v1.269.2",
+    "commit": "28869e4747c11a7bbf71ed5a933af741a2d8b593",
+    "sourceUpdatedAt": "2023-10-18T20:34:00.000Z",
+    "observedAt": "2023-10-18T20:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-10-18T19:04:00.000Z-1.268.3",
+    "environment": "production",
+    "version": "1.268.3",
+    "train": 268,
+    "patch": 3,
+    "tag": "v1.268.3",
+    "commit": "36273d9222948b7e1ed5185eced8784149fa8c05",
+    "sourceUpdatedAt": "2023-10-18T19:04:00.000Z",
+    "observedAt": "2023-10-18T19:04:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-10-18T17:34:00.000Z-1.269.2",
+    "environment": "production",
+    "version": "1.269.2",
+    "train": 269,
+    "patch": 2,
+    "tag": "v1.269.2",
+    "commit": "28869e4747c11a7bbf71ed5a933af741a2d8b593",
+    "sourceUpdatedAt": "2023-10-18T17:34:00.000Z",
+    "observedAt": "2023-10-18T17:34:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-10-04T20:18:00.000Z-1.268.3",
+    "environment": "production",
+    "version": "1.268.3",
+    "train": 268,
+    "patch": 3,
+    "tag": "v1.268.3",
+    "commit": "36273d9222948b7e1ed5185eced8784149fa8c05",
+    "sourceUpdatedAt": "2023-10-04T20:18:00.000Z",
+    "observedAt": "2023-10-04T20:18:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-10-03T18:02:00.000Z-1.267.10",
+    "environment": "production",
+    "version": "1.267.10",
+    "train": 267,
+    "patch": 10,
+    "tag": "v1.267.10",
+    "commit": "918ef1f13d41e3676ff0d5b4f2419a43dd9cff93",
+    "sourceUpdatedAt": "2023-10-03T18:02:00.000Z",
+    "observedAt": "2023-10-03T18:02:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-27T23:44:00.000Z-1.267.7",
+    "environment": "production",
+    "version": "1.267.7",
+    "train": 267,
+    "patch": 7,
+    "tag": "v1.267.7",
+    "commit": "070059ad7a23916755cd5038a0e1700ac2a15d65",
+    "sourceUpdatedAt": "2023-09-27T23:44:00.000Z",
+    "observedAt": "2023-09-27T23:44:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-26T16:25:00.000Z-1.267.6",
+    "environment": "production",
+    "version": "1.267.6",
+    "train": 267,
+    "patch": 6,
+    "tag": "v1.267.6",
+    "commit": "498bf2ba0e49aad6be216aad85056c51b41fe51e",
+    "sourceUpdatedAt": "2023-09-26T16:25:00.000Z",
+    "observedAt": "2023-09-26T16:25:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Profile server",
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-22T19:53:00.000Z-1.267.5",
+    "environment": "production",
+    "version": "1.267.5",
+    "train": 267,
+    "patch": 5,
+    "tag": "v1.267.5",
+    "commit": "dba18b1f70e36336bc8c16aa452ebff6043b048e",
+    "sourceUpdatedAt": "2023-09-22T19:53:00.000Z",
+    "observedAt": "2023-09-22T19:53:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-21T16:21:00.000Z-1.267.4",
+    "environment": "production",
+    "version": "1.267.4",
+    "train": 267,
+    "patch": 4,
+    "tag": "v1.267.4",
+    "commit": "dba18b1f70e36336bc8c16aa452ebff6043b048e",
+    "sourceUpdatedAt": "2023-09-21T16:21:00.000Z",
+    "observedAt": "2023-09-21T16:21:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-21T15:51:00.000Z-1.267.4",
+    "environment": "production",
+    "version": "1.267.4",
+    "train": 267,
+    "patch": 4,
+    "tag": "v1.267.4",
+    "commit": "dba18b1f70e36336bc8c16aa452ebff6043b048e",
+    "sourceUpdatedAt": "2023-09-21T15:51:00.000Z",
+    "observedAt": "2023-09-21T15:51:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1085144887",
     "environment": "production",
     "version": "1.267.4",
@@ -2374,6 +6387,43 @@
     "sourceUpdatedAt": "2023-09-21T15:30:28Z",
     "observedAt": "2023-09-21T15:30:28Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-20T20:13:00.000Z-1.266.6",
+    "environment": "production",
+    "version": "1.266.6",
+    "train": 266,
+    "patch": 6,
+    "tag": "v1.266.6",
+    "commit": "4cad0a3b822178d6410ec95f67a46c5ee93b33d7",
+    "sourceUpdatedAt": "2023-09-20T20:13:00.000Z",
+    "observedAt": "2023-09-20T20:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-20T19:13:00.000Z-1.267.3",
+    "environment": "production",
+    "version": "1.267.3",
+    "train": 267,
+    "patch": 3,
+    "tag": "v1.267.3",
+    "commit": "cc10cba92f45466edebb0ab39bd35702841f916a",
+    "sourceUpdatedAt": "2023-09-20T19:13:00.000Z",
+    "observedAt": "2023-09-20T19:13:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server",
+      "Auth server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1083502713",
@@ -2388,6 +6438,23 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2023-09-06T22:36:00.000Z-1.266.6",
+    "environment": "production",
+    "version": "1.266.6",
+    "train": 266,
+    "patch": 6,
+    "tag": "v1.266.6",
+    "commit": "4cad0a3b822178d6410ec95f67a46c5ee93b33d7",
+    "sourceUpdatedAt": "2023-09-06T22:36:00.000Z",
+    "observedAt": "2023-09-06T22:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1062072641",
     "environment": "production",
     "version": "1.266.6",
@@ -2398,6 +6465,75 @@
     "sourceUpdatedAt": "2023-09-06T22:26:53Z",
     "observedAt": "2023-09-06T22:26:53Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-06T21:36:00.000Z-1.266.6",
+    "environment": "production",
+    "version": "1.266.6",
+    "train": 266,
+    "patch": 6,
+    "tag": "v1.266.6",
+    "commit": "4cad0a3b822178d6410ec95f67a46c5ee93b33d7",
+    "sourceUpdatedAt": "2023-09-06T21:36:00.000Z",
+    "observedAt": "2023-09-06T21:36:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-09-06T21:06:00.000Z-1.266.6",
+    "environment": "production",
+    "version": "1.266.6",
+    "train": 266,
+    "patch": 6,
+    "tag": "v1.266.6",
+    "commit": "4cad0a3b822178d6410ec95f67a46c5ee93b33d7",
+    "sourceUpdatedAt": "2023-09-06T21:06:00.000Z",
+    "observedAt": "2023-09-06T21:06:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-08-28T23:56:00.000Z-1.264.4",
+    "environment": "production",
+    "version": "1.264.4",
+    "train": 264,
+    "patch": 4,
+    "tag": "v1.264.4",
+    "commit": "a018d63b6139188da7a4351a2c058543a6b0a39c",
+    "sourceUpdatedAt": "2023-08-28T23:56:00.000Z",
+    "observedAt": "2023-08-28T23:56:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-08-28T23:26:00.000Z-1.264.4",
+    "environment": "production",
+    "version": "1.264.4",
+    "train": 264,
+    "patch": 4,
+    "tag": "v1.264.4",
+    "commit": "a018d63b6139188da7a4351a2c058543a6b0a39c",
+    "sourceUpdatedAt": "2023-08-28T23:26:00.000Z",
+    "observedAt": "2023-08-28T23:26:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1048353565",
@@ -2412,6 +6548,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2023-08-28T22:56:00.000Z-1.264.4",
+    "environment": "production",
+    "version": "1.264.4",
+    "train": 264,
+    "patch": 4,
+    "tag": "v1.264.4",
+    "commit": "a018d63b6139188da7a4351a2c058543a6b0a39c",
+    "sourceUpdatedAt": "2023-08-28T22:56:00.000Z",
+    "observedAt": "2023-08-28T22:56:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-08-09T17:21:00.000Z-1.264.2",
+    "environment": "production",
+    "version": "1.264.2",
+    "train": 264,
+    "patch": 2,
+    "tag": "v1.264.2",
+    "commit": "c9c67708429f705635e52658bd886da440ea0ea5",
+    "sourceUpdatedAt": "2023-08-09T17:21:00.000Z",
+    "observedAt": "2023-08-09T17:21:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1021265354",
     "environment": "production",
     "version": "1.264.2",
@@ -2422,6 +6594,41 @@
     "sourceUpdatedAt": "2023-08-09T16:51:26Z",
     "observedAt": "2023-08-09T16:51:26Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-08-09T16:51:00.000Z-1.264.2",
+    "environment": "production",
+    "version": "1.264.2",
+    "train": 264,
+    "patch": 2,
+    "tag": "v1.264.2",
+    "commit": "c9c67708429f705635e52658bd886da440ea0ea5",
+    "sourceUpdatedAt": "2023-08-09T16:51:00.000Z",
+    "observedAt": "2023-08-09T16:51:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-07-31T23:08:00.000Z-1.263.6",
+    "environment": "production",
+    "version": "1.263.6",
+    "train": 263,
+    "patch": 6,
+    "tag": "v1.263.6",
+    "commit": "7034e519413b07e3d54d181293808758ae7729b5",
+    "sourceUpdatedAt": "2023-07-31T23:08:00.000Z",
+    "observedAt": "2023-07-31T23:08:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-1008399385",
@@ -2436,6 +6643,42 @@
     "evidence": "github-deployment-record"
   },
   {
+    "id": "legacy-fxhey-production-2023-07-26T21:07:00.000Z-1.263.5",
+    "environment": "production",
+    "version": "1.263.5",
+    "train": 263,
+    "patch": 5,
+    "tag": "v1.263.5",
+    "commit": "aee571ac0e74bf9f647e1f1142527ca6e60652d0",
+    "sourceUpdatedAt": "2023-07-26T21:07:00.000Z",
+    "observedAt": "2023-07-26T21:07:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Content server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-07-26T19:07:00.000Z-1.263.5",
+    "environment": "production",
+    "version": "1.263.5",
+    "train": 263,
+    "patch": 5,
+    "tag": "v1.263.5",
+    "commit": "aee571ac0e74bf9f647e1f1142527ca6e60652d0",
+    "sourceUpdatedAt": "2023-07-26T19:07:00.000Z",
+    "observedAt": "2023-07-26T19:07:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Profile server",
+      "Auth server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+  },
+  {
     "id": "github-production-1001876130",
     "environment": "production",
     "version": "1.263.5",
@@ -2446,6 +6689,26 @@
     "sourceUpdatedAt": "2023-07-26T18:47:45Z",
     "observedAt": "2023-07-26T18:47:45Z",
     "evidence": "github-deployment-record"
+  },
+  {
+    "id": "legacy-fxhey-production-2023-07-20T22:28:00.000Z-1.262.0",
+    "environment": "production",
+    "version": "1.262.0",
+    "train": 262,
+    "patch": 0,
+    "tag": "v1.262.0",
+    "commit": "4c5c702a7fcbf6f8c6b1f175e9172cdd21471eac",
+    "sourceUpdatedAt": "2023-07-20T22:28:00.000Z",
+    "observedAt": "2023-07-20T22:28:00.000Z",
+    "evidence": "legacy-fxhey-record",
+    "services": [
+      "Auth server",
+      "Content server",
+      "Profile server",
+      "OAuth server"
+    ],
+    "accuracyMinutes": 30,
+    "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
   },
   {
     "id": "github-production-982492208",

@@ -3,6 +3,7 @@ import type { EnvironmentName, ServiceVersion } from "./fxa-data";
 export type DeploymentEvidence =
   | "endpoint-observation"
   | "github-deployment-record"
+  | "legacy-fxhey-record"
   | "current-snapshot";
 
 export type DeploymentHistoryEntry = {
@@ -16,6 +17,9 @@ export type DeploymentHistoryEntry = {
   sourceUpdatedAt: string;
   observedAt: string;
   evidence: DeploymentEvidence;
+  services?: string[];
+  accuracyMinutes?: number;
+  sourceUrl?: string;
 };
 
 const HISTORY_URL =
@@ -49,7 +53,8 @@ function isHistoryEntry(value: unknown): value is DeploymentHistoryEntry {
     typeof entry.sourceUpdatedAt === "string" &&
     typeof entry.observedAt === "string" &&
     (entry.evidence === "endpoint-observation" ||
-      entry.evidence === "github-deployment-record")
+      entry.evidence === "github-deployment-record" ||
+      entry.evidence === "legacy-fxhey-record")
   );
 }
 
@@ -83,7 +88,11 @@ export async function readDeploymentHistory(
       .filter((entry) => entry.evidence === "endpoint-observation")
       .slice(0, 6);
     const archive = history
-      .filter((entry) => entry.evidence === "github-deployment-record")
+      .filter(
+        (entry) =>
+          entry.evidence === "legacy-fxhey-record" ||
+          entry.evidence === "github-deployment-record",
+      )
       .slice(0, 6);
     const currentObservations = observations.some(
       (entry) => entry.commit === selectedService.commit,

@@ -4,7 +4,9 @@ import test from "node:test";
 import {
   endpointObservationEntry,
   githubDeploymentEntry,
+  legacyFxHeyDeploymentEntry,
   parseFxaVersion,
+  parseLegacyFxHeyDeployments,
   requestHeaders,
 } from "../scripts/record-deployments.mjs";
 
@@ -41,12 +43,43 @@ test("maps endpoint changes as observations", () => {
   assert.equal(entry.patch, 0);
 });
 
+test("parses the original FxHey production deployment history", () => {
+  const records = parseLegacyFxHeyDeployments(`
+    <section>
+      <h2 id="deployments">Deployments (± 30 minutes)</h2>
+      <dl>
+        <dt>08-Jul-2026 20:32 UTC:</dt>
+        <dd>
+          Auth server <a href="https://github.com/mozilla/fxa/tree/v1.340.1">v1.340.1</a>;
+          Content server <a href="https://github.com/mozilla/fxa/tree/v1.340.1">v1.340.1</a>
+        </dd>
+      </dl>
+    </section>
+  `);
+
+  assert.deepEqual(records, [
+    {
+      id: "legacy-fxhey-production-2026-07-08T20:32:00.000Z-1.340.1",
+      version: "1.340.1",
+      observedAt: "2026-07-08T20:32:00.000Z",
+      services: ["Auth server", "Content server"],
+    },
+  ]);
+
+  const entry = legacyFxHeyDeploymentEntry(records[0], "b02b4e415427");
+  assert.equal(entry.evidence, "legacy-fxhey-record");
+  assert.equal(entry.accuracyMinutes, 30);
+  assert.equal(entry.environment, "production");
+});
+
 test("sends the workflow token only to GitHub", () => {
   const previous = process.env.GITHUB_TOKEN;
   process.env.GITHUB_TOKEN = "test-token";
   try {
     assert.equal(requestHeaders("https://api.github.com/repos/mozilla/fxa").Authorization, "Bearer test-token");
     assert.equal(requestHeaders("https://accounts.stage.mozaws.net/__version__").Authorization, undefined);
+    assert.equal(requestHeaders("https://fx-hey.herokuapp.com/fxa").Authorization, undefined);
+    assert.match(requestHeaders("https://fx-hey.herokuapp.com/fxa").Accept, /^text\/html/);
   } finally {
     if (previous === undefined) delete process.env.GITHUB_TOKEN;
     else process.env.GITHUB_TOKEN = previous;

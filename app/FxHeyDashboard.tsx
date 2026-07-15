@@ -53,6 +53,7 @@ function formatRelative(date: string, from: string) {
 
 function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number]["evidence"]) {
   if (evidence === "endpoint-observation") return "First observed";
+  if (evidence === "legacy-fxhey-record") return "Original FxHey record · ±30 min";
   if (evidence === "github-deployment-record") return "GitHub record";
   return "Current snapshot";
 }
@@ -99,7 +100,8 @@ function DeploymentTimeline({
                     <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
                   </dd>
                 </div>
-                {deployment.evidence !== "github-deployment-record" ? (
+                {deployment.evidence === "endpoint-observation" ||
+                deployment.evidence === "current-snapshot" ? (
                   <div>
                     <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
                     <dd>
@@ -129,10 +131,17 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
   const activeService =
     data.services.find((service) => service.name === data.selectedEnvironment) ?? data.services[0];
   const observedDeployments = data.deployHistory.filter(
-    (deployment) => deployment.evidence !== "github-deployment-record",
+    (deployment) =>
+      deployment.evidence === "endpoint-observation" ||
+      deployment.evidence === "current-snapshot",
   );
   const archivedDeployments = data.deployHistory.filter(
-    (deployment) => deployment.evidence === "github-deployment-record",
+    (deployment) =>
+      deployment.evidence === "legacy-fxhey-record" ||
+      deployment.evidence === "github-deployment-record",
+  );
+  const hasLegacyFxHeyHistory = archivedDeployments.some(
+    (deployment) => deployment.evidence === "legacy-fxhey-record",
   );
   const firstObservation = observedDeployments.at(-1);
   const latestArchiveRecord = archivedDeployments[0];
@@ -330,18 +339,28 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             </div>
             <div className="deploy-history-copy">
               <p>
-                FxHey checks the version endpoint every five minutes. Earlier entries come from
-                public GitHub deployment records; the sources stay separate because their coverage
-                is not continuous.
+                FxHey checks the version endpoint every five minutes. Production history comes from
+                the original FxHey deployment log (±30 minutes), with public GitHub records retained
+                as fallback evidence.
               </p>
-              <a
-                className="history-source-link"
-                href="https://github.com/vbudhram/FxHey/tree/main/history"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub aria-hidden="true" /> View public history <ExternalLink aria-hidden="true" />
-              </a>
+              <div className="history-source-links">
+                <a
+                  className="history-source-link"
+                  href="https://fx-hey.herokuapp.com/fxa#deployments"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Rocket aria-hidden="true" /> Original FxHey history <ExternalLink aria-hidden="true" />
+                </a>
+                <a
+                  className="history-source-link"
+                  href="https://github.com/vbudhram/FxHey/tree/main/history"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithub aria-hidden="true" /> Stored records <ExternalLink aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -362,7 +381,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
               ) : null}
             </section>
 
-            {firstObservation && latestArchiveRecord ? (
+            {firstObservation && latestArchiveRecord && missingTrainRange ? (
               <aside className="coverage-gap" aria-label="Deployment history coverage gap">
                 <div className="coverage-gap-rail" aria-hidden="true">
                   <span />
@@ -376,9 +395,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                     FxHey observations begin at v{firstObservation.version} on{" "}
                     <time dateTime={firstObservation.observedAt}>{formatDate(firstObservation.observedAt)}</time>.
                   </p>
-                  {missingTrainRange ? (
-                    <strong>{missingTrainRange} not represented by either source.</strong>
-                  ) : null}
+                  <strong>{missingTrainRange} not represented by either source.</strong>
                 </div>
               </aside>
             ) : null}
@@ -387,7 +404,9 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
               <div className="deploy-lane-heading">
                 <div>
                   <p className="eyebrow">Historical archive</p>
-                  <h3 id="archived-deployments-heading">Earlier GitHub records</h3>
+                  <h3 id="archived-deployments-heading">
+                    {hasLegacyFxHeyHistory ? "Original FxHey records" : "Earlier GitHub records"}
+                  </h3>
                 </div>
                 {archivedDeployments.length ? <span>{archivedDeployments.length} latest records</span> : null}
               </div>

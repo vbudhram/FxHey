@@ -41,8 +41,9 @@ test("server-renders the FxHey release dashboard", async () => {
   assert.match(html, /What’s riding this train\?/i);
   assert.match(html, /Deploy history/i);
   assert.match(html, /Git-backed deployment records/i);
-  assert.match(html, /View public history/i);
-  assert.match(html, /coverage[^.]+is not continuous/i);
+  assert.match(html, /Stored records/i);
+  assert.match(html, /original FxHey deployment log/i);
+  assert.match(html, /Original FxHey history/i);
   assert.match(html, /Observed by FxHey/i);
   assert.match(html, /Earlier GitHub records/i);
   assert.match(html, /Monitoring for the next endpoint change/i);

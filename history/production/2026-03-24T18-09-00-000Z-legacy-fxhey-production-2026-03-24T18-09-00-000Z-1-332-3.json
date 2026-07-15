@@ -1,0 +1,20 @@
+{
+  "id": "legacy-fxhey-production-2026-03-24T18:09:00.000Z-1.332.3",
+  "environment": "production",
+  "version": "1.332.3",
+  "train": 332,
+  "patch": 3,
+  "tag": "v1.332.3",
+  "commit": "a8f7d843cdaa55ce723e053b119ef27f76119f74",
+  "sourceUpdatedAt": "2026-03-24T18:09:00.000Z",
+  "observedAt": "2026-03-24T18:09:00.000Z",
+  "evidence": "legacy-fxhey-record",
+  "services": [
+    "Auth server",
+    "Profile server",
+    "Content server",
+    "OAuth server"
+  ],
+  "accuracyMinutes": 30,
+  "sourceUrl": "https://fx-hey.herokuapp.com/fxa"
+}

@@ -7,7 +7,7 @@
   --green-line: #bfe7b6;
   --pink: #e917b7;
   --ink: #282828;
-  --muted: #686868;
+  --muted: #555555;
   --line: #dddddd;
   --soft: #f8f8f8;
   --warning: #d97706;
@@ -28,7 +28,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body), Roboto, Tahoma, Verdana, sans-serif;
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 a {
@@ -121,7 +121,7 @@ select:disabled {
   margin: 0;
   color: var(--green-dark);
   font-family: var(--font-display), "Patua One", Georgia, serif;
-  font-size: 0.9rem;
+  font-size: 0.96rem;
   line-height: 1.2;
 }
 
@@ -139,12 +139,12 @@ select:disabled {
 
 .environment-toggle button {
   min-width: 4.5rem;
-  min-height: 42px;
+  min-height: 44px;
   border: 0;
   border-right: 1px solid var(--green);
   background: #ffffff;
   color: var(--green-dark);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 700;
   padding: 0.55rem 0.8rem;
 }
@@ -170,11 +170,11 @@ select:disabled {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  min-height: 42px;
+  min-height: 44px;
   border: 1px solid var(--green);
   background: #ffffff;
   color: var(--green-dark);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   padding: 0.55rem 0.8rem;
 }
@@ -219,7 +219,7 @@ footer {
   margin: 0 0 0.35rem;
   color: var(--green-dark);
   font-family: var(--font-mono), monospace;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -237,7 +237,7 @@ footer {
 .release-summary {
   margin: 0.45rem 0 0;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.94rem;
 }
 
 .release-actions {
@@ -252,7 +252,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
@@ -292,7 +292,7 @@ footer {
   margin-bottom: 0.25rem;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -307,7 +307,7 @@ footer {
 
 .release-facts dd {
   font-family: var(--font-mono), monospace;
-  font-size: 0.76rem;
+  font-size: 0.84rem;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
@@ -319,7 +319,7 @@ footer {
   border-left: 3px solid var(--warning);
   background: #fff8eb;
   padding: 0.6rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.82rem;
 }
 
 .deploy-history-section {
@@ -376,14 +376,14 @@ footer {
 }
 
 .history-toggle-copy strong {
-  font-size: 0.94rem;
+  font-size: 1rem;
 }
 
 .history-toggle-copy > span {
   min-width: 0;
   overflow: hidden;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -393,7 +393,7 @@ footer {
   align-items: center;
   gap: 0.3rem;
   color: var(--green-dark);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
 }
 
@@ -424,7 +424,7 @@ footer {
 .history-intro p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.84rem;
 }
 
 .history-intro a,
@@ -432,7 +432,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -474,13 +474,13 @@ footer {
 
 .deploy-group-heading h2 {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 }
 
 .deploy-group-heading span {
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.54rem;
+  font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -532,7 +532,7 @@ footer {
 
 .deploy-version-row > a {
   font-family: var(--font-display), "Patua One", Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
 }
 
 .deploy-version-row > span,
@@ -540,7 +540,7 @@ footer {
   border: 1px solid var(--green);
   color: var(--green-dark);
   font-family: var(--font-mono), monospace;
-  font-size: 0.5rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   padding: 0.2rem 0.35rem;
@@ -550,7 +550,7 @@ footer {
 .deploy-version p {
   margin: 0.15rem 0 0;
   color: var(--muted);
-  font-size: 0.65rem;
+  font-size: 0.74rem;
 }
 
 .deploy-date {
@@ -558,7 +558,7 @@ footer {
 }
 
 .deploy-date time {
-  font-size: 0.67rem;
+  font-size: 0.75rem;
 }
 
 .history-gap {
@@ -566,7 +566,7 @@ footer {
   border-left: 3px solid #a5a5a5;
   background: var(--soft);
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   padding: 0.65rem 0.8rem;
 }
 
@@ -606,7 +606,7 @@ footer {
   margin: 0.45rem 0 0;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.68rem;
+  font-size: 0.78rem;
 }
 
 .train-picker {
@@ -616,7 +616,7 @@ footer {
 .train-picker label {
   display: block;
   margin-bottom: 0.3rem;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
@@ -646,7 +646,7 @@ footer {
   border-radius: 0;
   background: #ffffff;
   color: var(--ink);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   padding: 0.6rem 2rem 0.6rem 0.75rem;
 }
 
@@ -686,14 +686,14 @@ footer {
 .inventory-summary strong {
   color: var(--green);
   font-family: var(--font-display), "Patua One", Georgia, serif;
-  font-size: 1.65rem;
+  font-size: 1.85rem;
   font-weight: 400;
   line-height: 1;
 }
 
 .inventory-summary span {
   color: var(--muted);
-  font-size: 0.67rem;
+  font-size: 0.75rem;
 }
 
 .summary-updated {
@@ -703,7 +703,7 @@ footer {
 
 .summary-updated a {
   font-family: var(--font-mono), monospace;
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
@@ -802,7 +802,7 @@ footer {
 
 .commit-main h3 {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.94rem;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -822,7 +822,7 @@ footer {
   gap: 0.35rem 0.55rem;
   margin-top: 0.35rem;
   color: var(--muted);
-  font-size: 0.64rem;
+  font-size: 0.72rem;
 }
 
 .commit-meta > span a {
@@ -837,7 +837,7 @@ footer {
   align-items: center;
   gap: 0.22rem;
   font-family: var(--font-mono), monospace;
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
@@ -867,7 +867,7 @@ footer {
 .commit-row > time {
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.59rem;
+  font-size: 0.72rem;
   white-space: nowrap;
 }
 
@@ -883,7 +883,7 @@ footer {
 
 .empty-state span {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
 }
 
 .inventory-footer {
@@ -892,14 +892,14 @@ footer {
   padding: 0.65rem 1rem;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
-  font-size: 0.56rem;
+  font-size: 0.72rem;
 }
 
 footer {
   border-top: 1px solid var(--line);
   padding: 1.5rem 0 2.5rem;
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
 }
 
 footer p {
@@ -988,7 +988,7 @@ footer p {
   }
 
   .tagline {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 
   .header-controls {

@@ -4,13 +4,14 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import {
+  ChevronDown,
   Clock3,
   ExternalLink,
   GitCommitHorizontal,
   GitCompareArrows,
   GitPullRequest,
+  History,
   RefreshCw,
-  Rocket,
   Search,
   Tag,
   Ticket,
@@ -52,18 +53,18 @@ function formatRelative(date: string, from: string) {
 }
 
 function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number]["evidence"]) {
-  if (evidence === "endpoint-observation") return "First observed";
-  if (evidence === "legacy-fxhey-record") return "Imported FxHey record · ±30 min";
-  if (evidence === "github-deployment-record") return "GitHub record";
-  return "Current snapshot";
+  if (evidence === "endpoint-observation") return "First seen";
+  if (evidence === "legacy-fxhey-record") return "Original FxHey record";
+  if (evidence === "github-deployment-record") return "GitHub deployment";
+  return "Current release";
 }
 
 type DeploymentEntry = DashboardData["deployHistory"][number];
 
 function deploymentGapLabel(fromTrain: number, toTrain: number) {
   if (fromTrain > toTrain) return null;
-  if (fromTrain === toTrain) return `Train ${fromTrain} is`;
-  return `${toTrain - fromTrain + 1} trains (${fromTrain}–${toTrain}) are`;
+  if (fromTrain === toTrain) return `Train ${fromTrain}`;
+  return `Trains ${fromTrain}–${toTrain}`;
 }
 
 function DeploymentTimeline({
@@ -84,35 +85,19 @@ function DeploymentTimeline({
               <div className="deploy-version">
                 <div className="deploy-version-row">
                   <a href={`${GITHUB_REPO}/tree/${deployment.tag}`} target="_blank" rel="noreferrer">
-                    <Tag aria-hidden="true" /> v{deployment.version}
+                    v{deployment.version}
                   </a>
                   {isCurrentDeployment ? <span>Current</span> : null}
                 </div>
                 <p>Train {deployment.train} · patch {deployment.patch}</p>
               </div>
-              <dl>
-                <div>
-                  <dt>
-                    <Clock3 aria-hidden="true" />
-                    {deploymentEvidenceLabel(deployment.evidence)}
-                  </dt>
-                  <dd>
-                    <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
-                  </dd>
-                </div>
-                {deployment.evidence === "endpoint-observation" ||
-                deployment.evidence === "current-snapshot" ? (
-                  <div>
-                    <dt><GitCommitHorizontal aria-hidden="true" /> Source updated</dt>
-                    <dd>
-                      <time dateTime={deployment.sourceUpdatedAt}>{formatDate(deployment.sourceUpdatedAt)}</time>
-                    </dd>
-                  </div>
-                ) : null}
-              </dl>
+              <div className="deploy-date">
+                <span>{deploymentEvidenceLabel(deployment.evidence)}</span>
+                <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
+              </div>
               <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
                 <GitCommitHorizontal aria-hidden="true" />
-                Commit {deployment.commit.slice(0, 7)}
+                {deployment.commit.slice(0, 7)}
                 <ExternalLink aria-hidden="true" />
               </a>
             </article>
@@ -126,6 +111,7 @@ function DeploymentTimeline({
 export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) {
   const [data, setData] = useState(initialData);
   const [query, setQuery] = useState("");
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const activeService =
@@ -140,9 +126,6 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
       deployment.evidence === "legacy-fxhey-record" ||
       deployment.evidence === "github-deployment-record",
   );
-  const hasLegacyFxHeyHistory = archivedDeployments.some(
-    (deployment) => deployment.evidence === "legacy-fxhey-record",
-  );
   const firstObservation = observedDeployments.at(-1);
   const latestArchiveRecord = archivedDeployments[0];
   const missingTrainRange =
@@ -154,10 +137,10 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
     const search = query.trim().toLowerCase();
     return data.commits.filter(
       (commit) =>
-        (!search ||
-          `${commit.shortSha} ${commit.title} ${commit.author} ${commit.issueKeys.join(" ")}`
-            .toLowerCase()
-            .includes(search)),
+        !search ||
+        `${commit.shortSha} ${commit.title} ${commit.author} ${commit.issueKeys.join(" ")} ${commit.prNumber ?? ""}`
+          .toLowerCase()
+          .includes(search),
     );
   }, [data.commits, query]);
 
@@ -183,31 +166,29 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
     }
   }
 
-  function loadTrain(train: number) {
-    return loadDashboard(data.selectedEnvironment, train);
-  }
-
   function loadEnvironment(environment: EnvironmentName) {
     if (environment === data.selectedEnvironment) return;
     void loadDashboard(environment);
   }
 
   const visibleCount = filteredCommits.length;
+  const isViewingDeployedTrain = data.selectedTrain === data.deployedTrain;
 
   return (
     <div className="site-shell">
       <a className="skip-link" href="#train-contents">
-        Skip to train commits
+        Skip to train changes
       </a>
 
       <header className="page-header">
-        <Link className="brand" href="/" aria-label="FxHey home">
-          <span className="brand-mark">FxHey!</span>
-        </Link>
-        <p className="tagline">Firefox Accounts for Dummies (i.e. me)</p>
+        <div className="brand-block">
+          <Link className="brand" href="/" aria-label="FxHey home">
+            <span className="brand-mark">FxHey!</span>
+          </Link>
+          <p className="tagline">Firefox Accounts for Dummies (i.e. me)</p>
+        </div>
 
-        <div className="environment-bar">
-          <span className="environment-label">Environment</span>
+        <div className="header-controls">
           <div className="environment-toggle" role="group" aria-label="Deployment environment">
             <button
               type="button"
@@ -238,225 +219,163 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             {isLoading ? "Checking…" : "Refresh"}
           </button>
         </div>
-
-        <div className="headline-status">
-          <p><strong>{activeService?.label ?? "Release"}</strong></p>
-          <span aria-hidden="true">·</span>
-          <p><strong>Train</strong> {data.deployedTrain}</p>
-          <span aria-hidden="true">·</span>
-          <p>
-            <strong>Updated</strong>{" "}
-            <abbr title={data.deploymentUpdatedAt}>
-              {formatRelative(data.deploymentUpdatedAt, data.lastCheckedAt)}
-            </abbr>
-          </p>
-        </div>
-        <p className="tag-update">
-          Latest tag <a href={data.compareUrl} target="_blank" rel="noreferrer">{data.headTag}</a>
-          {" · updated "}
-          <abbr title={formatDate(data.trainUpdatedAt)}>
-            {formatRelative(data.trainUpdatedAt, data.lastCheckedAt)}
-          </abbr>
-        </p>
-        <nav className="topnav" aria-label="Primary navigation">
-          <a href="#services">Environments</a>
-          <a href="#deploy-history">Deploy history</a>
-          <a href="#train-contents">Train commits</a>
-          <a href={data.compareUrl} target="_blank" rel="noreferrer">
-            <FaGithub aria-hidden="true" /> GitHub compare
-          </a>
-        </nav>
-        {data.source === "fallback" ? (
-          <p className="data-notice" role="status">
-            Live data is temporarily limited. Showing the most recent verified snapshot.
-          </p>
-        ) : null}
       </header>
 
       <main>
-        <section className="services-section" id="services" aria-labelledby="services-heading">
-          <h1 className="sr-only" id="services-heading">Deployment environment</h1>
-          <div className="service-grid">
+        <section className="release-card" aria-labelledby="release-heading">
+          <div className="release-lead">
+            <p className="eyebrow">Current {activeService?.label ?? "release"}</p>
+            <h1 id="release-heading">v{activeService?.version}</h1>
+            <p className="release-summary">
+              Train {activeService?.train} · updated{" "}
+              <abbr title={activeService ? formatDate(activeService.updatedAt) : undefined}>
+                {activeService ? formatRelative(activeService.updatedAt, data.lastCheckedAt) : "recently"}
+              </abbr>
+            </p>
+          </div>
+
+          <div className="release-actions">
             {activeService ? (
-              <article className="service-card" key={activeService.name}>
-                <div className="service-card-lead">
-                  <div>
-                    <p className="eyebrow">{activeService.label} release</p>
-                    <h2>v{activeService.version}</h2>
-                    <p>Train {activeService.train} · patch {activeService.patch}</p>
-                  </div>
-                  <a className="endpoint-link" href={activeService.endpoint} target="_blank" rel="noreferrer">
-                    Open version endpoint <ExternalLink aria-hidden="true" />
-                  </a>
-                </div>
-                <dl className="service-facts">
-                  <div>
-                    <dt><Clock3 aria-hidden="true" /> Updated</dt>
-                    <dd>
-                      <abbr title={formatDate(activeService.updatedAt)}>
-                        {formatRelative(activeService.updatedAt, data.lastCheckedAt)}
-                      </abbr>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt><FaGithub aria-hidden="true" /> Repository</dt>
-                    <dd><a href={GITHUB_REPO} target="_blank" rel="noreferrer">{activeService.repo}</a></dd>
-                  </div>
-                  <div>
-                    <dt><Tag aria-hidden="true" /> Tag</dt>
-                    <dd>
-                      <a href={`${GITHUB_REPO}/tree/${activeService.tag}`} target="_blank" rel="noreferrer">
-                        {activeService.tag}
-                      </a>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt><GitCommitHorizontal aria-hidden="true" /> Commit</dt>
-                    <dd>
-                      <a href={`${GITHUB_REPO}/commit/${activeService.commit}`} target="_blank" rel="noreferrer">
-                        {activeService.commit.slice(0, 7)}
-                      </a>
-                    </dd>
-                  </div>
-                </dl>
-              </article>
+              <>
+                <a className="primary-link" href={`${GITHUB_REPO}/tree/${activeService.tag}`} target="_blank" rel="noreferrer">
+                  <FaGithub aria-hidden="true" /> View release <ExternalLink aria-hidden="true" />
+                </a>
+                <a className="text-link" href={activeService.endpoint} target="_blank" rel="noreferrer">
+                  Version endpoint <ExternalLink aria-hidden="true" />
+                </a>
+              </>
             ) : null}
           </div>
+
+          {activeService ? (
+            <dl className="release-facts">
+              <div>
+                <dt><Tag aria-hidden="true" /> Tag</dt>
+                <dd>
+                  <a href={`${GITHUB_REPO}/tree/${activeService.tag}`} target="_blank" rel="noreferrer">
+                    {activeService.tag}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt><GitCommitHorizontal aria-hidden="true" /> Commit</dt>
+                <dd>
+                  <a href={`${GITHUB_REPO}/commit/${activeService.commit}`} target="_blank" rel="noreferrer">
+                    {activeService.commit.slice(0, 7)}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt><Clock3 aria-hidden="true" /> Checked</dt>
+                <dd>{formatRelative(data.lastCheckedAt, new Date().toISOString())}</dd>
+              </div>
+            </dl>
+          ) : null}
+
+          {data.source === "fallback" ? (
+            <p className="data-notice" role="status">
+              Live data is temporarily unavailable. Showing the latest saved snapshot.
+            </p>
+          ) : null}
         </section>
 
-        <section
-          className="deploy-history-section"
-          id="deploy-history"
-          aria-labelledby="deploy-history-heading"
-        >
-          <div className="deploy-history-heading">
-            <div>
-              <p className="eyebrow">Git-backed deployment records</p>
-              <h2 className="heading-with-icon" id="deploy-history-heading">
-                <Rocket aria-hidden="true" />
-                {activeService?.label ?? "Release"} deploy history
-              </h2>
-            </div>
-            <div className="deploy-history-copy">
-              <p>
-                FxHey checks the version endpoint every five minutes. The production archive was
-                imported once from the original FxHey log (±30 minutes); its immutable GitHub copy
-                is now the source of truth.
-              </p>
-              <div className="history-source-links">
-                <a
-                  className="history-source-link"
-                  href="https://github.com/vbudhram/FxHey/tree/main/history"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaGithub aria-hidden="true" /> Source-of-truth records <ExternalLink aria-hidden="true" />
-                </a>
-                <a
-                  className="history-source-link"
-                  href="https://fx-hey.herokuapp.com/fxa#deployments"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Rocket aria-hidden="true" /> Original provenance <ExternalLink aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </div>
+        <section className={`deploy-history-section ${isHistoryOpen ? "is-open" : ""}`} id="deploy-history">
+          <button
+            className="history-toggle"
+            type="button"
+            aria-expanded={isHistoryOpen}
+            aria-controls="deploy-history-content"
+            onClick={() => setIsHistoryOpen((open) => !open)}
+          >
+            <span className="history-toggle-icon" aria-hidden="true"><History /></span>
+            <span className="history-toggle-copy">
+              <strong>Deployment history</strong>
+              <span>
+                {data.deployHistory.length
+                  ? `${data.deployHistory.length} recent ${data.selectedEnvironment === "production" ? "production" : "stage"} records`
+                  : "No saved deployments"}
+              </span>
+            </span>
+            <span className="history-toggle-action">
+              {isHistoryOpen ? "Hide" : "Show"}
+              <ChevronDown aria-hidden="true" />
+            </span>
+          </button>
 
-          <div className="deployment-lanes">
-            <section className="deploy-lane deploy-lane-live" aria-labelledby="observed-deployments-heading">
-              <div className="deploy-lane-heading">
-                <div>
-                  <p className="eyebrow">Live record</p>
-                  <h3 id="observed-deployments-heading">Observed by FxHey</h3>
-                </div>
-                <span>Checked every 5 minutes</span>
+          {isHistoryOpen ? (
+            <div className="deploy-history-content" id="deploy-history-content">
+              <div className="history-intro">
+                <p>
+                  Recent releases recorded from FxA version checks and the original FxHey archive.
+                </p>
+                <a href="https://github.com/vbudhram/FxHey/tree/main/history" target="_blank" rel="noreferrer">
+                  <FaGithub aria-hidden="true" /> View records <ExternalLink aria-hidden="true" />
+                </a>
               </div>
-              <DeploymentTimeline deployments={observedDeployments} activeCommit={activeService?.commit} />
-              {observedDeployments.length <= 1 ? (
-                <p className="history-note">
-                  <RefreshCw aria-hidden="true" /> Monitoring for the next endpoint change.
+
+              {observedDeployments.length ? (
+                <section className="deploy-group" aria-labelledby="recent-deployments-heading">
+                  <div className="deploy-group-heading">
+                    <h2 id="recent-deployments-heading">Recent checks</h2>
+                    <span>Every 5 minutes</span>
+                  </div>
+                  <DeploymentTimeline deployments={observedDeployments} activeCommit={activeService?.commit} />
+                </section>
+              ) : null}
+
+              {missingTrainRange ? (
+                <p className="history-gap">
+                  <strong>{missingTrainRange}</strong> do not have a saved deployment record.
                 </p>
               ) : null}
-            </section>
 
-            {firstObservation && latestArchiveRecord && missingTrainRange ? (
-              <aside className="coverage-gap" aria-label="Deployment history coverage gap">
-                <div className="coverage-gap-rail" aria-hidden="true">
-                  <span />
-                </div>
-                <div>
-                  <p className="eyebrow">Coverage gap</p>
-                  <h3>The sources do not form one continuous timeline</h3>
-                  <p>
-                    GitHub’s public records stop at v{latestArchiveRecord.version} on{" "}
-                    <time dateTime={latestArchiveRecord.observedAt}>{formatDate(latestArchiveRecord.observedAt)}</time>.
-                    FxHey observations begin at v{firstObservation.version} on{" "}
-                    <time dateTime={firstObservation.observedAt}>{formatDate(firstObservation.observedAt)}</time>.
-                  </p>
-                  <strong>{missingTrainRange} not represented by either source.</strong>
-                </div>
-              </aside>
-            ) : null}
-
-            <section className="deploy-lane deploy-lane-archive" aria-labelledby="archived-deployments-heading">
-              <div className="deploy-lane-heading">
-                <div>
-                  <p className="eyebrow">Historical archive</p>
-                  <h3 id="archived-deployments-heading">
-                    {hasLegacyFxHeyHistory ? "Original FxHey records" : "Earlier GitHub records"}
-                  </h3>
-                </div>
-                {archivedDeployments.length ? <span>{archivedDeployments.length} latest records</span> : null}
-              </div>
               {archivedDeployments.length ? (
-                <DeploymentTimeline deployments={archivedDeployments} />
-              ) : (
-                <p className="history-note">Earlier public GitHub records are unavailable right now.</p>
-              )}
-            </section>
-          </div>
+                <section className="deploy-group" aria-labelledby="older-deployments-heading">
+                  <div className="deploy-group-heading">
+                    <h2 id="older-deployments-heading">Earlier releases</h2>
+                    <span>{archivedDeployments.length} shown</span>
+                  </div>
+                  <DeploymentTimeline deployments={archivedDeployments} />
+                </section>
+              ) : null}
+            </div>
+          ) : null}
         </section>
 
         <section className="train-section" id="train-contents" aria-labelledby="train-heading">
-          <aside className="train-sidebar">
-            <p className="eyebrow">{activeService?.label ?? "Release"} inventory</p>
-            <h2 id="train-heading">What’s riding this train?</h2>
-            <p className="sidebar-intro">
-              Pick a train to see every GitHub commit between the previous train and its latest
-              patch. Jira tickets appear only when a commit message references one.
-            </p>
-
-            <label className="select-label" htmlFor="train-select">Train</label>
-            <div className="select-wrap">
-              <select
-                id="train-select"
-                value={data.selectedTrain}
-                onChange={(event) => loadTrain(Number(event.target.value))}
-                disabled={isLoading}
-              >
-                {data.availableTrains.map((option) => (
-                  <option value={option.train} key={option.train}>
-                    Train {option.train} · {option.tag}
-                  </option>
-                ))}
-              </select>
+          <div className="train-heading-row">
+            <div>
+              <div className="train-title-line">
+                <p className="eyebrow">Release contents</p>
+                {isViewingDeployedTrain ? <span className="deployed-badge">Deployed</span> : null}
+              </div>
+              <h2 id="train-heading">Train {data.selectedTrain} changes</h2>
+              <p className="train-range">
+                {data.baseTag} <span aria-hidden="true">→</span> {data.headTag} · updated{" "}
+                <abbr title={formatDate(data.trainUpdatedAt)}>
+                  {formatRelative(data.trainUpdatedAt, data.lastCheckedAt)}
+                </abbr>
+              </p>
             </div>
 
-            <dl className="train-facts">
-              <div><dt><GitCompareArrows aria-hidden="true" /> Range</dt><dd>{data.baseTag} → {data.headTag}</dd></div>
-              <div><dt><Tag aria-hidden="true" /> Latest tag</dt><dd>{data.headTag}</dd></div>
-              <div><dt><GitCommitHorizontal aria-hidden="true" /> Head commit</dt><dd>{data.headSha.slice(0, 7)}</dd></div>
-              <div><dt><Clock3 aria-hidden="true" /> Updated</dt><dd>{formatDate(data.trainUpdatedAt)}</dd></div>
-            </dl>
-
-            <a className="compare-link" href={data.compareUrl} target="_blank" rel="noreferrer">
-              <FaGithub aria-hidden="true" />
-              Open full comparison
-              <ExternalLink aria-hidden="true" />
-            </a>
-          </aside>
+            <div className="train-picker">
+              <label htmlFor="train-select">View train</label>
+              <div className="select-wrap">
+                <select
+                  id="train-select"
+                  value={data.selectedTrain}
+                  onChange={(event) => void loadDashboard(data.selectedEnvironment, Number(event.target.value))}
+                  disabled={isLoading}
+                >
+                  {data.availableTrains.map((option) => (
+                    <option value={option.train} key={option.train}>
+                      Train {option.train} · {option.tag}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
 
           <div className="inventory-panel" aria-busy={isLoading}>
             <div className="inventory-summary">
@@ -468,34 +387,38 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                 <GitPullRequest aria-hidden="true" />
                 <strong>{data.pullRequestCount}</strong><span>merged PRs</span>
               </div>
+              <div className="summary-updated">
+                <GitCompareArrows aria-hidden="true" />
+                <span>Head</span>
+                <a href={`${GITHUB_REPO}/commit/${data.headSha}`} target="_blank" rel="noreferrer">
+                  {data.headSha.slice(0, 7)}
+                </a>
+              </div>
             </div>
 
             <div className="inventory-toolbar">
-              <div className="filters">
+              <div className="search-wrap">
+                <Search aria-hidden="true" />
                 <label className="sr-only" htmlFor="train-search">Search train commits</label>
-                <div className="search-wrap">
-                  <Search aria-hidden="true" />
-                  <input
-                    id="train-search"
-                    type="search"
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Search commits, tickets, authors…"
-                  />
-                </div>
+                <input
+                  id="train-search"
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search commits, tickets, or people"
+                />
               </div>
+              <a className="compare-link" href={data.compareUrl} target="_blank" rel="noreferrer">
+                <FaGithub aria-hidden="true" /> Full comparison <ExternalLink aria-hidden="true" />
+              </a>
             </div>
 
             {error ? <p className="error-message" role="alert">{error}</p> : null}
 
             <div className={`inventory-list ${isLoading ? "is-loading" : ""}`}>
               {filteredCommits.map((commit) => (
-                <article className="inventory-row commit-row" key={commit.sha}>
-                  <div className="commit-rail">
-                    <span className="commit-dot" aria-hidden="true" />
-                    <span className="commit-line" aria-hidden="true" />
-                  </div>
-                  <div className="commit-content">
+                <article className="commit-row" key={commit.sha}>
+                  <div className="commit-person">
                     {commit.authorAvatar && commit.authorHref ? (
                       <a
                         className="author-avatar-link"
@@ -513,45 +436,47 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
                         <UserRound />
                       </span>
                     )}
-                    <div className="row-primary">
-                      <div className="row-meta">
-                        <a className="item-id mono" href={commit.href} target="_blank" rel="noreferrer">
-                          <GitCommitHorizontal aria-hidden="true" /> {commit.shortSha}
-                        </a>
-                        <span className="kind-label">{commit.kind}</span>
-                        {commit.prNumber ? (
-                          <a
-                            className="inline-pr"
-                            href={`${GITHUB_REPO}/pull/${commit.prNumber}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`GitHub pull request ${commit.prNumber}`}
-                          >
-                            <GitPullRequest aria-hidden="true" /> PR #{commit.prNumber}
-                          </a>
-                        ) : null}
-                        {commit.issueKeys.slice(0, 2).map((key) => (
-                          <a
-                            className="inline-issue"
-                            href={`${JIRA_BASE}/${key}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            key={key}
-                            aria-label={`Jira ticket ${key}`}
-                          >
-                            <Ticket aria-hidden="true" /> {key}
-                          </a>
-                        ))}
-                      </div>
-                      <h3>{commit.title}</h3>
-                      <p className="author-line">
+                  </div>
+
+                  <div className="commit-main">
+                    <h3>
+                      <a href={commit.href} target="_blank" rel="noreferrer">{commit.title}</a>
+                    </h3>
+                    <div className="commit-meta">
+                      <span>
                         by{" "}
                         {commit.authorHref ? (
                           <a href={commit.authorHref} target="_blank" rel="noreferrer">{commit.author}</a>
                         ) : (
                           commit.author
                         )}
-                      </p>
+                      </span>
+                      <a className="commit-sha" href={commit.href} target="_blank" rel="noreferrer">
+                        <GitCommitHorizontal aria-hidden="true" /> {commit.shortSha}
+                      </a>
+                      {commit.prNumber ? (
+                        <a
+                          className="inline-pr"
+                          href={`${GITHUB_REPO}/pull/${commit.prNumber}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`GitHub pull request ${commit.prNumber}`}
+                        >
+                          <GitPullRequest aria-hidden="true" /> PR #{commit.prNumber}
+                        </a>
+                      ) : null}
+                      {commit.issueKeys.slice(0, 2).map((key) => (
+                        <a
+                          className="inline-issue"
+                          href={`${JIRA_BASE}/${key}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          key={key}
+                          aria-label={`Jira ticket ${key}`}
+                        >
+                          <Ticket aria-hidden="true" /> {key}
+                        </a>
+                      ))}
                     </div>
                   </div>
                   <time dateTime={commit.date}>{formatShortDate(commit.date)}</time>
@@ -560,15 +485,15 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
 
               {!visibleCount && !isLoading ? (
                 <div className="empty-state">
-                  <strong>No matches in this train.</strong>
-                  <span>Try a broader search.</span>
+                  <strong>No matching commits</strong>
+                  <span>Try a different search.</span>
                 </div>
               ) : null}
             </div>
 
             <div className="inventory-footer">
               <span>Showing {visibleCount} of {data.commits.length} commits</span>
-              <span>Checked {formatRelative(data.lastCheckedAt, new Date().toISOString())}</span>
+              <span>All times UTC</span>
             </div>
           </div>
         </section>
@@ -576,14 +501,11 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
 
       <footer>
         <p>
-          Built from Mozilla’s public FxA version endpoints and GitHub history. Inspired by the
-          original{" "}
-          <a className="footer-github-link" href="https://github.com/philbooth/FxHey" target="_blank" rel="noreferrer">
-            <FaGithub aria-hidden="true" /> FxHey
-          </a>{" "}
-          by Phil Booth.
+          Data from Mozilla’s public FxA version endpoints and GitHub. Inspired by the original{" "}
+          <a href="https://github.com/philbooth/FxHey" target="_blank" rel="noreferrer">
+            FxHey
+          </a>.
         </p>
-        <span>All times UTC.</span>
       </footer>
     </div>
   );

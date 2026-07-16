@@ -30,23 +30,18 @@ test("server-renders the FxHey release dashboard", async () => {
   const html = await response.text();
   assert.match(html, /<title>FxHey! — Firefox Accounts release intelligence<\/title>/i);
   assert.match(html, /Firefox Accounts for Dummies \(i\.e\. me\)/i);
-  assert.match(html, /<strong>Train<\/strong>/i);
-  assert.match(html, /Deployment environment/i);
   assert.match(html, /aria-label="Deployment environment"/i);
   assert.match(html, /aria-label="Stage"[^>]+aria-pressed="false"/i);
   assert.match(html, /aria-label="Production"[^>]+aria-pressed="true"/i);
   assert.match(html, /https:\/\/accounts\.stage\.mozaws\.net\/__version__/i);
   assert.match(html, /https:\/\/api\.accounts\.firefox\.com\/__version__/i);
   assert.doesNotMatch(html, /Content server|Profile server|OAuth server/i);
-  assert.match(html, /What’s riding this train\?/i);
-  assert.match(html, /Deploy history/i);
-  assert.match(html, /Git-backed deployment records/i);
-  assert.match(html, /Source-of-truth records/i);
-  assert.match(html, /immutable GitHub copy[^.]+source of truth/i);
-  assert.match(html, /Original provenance/i);
-  assert.match(html, /Observed by FxHey/i);
-  assert.match(html, /Earlier GitHub records/i);
-  assert.match(html, /Monitoring for the next endpoint change/i);
+  assert.match(html, /Current\s*(?:<!-- -->)?\s*Production/i);
+  assert.match(html, /Train\s*(?:<!-- -->)?\s*\d+(?:<!-- -->)?\s*changes/i);
+  assert.match(html, /Deployment history/i);
+  assert.match(html, /aria-expanded="false"/i);
+  assert.match(html, />Show</i);
+  assert.doesNotMatch(html, /Git-backed|source of truth|provenance|±30 min/i);
   assert.match(html, /Search train commits/i);
   assert.match(html, /merged PRs/i);
   assert.match(html, /class="author-avatar"/i);
@@ -60,9 +55,9 @@ test("renders an accessible train inventory", async () => {
   const response = await render("/?train=340");
   const html = await response.text();
 
-  assert.match(html, /Skip to train commits/i);
+  assert.match(html, /Skip to train changes/i);
   assert.match(html, /Search train commits/i);
-  assert.match(html, /Open full comparison/i);
+  assert.match(html, /Full comparison/i);
   assert.match(html, /All times UTC/i);
 });
 
@@ -73,7 +68,7 @@ test("selects the stage release and exact deployed tag", async () => {
   assert.equal(response.status, 200);
   assert.match(html, /aria-label="Stage"[^>]+aria-pressed="true"/i);
   assert.match(html, /aria-label="Production"[^>]+aria-pressed="false"/i);
-  assert.match(html, /class="eyebrow">Stage(?:<!-- -->)? inventory/i);
-  assert.match(html, /Stage(?:<!-- -->)? deploy history/i);
-  assert.match(html, /v1\.340\.2/i);
+  assert.match(html, /Current\s*(?:<!-- -->)?\s*Stage/i);
+  assert.match(html, /recent stage records/i);
+  assert.match(html, /v(?:<!-- -->)?1\.340\.2/i);
 });

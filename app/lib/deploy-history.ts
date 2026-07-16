@@ -85,20 +85,18 @@ export async function readDeploymentHistory(
     if (!history.length) return [currentSnapshot(selectedService)];
 
     const observations = history
-      .filter((entry) => entry.evidence === "endpoint-observation")
-      .slice(0, 6);
+      .filter((entry) => entry.evidence === "endpoint-observation");
     const archive = history
       .filter(
         (entry) =>
           entry.evidence === "legacy-fxhey-record" ||
           entry.evidence === "github-deployment-record",
-      )
-      .slice(0, 6);
+      );
     const currentObservations = observations.some(
       (entry) => entry.commit === selectedService.commit,
     )
       ? observations
-      : [currentSnapshot(selectedService), ...observations].slice(0, 6);
+      : [currentSnapshot(selectedService), ...observations];
 
     return [...currentObservations, ...archive];
   } catch {

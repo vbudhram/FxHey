@@ -52,13 +52,6 @@ function formatRelative(date: string, from: string) {
   return `${months} ${months === 1 ? "month" : "months"} ago`;
 }
 
-function deploymentEvidenceLabel(evidence: DashboardData["deployHistory"][number]["evidence"]) {
-  if (evidence === "endpoint-observation") return "First seen";
-  if (evidence === "legacy-fxhey-record") return "Original FxHey record";
-  if (evidence === "github-deployment-record") return "GitHub deployment";
-  return "Current release";
-}
-
 type DeploymentEntry = DashboardData["deployHistory"][number];
 
 function deploymentGapLabel(fromTrain: number, toTrain: number) {
@@ -92,7 +85,6 @@ function DeploymentTimeline({
                 <p>Train {deployment.train} · patch {deployment.patch}</p>
               </div>
               <div className="deploy-date">
-                <span>{deploymentEvidenceLabel(deployment.evidence)}</span>
                 <time dateTime={deployment.observedAt}>{formatDate(deployment.observedAt)}</time>
               </div>
               <a className="deploy-commit" href={`${GITHUB_REPO}/commit/${deployment.commit}`} target="_blank" rel="noreferrer">
@@ -292,7 +284,7 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
               <strong>Deployment history</strong>
               <span>
                 {data.deployHistory.length
-                  ? `${data.deployHistory.length} recent ${data.selectedEnvironment === "production" ? "production" : "stage"} records`
+                  ? `${activeService ? `v${activeService.version} · ` : ""}${data.deployHistory.length} saved deployments`
                   : "No saved deployments"}
               </span>
             </span>
@@ -306,38 +298,40 @@ export function FxHeyDashboard({ initialData }: { initialData: DashboardData }) 
             <div className="deploy-history-content" id="deploy-history-content">
               <div className="history-intro">
                 <p>
-                  Recent releases recorded from FxA version checks and the original FxHey archive.
+                  {data.deployHistory.length} saved deployments. Scroll to see earlier releases.
                 </p>
                 <a href="https://github.com/vbudhram/FxHey/tree/main/history" target="_blank" rel="noreferrer">
                   <FaGithub aria-hidden="true" /> View records <ExternalLink aria-hidden="true" />
                 </a>
               </div>
 
-              {observedDeployments.length ? (
-                <section className="deploy-group" aria-labelledby="recent-deployments-heading">
-                  <div className="deploy-group-heading">
-                    <h2 id="recent-deployments-heading">Recent checks</h2>
-                    <span>Every 5 minutes</span>
-                  </div>
-                  <DeploymentTimeline deployments={observedDeployments} activeCommit={activeService?.commit} />
-                </section>
-              ) : null}
+              <div className="history-records" tabIndex={0} aria-label="Scrollable deployment records">
+                {observedDeployments.length ? (
+                  <section className="deploy-group" aria-labelledby="recent-deployments-heading">
+                    <div className="deploy-group-heading">
+                      <h2 id="recent-deployments-heading">Recent checks</h2>
+                      <span>Every 5 minutes</span>
+                    </div>
+                    <DeploymentTimeline deployments={observedDeployments} activeCommit={activeService?.commit} />
+                  </section>
+                ) : null}
 
-              {missingTrainRange ? (
-                <p className="history-gap">
-                  <strong>{missingTrainRange}</strong> do not have a saved deployment record.
-                </p>
-              ) : null}
+                {missingTrainRange ? (
+                  <p className="history-gap">
+                    <strong>{missingTrainRange}</strong> do not have a saved deployment record.
+                  </p>
+                ) : null}
 
-              {archivedDeployments.length ? (
-                <section className="deploy-group" aria-labelledby="older-deployments-heading">
-                  <div className="deploy-group-heading">
-                    <h2 id="older-deployments-heading">Earlier releases</h2>
-                    <span>{archivedDeployments.length} shown</span>
-                  </div>
-                  <DeploymentTimeline deployments={archivedDeployments} />
-                </section>
-              ) : null}
+                {archivedDeployments.length ? (
+                  <section className="deploy-group" aria-labelledby="older-deployments-heading">
+                    <div className="deploy-group-heading">
+                      <h2 id="older-deployments-heading">Earlier releases</h2>
+                      <span>{archivedDeployments.length} records</span>
+                    </div>
+                    <DeploymentTimeline deployments={archivedDeployments} />
+                  </section>
+                ) : null}
+              </div>
             </div>
           ) : null}
         </section>

@@ -69,6 +69,6 @@ test("selects the stage release and exact deployed tag", async () => {
   assert.match(html, /aria-label="Stage"[^>]+aria-pressed="true"/i);
   assert.match(html, /aria-label="Production"[^>]+aria-pressed="false"/i);
   assert.match(html, /Current\s*(?:<!-- -->)?\s*Stage/i);
-  assert.match(html, /recent stage records/i);
+  assert.match(html, /saved deployments/i);
   assert.match(html, /v(?:<!-- -->)?1\.340\.2/i);
 });

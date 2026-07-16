@@ -380,8 +380,12 @@ footer {
 }
 
 .history-toggle-copy > span {
+  min-width: 0;
+  overflow: hidden;
   color: var(--muted);
   font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .history-toggle-action {
@@ -444,11 +448,21 @@ footer {
   margin-top: 1rem;
 }
 
+.history-records {
+  max-height: 32rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
 .deploy-group {
   border: 1px solid var(--line);
 }
 
 .deploy-group-heading {
+  position: sticky;
+  z-index: 2;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -540,17 +554,7 @@ footer {
 }
 
 .deploy-date {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.deploy-date span {
-  color: var(--muted);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.54rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  min-width: 0;
 }
 
 .deploy-date time {
@@ -1026,9 +1030,7 @@ footer p {
   }
 
   .history-toggle-copy {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.1rem;
+    flex-wrap: nowrap;
   }
 
   .history-toggle-action {

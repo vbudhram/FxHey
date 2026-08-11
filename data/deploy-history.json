@@ -1,5 +1,29 @@
 [
   {
+    "id": "observed-stage-2026-08-11T02:20:14.215Z-a471db842534",
+    "environment": "stage",
+    "version": "1.342.4",
+    "train": 342,
+    "patch": 4,
+    "tag": "v1.342.4",
+    "commit": "a471db842534e768899bd7dc469d7fc711a2861f",
+    "sourceUpdatedAt": "2026-08-11T02:20:14.215Z",
+    "observedAt": "2026-08-11T02:20:14.215Z",
+    "evidence": "endpoint-observation"
+  },
+  {
+    "id": "observed-production-2026-08-11T02:20:14.215Z-a471db842534",
+    "environment": "production",
+    "version": "1.342.4",
+    "train": 342,
+    "patch": 4,
+    "tag": "v1.342.4",
+    "commit": "a471db842534e768899bd7dc469d7fc711a2861f",
+    "sourceUpdatedAt": "2026-08-11T02:20:14.215Z",
+    "observedAt": "2026-08-11T02:20:14.215Z",
+    "evidence": "endpoint-observation"
+  },
+  {
     "id": "observed-production-2026-08-10T18:25:39.328Z-748971d2b753",
     "environment": "production",
     "version": "1.342.2",

@@ -1,5 +1,17 @@
 [
   {
+    "id": "observed-production-2026-08-19T18:14:27.670Z-45cdbf3feaae",
+    "environment": "production",
+    "version": "1.343.3",
+    "train": 343,
+    "patch": 3,
+    "tag": "v1.343.3",
+    "commit": "45cdbf3feaae064dc75c0c8814d489f2cf733bd6",
+    "sourceUpdatedAt": "2026-08-19T13:33:30Z",
+    "observedAt": "2026-08-19T18:14:27.670Z",
+    "evidence": "endpoint-observation"
+  },
+  {
     "id": "observed-stage-2026-08-19T14:18:42.053Z-45cdbf3feaae",
     "environment": "stage",
     "version": "1.343.3",
